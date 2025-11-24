@@ -46,7 +46,7 @@ main {
 
 .page-content, .about-text-section {
     padding: 0 20px;
-    overflow-x: hidden; 
+    overflow-x: visible; 
 }
 
 

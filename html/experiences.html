@@ -25,36 +25,99 @@
             <h2>Projets Principaux & Expériences</h2>
 
             <div class="carousel">
+                <!-- Mazel -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h2>Mazel</h2>
+                      <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
+                      <p>Création d'un jeu de labyrinthe (Java et javaFX)</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Détails</h3>
+                      <ul>
+                        <li>Projet universitaire</li>
+                        <li>Utilisation de JavaFX</li>
+                        <li>Gestion des algorithmes de labyrinthe</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                <article class="project-caroussel">
-                    <h2>Mazel</h2>
-                    <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
-                    <p>Création d'un jeu de labyrinthe (Java et javaFX)</p>
-                </article>
+                <!-- Golden Ace -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h2>Golden Ace</h2>
+                      <p class="date-range">SEPTEMBRE 2025</p>
+                      <p>Mini projet Agile d'un jeu de casino (Java)</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Détails</h3>
+                      <ul>
+                        <li>Travail en équipe</li>
+                        <li>Méthodologie Agile</li>
+                        <li>Développement d'un jeu de cartes</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                <article class="project-caroussel">
-                    <h2>Golden Ace</h2>
-                    <p class="date-range">SEPTEMBRE 2025</p>
-                    <p>Mini projet Agile d'un jeu de casino (Java)</p>
-                </article>
+                <!-- PokéQuizAdventures -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h2>PokéQuizAdventures</h2>
+                      <p class="date-range">NOVEMBRE 2024 - JUIN 2025</p>
+                      <p>Création d'un jeu ludo-pédagogique (Java/JavaFX)</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Détails</h3>
+                      <ul>
+                        <li>Quiz interactif</li>
+                        <li>Interface graphique avancée</li>
+                        <li>Apprentissage ludique</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-                <article class="project-caroussel">
-                    <h2>PokéQuizAdventures</h2>
-                    <p class="date-range">NOVEMBRE 2024 - JUIN 2025</p>
-                    <p>Création d'un jeu ludo-pédagogique (Java/JavaFX)</p>
-                </article>
-
-                <article class="project-caroussel">
-                    <h2>Gestion d'une Base de Données (SQL)</h2>
-                    <p class="date-range">OCTOBRE 2024 - MAI 2025</p>
-                </article>
-
-                <article class="project-caroussel">
-                    <h2>Ubioft Location</h2>
-                    <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
-                    <p>La création de Site Web Vitrine (HTML/CSS)</p>
-                </article>
-
+                <!-- Gestion BD -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h2>Gestion d'une Base de Données (SQL)</h2>
+                      <p class="date-range">OCTOBRE 2024 - MAI 2025</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Détails</h3>
+                      <ul>
+                        <li>Conception de schémas</li>
+                        <li>Requêtes SQL complexes</li>
+                        <li>Optimisation des performances</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Ubioft Location -->
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <h2>Ubioft Location</h2>
+                      <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
+                      <p>La création de Site Web Vitrine (HTML/CSS)</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <h3>Détails</h3>
+                      <ul>
+                        <li>Site vitrine responsive</li>
+                        <li>Design moderne</li>
+                        <li>HTML/CSS pur</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
             </div>
         </section>
     </main>
@@ -67,5 +130,12 @@
             <a href="../html/contact.html" class="footer-btn">Contact</a>
         </div>
     </footer>
+    <script>
+      document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', function() {
+          card.classList.toggle('flipped');
+        });
+      });
+    </script>
 </body>
 </html>
