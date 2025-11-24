@@ -1,0 +1,47 @@
+/* --- Styles pour la section d'arrière-plan et Glassmorphism (index.html) --- */
+
+.header-presentation-container {
+    /* 1. Définir l'arrière-plan avec l'image */
+    background-image: url('landscape-9521261_1280.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    /* 2. Style de la boîte (qui sera le "verre" englobant) */
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+    
+    /* Le style Glassmorphism est appliqué directement au conteneur pour flouter l'image de fond visible */
+    background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure légère pour l'effet "verre" */
+}
+
+
+/* 3. Ajustements des éléments de texte à l'intérieur du conteneur */
+.header-presentation-container h1,
+.header-presentation-container h2,
+.header-presentation-container p {
+    /* Retirer le padding et le fond appliqués précédemment aux éléments individuels */
+    background: none; 
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none; 
+    border: none; 
+    padding: 0; 
+    margin-bottom: 15px; 
+    
+    /* Ajustements pour la lisibilité sur le fond flouté */
+    color: var(--primary-color); 
+    /* Effet d'ombre subtile pour faire ressortir le texte du fond (optionnel) */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+/* Retirer la bordure sous h2 pour un look plus épuré */
+.header-presentation-container h2 {
+    border-bottom: none; 
+    margin-top: 0;
+}

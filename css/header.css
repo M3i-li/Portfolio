@@ -1,0 +1,31 @@
+/* --- Navigation & Header --- */
+.minimal-header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.minimal-navbar {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.minimal-navbar a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: color 0.3s, border-bottom 0.3s;
+    font-weight: 500;
+}
+
+.minimal-navbar a:hover {
+    color: var(--accent-color);
+}
+
+.minimal-navbar a.active-page {
+    border-bottom: 3px solid var(--accent-color);
+    color: var(--accent-color);
+}

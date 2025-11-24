@@ -1,0 +1,113 @@
+:root {
+    /* Palette personnalisée */
+    --space-indigo: #22223b;
+    --dusty-grape: #4a4e69;
+    --lilac-ash: #9a8c98;
+    --almond-silk: #c9ada7;
+    --parchment: #f2e9e4;
+
+    /* Mappage des variables de style - Thème Sombre */
+    --primary-color: var(--parchment); /* Texte principal */
+    --accent-color: var(--lilac-ash); /* Accentuation (Titres, liens actifs) */
+    --bg-color: var(--space-indigo); /* Arrière-plan principal */
+    --light-gray: var(--dusty-grape); /* Fond des sections, footer, tags */
+    --border-color: var(--dusty-grape); /* Bordures subtiles */
+    --link-hover-color: var(--almond-silk); /* Couleur de survol */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+
+/* --- Contenu Principal --- */
+.minimal-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    background-color: var(--bg-color);
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 300; 
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* --- Style des Éléments--- */
+
+/* L'ancienne classe .minimal-item est réutilisée pour Cursus et Intérêts */
+.minimal-item {
+    /* Style pour Cursus et Intérêts (liste verticale) */
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 3px solid var(--border-color); 
+    background-color: var(--bg-color); /* Retour au fond principal sombre */
+    color: var(--primary-color); /* Retour au texte principal clair */
+    box-shadow: none; /* Pas d'ombre */
+    width: auto;
+    flex-shrink: unset;
+    margin-right: 0;
+}
+/* Réajustement du texte sur Cursus et Intérêts */
+.minimal-item h3 {
+    color: var(--primary-color);
+}
+.minimal-item .date-range {
+    color: var(--almond-silk); 
+}
+
+/* --- Contact & Footer --- */
+.contact-info p {
+    margin: 10px 0;
+}
+
+.minimal-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-gray); 
+    color: var(--primary-color);
+    border-top: 1px solid var(--border-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--link-hover-color);
+}
+

@@ -1,0 +1,64 @@
+/* --- Styles pour le Carousel de Projets (Défilement Horizontal) --- */
+
+.carousel {
+    display: flex; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    padding-bottom: 20px; 
+    margin-left: -20px; 
+    margin-right: -20px; 
+    padding-left: 20px; 
+}
+
+/* Cache la barre de défilement par défaut pour une meilleure esthétique (sur WebKit/Chrome/Safari) */
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.carousel::-webkit-scrollbar-thumb {
+    background: var(--dusty-grape);
+    border-radius: 10px;
+}
+.carousel::-webkit-scrollbar-track {
+    background: var(--space-indigo);
+}
+
+.project-caroussel {
+    /* Largeur fixe pour chaque carte de projet */
+    flex-shrink: 0; 
+    width: 300px; 
+    margin-right: 20px; 
+    
+    /* Le fond de la carte est en #9a8c98 (lilac-ash) */
+    background-color: var(--lilac-ash); 
+    /* Le texte doit être lisible sur ce fond clair/moyen. */
+    color: var(--space-indigo); 
+
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+
+    border-left: none; 
+    padding-left: 20px; 
+
+    scroll-snap-align: start;
+}
+
+/* Le texte et les dates doivent être réajustés pour la carte */
+.project-caroussel h3 {
+    color: var(--space-indigo); /* Titre en couleur foncée */
+}
+.project-caroussel .date-range {
+    color: var(--dusty-grape); /* Date en couleur moyennement foncée */
+}
+.project-caroussel ul {
+    color: var(--space-indigo);
+}
+.project-caroussel li {
+    /* Le texte de la liste doit être en indigo */
+    color: var(--space-indigo);
+}
+
+/* Règle l'espace pour le dernier élément */
+.carousel .project-caroussel:last-child {
+    margin-right: 20px; 
+}
