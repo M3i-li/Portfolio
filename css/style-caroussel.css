@@ -1,13 +1,9 @@
-/* --- Styles pour le Carousel de Projets (Défilement Horizontal) --- */
 
 .carousel {
     display: flex; 
-    overflow-x: auto; 
     scroll-snap-type: x mandatory; 
     padding-bottom: 20px; 
-    margin-left: -20px; 
-    margin-right: -20px; 
-    padding-left: 20px; 
+    width: 100%; 
 }
 
 /* Cache la barre de défilement par défaut pour une meilleure esthétique (sur WebKit/Chrome/Safari) */
@@ -22,15 +18,15 @@
     background: var(--space-indigo);
 }
 
+
 .project-caroussel {
-    /* Largeur fixe pour chaque carte de projet */
     flex-shrink: 0; 
-    width: 300px; 
-    margin-right: 20px; 
+    width: 400px; /* Taille confortable pour chaque projet */
+    max-width: 80vw; /* S'adapte mieux sur les petits écrans */
+    margin-right: 20px; /* Marge entre les cartes */
     
-    /* Le fond de la carte est en #9a8c98 (lilac-ash) */
+    /* Style de la carte */
     background-color: var(--lilac-ash); 
-    /* Le texte doit être lisible sur ce fond clair/moyen. */
     color: var(--space-indigo); 
 
     padding: 20px; 
@@ -44,21 +40,23 @@
 }
 
 /* Le texte et les dates doivent être réajustés pour la carte */
-.project-caroussel h3 {
-    color: var(--space-indigo); /* Titre en couleur foncée */
-}
-.project-caroussel .date-range {
-    color: var(--dusty-grape); /* Date en couleur moyennement foncée */
-}
-.project-caroussel ul {
-    color: var(--space-indigo);
-}
-.project-caroussel li {
-    /* Le texte de la liste doit être en indigo */
-    color: var(--space-indigo);
+.project-caroussel h3,
+.project-caroussel h2 {
+    color: var(--space-indigo); 
+    border-bottom: 1px solid rgba(34, 34, 59, 0.1); 
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-/* Règle l'espace pour le dernier élément */
-.carousel .project-caroussel:last-child {
-    margin-right: 20px; 
+.project-caroussel .date-range {
+    color: var(--dusty-grape); 
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.project-caroussel ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: var(--space-indigo);
 }

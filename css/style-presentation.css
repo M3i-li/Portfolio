@@ -1,91 +1,84 @@
-/* --- Styles pour la section d'arrière-plan et Glassmorphism (index.html) --- */
+/* --- NOUVEAU CONTENU DE style-presentation.css --- */
 
-body {
-    background-image: url(../ressources/astronomy-1868560_1920.jpg); 
-    background-size: cover;
-    background-attachment: fixed; 
-}
-
-/* 1. Conteneur principal (.header-presentation-container) 
-   Il ne contient plus l'image mais organise le contenu (Glass-Card + Paragraphes) au centre.
-*/
-.header-presentation-container {
+/* 1. La section d'introduction (Hero) : Pleine hauteur avec l'image */
+.hero-image-section { 
+    height: 100vh; /* Pleine hauteur de la fenêtre */
+    width: 100%; /* Prend toute la largeur (grâce au changement dans style.css) */
     
-    /* Nettoyage des marges/padding externes pour pleine largeur */
-    padding: 0; 
-    margin: 0; 
+    /* Image de fond */
+    background-image: url(../ressources/astronomy-1868560_1280.jpg); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Laisse l'image fixe au scroll pour un meilleur effet */
     
-    /* Le conteneur s'étend sur toute la largeur disponible */
-    width: 100%; 
-
-    /* Styles pour la disposition interne */
+    /* Centrage parfait du contenu (.glass-card) */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     
-    /* Suppression des anciens styles de fond/glassmorphism */
-    background: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    box-shadow: none;
-    overflow: hidden; 
+    margin: 0;
+    padding: 0;
 }
 
-
-/* 2. La carte de verre (.glass-card) : uniquement pour le titre et le sous-titre */
+/* 2. La carte de verre (.glass-card) : Plus grande et adaptative */
 .glass-card {
     /* Style Glassmorphism */
-    background-color: rgba(255, 255, 255, 0.05); /* Très subtil */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); 
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Ombre plus prononcée pour l'effet 3D */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); 
+    /* Flou augmenté pour un effet de verre plus intense */
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); 
     
-    /* Dimensions et centrage */
-    max-width: 650px; /* Limite la largeur du verre pour le design */
-    width: 90%; 
-    padding: 25px 30px; /* Padding interne pour espacer le texte du bord du verre */
+    /* Dimensions et espacement adaptatifs */
+    max-width: 900px; /* Grande largeur max */
+    width: 80%; /* Prend 80% de l'espace disponible */
+    /* Padding basé sur la hauteur et largeur de la fenêtre pour l'adaptation */
+    padding: 5vh 4vw; 
     
-    /* Marges pour positionner le bloc de verre verticalement au centre de la zone de présentation */
-    margin: 200px auto 50px auto; 
+    margin: 0; 
+    border-radius: 12px; 
     
-    border-radius: 8px;
-    
-    /* Transition et apparence du texte */
+    /* Transition pour l'effet de survol (zoom) */
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     transform: scale(1);
+
+    /* Styles de texte */
     color: var(--parchment, #f2e9e4);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* 3. EFFET DE SURVOL : Le bloc de verre grandit */
+/* 3. Effet de survol (Zoom) */
 .glass-card:hover {
-    transform: scale(1.03); /* Zoom légèrement plus grand */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    transform: scale(1.05); 
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
 }
 
-/* 4. Styles des titres (à l'intérieur de la carte de verre) */
+/* 4. Styles des titres dans la Glass-Card */
 .glass-card h1,
-.glass-card h2 {
+.glass-card h2 , .glass-card h3{
     color: inherit;
     border-bottom: none; 
     padding-bottom: 0;
-    margin-top: 5px; 
-    margin-bottom: 5px; 
-    text-align: center; /* Titres centrés */
+    margin-top: 0; /* Assure que le h1 est bien en haut */
+    margin-bottom: 10px; 
+    text-align: center;
 }
 
+/* 5. Section du texte explicatif (visible au scroll) */
+.about-text-section { 
+    /* Contraint le texte à une largeur lisible et le centre (grâce au style.css) */
+    max-width: 800px; 
+    margin: 60px auto; 
+}
 
-/* 5. Styles des paragraphes (le texte qui est sous le glass-card) */
-.header-presentation-container p {
-    /* S'assure que le texte est dans une largeur lisible et centré */
-    max-width: 800px;
-    width: 90%;
-    margin: 15px auto; 
+.about-text-section p {
+    color: var(--primary-color);
+    margin-top: 1.5em;
+}
 
-    /* Ajout du padding pour que le texte ne colle pas aux bords de l'écran */
-    padding: 0 10px; 
-    
-    color: var(--primary-color); /* Couleur définie dans style.css (parchemin par défaut) */
-    background: transparent;
+.minimal-main {
+    margin: 0 0;
+    padding: 0; 
 }

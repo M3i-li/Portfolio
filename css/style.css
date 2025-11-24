@@ -1,5 +1,7 @@
+/* --- Mise à jour de style.css --- */
+
 :root {
-    /* Palette personnalisée */
+    /* Palette personnalisée (inchangée - la vôtre) */
     --space-indigo: #22223b;
     --dusty-grape: #4a4e69;
     --lilac-ash: #9a8c98;
@@ -7,12 +9,12 @@
     --parchment: #f2e9e4;
 
     /* Mappage des variables de style - Thème Sombre */
-    --primary-color: var(--parchment); /* Texte principal */
-    --accent-color: var(--lilac-ash); /* Accentuation (Titres, liens actifs) */
-    --bg-color: var(--space-indigo); /* Arrière-plan principal */
-    --light-gray: var(--dusty-grape); /* Fond des sections, footer, tags */
-    --border-color: var(--dusty-grape); /* Bordures subtiles */
-    --link-hover-color: var(--almond-silk); /* Couleur de survol */
+    --primary-color: var(--parchment);
+    --accent-color: var(--lilac-ash);
+    --bg-color: var(--space-indigo);
+    --light-gray: var(--dusty-grape);
+    --border-color: var(--dusty-grape);
+    --link-hover-color: var(--almond-silk);
 }
 
 * {
@@ -26,14 +28,27 @@ body {
     color: var(--primary-color);
     background-color: var(--bg-color);
     line-height: 1.6;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
 }
+
+main {
+    flex: 1; 
+}
+
 
 /* --- Contenu Principal --- */
 .minimal-main {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 40px 40px;
+    padding: 0; 
 }
+
+.page-content, .about-text-section {
+    padding: 0 20px;
+    overflow-x: hidden; 
+}
+
 
 h1 {
     font-size: 2.8em;
@@ -58,22 +73,22 @@ h3 {
     font-weight: 500;
 }
 
+
+
 /* --- Style des Éléments--- */
 
-/* L'ancienne classe .minimal-item est réutilisée pour Cursus et Intérêts */
 .minimal-item {
-    /* Style pour Cursus et Intérêts (liste verticale) */
     margin-bottom: 30px;
     padding-left: 20px;
     border-left: 3px solid var(--border-color); 
-    background-color: var(--bg-color); /* Retour au fond principal sombre */
-    color: var(--primary-color); /* Retour au texte principal clair */
-    box-shadow: none; /* Pas d'ombre */
+    background-color: var(--bg-color);
+    color: var(--primary-color); 
+    box-shadow: none;
     width: auto;
     flex-shrink: unset;
     margin-right: 0;
 }
-/* Réajustement du texte sur Cursus et Intérêts */
+
 .minimal-item h3 {
     color: var(--primary-color);
 }
@@ -105,22 +120,33 @@ a:hover {
     color: var(--link-hover-color);
 }
 
-html {
-    height: 100%; 
+/* --- STYLE DES BOUTONS DU FOOTER (Minimaliste) --- */
+
+.footer-links {
+    margin-bottom: 15px; /* Espace au-dessus du texte de copyright */
+    display: flex;
+    justify-content: center; /* Centre les boutons horizontalement */
+    flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
 }
 
-body {
-    min-height: 100vh; 
-        display: flex;
-    flex-direction: column;
+.footer-links .footer-btn {
+    /* Style de base du bouton */
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 5px 10px;
+    border: 1px solid var(--accent-color); /* Bordure basée sur l'accentuation */
+    border-radius: 4px;
     
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--primary-color);
-    background-color: var(--bg-color);
-    line-height: 1.6;
+    color: var(--primary-color); /* Texte clair */
+    background-color: transparent; /* Fond transparent */
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
-main {
-    flex: 1; 
+.footer-links .footer-btn:hover {
+    /* Effet au survol */
+    background-color: var(--accent-color); /* Fond devient couleur d'accentuation */
+    color: var(--bg-color); /* Texte devient la couleur du fond (foncé) */
+    transform: translateY(-2px); /* Léger déplacement vers le haut */
 }
-
