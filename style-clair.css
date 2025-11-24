@@ -1,0 +1,247 @@
+:root {
+    /* Palette personnalisée */
+    --space-indigo: #22223b; 
+    --dusty-grape: #4a4e69; 
+    --lilac-ash: #9a8c98;
+    --almond-silk: #c9ada7;
+    --parchment: #f2e9e4; 
+
+    /* Mappage des variables de style pour un thème clair */
+    --primary-color: var(--space-indigo); /* Texte principal : Indigo foncé */
+    --accent-color: var(--dusty-grape); /* Accentuation (Titres, liens actifs) : Raisin poudré */
+    --bg-color: var(--parchment); /* Arrière-plan principal : Papier clair */
+    --light-gray: var(--almond-silk); /* Fond des sections, footer, tags : Soie d'amande */
+    --border-color: var(--almond-silk); /* Bordures subtiles */
+    --link-hover-color: var(--space-indigo); /* Couleur de survol : Indigo foncé */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+/* --- Navigation & Header --- */
+.minimal-header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.minimal-navbar {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.minimal-navbar a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    margin: 0 5px;
+    transition: color 0.3s, border-bottom 0.3s;
+    font-weight: 500;
+}
+
+.minimal-navbar a:hover {
+    color: var(--accent-color);
+}
+
+.minimal-navbar a.active-page {
+    border-bottom: 3px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* --- Contenu Principal --- */
+.minimal-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-content {
+    background-color: var(--bg-color);
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 300; 
+}
+
+h3 {
+    font-size: 1.2em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* --- Styles pour le Carousel de Projets (Défilement Horizontal) --- */
+/* Utilisation des classes .carousel et .project-caroussel */
+
+.carousel {
+    display: flex; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    padding-bottom: 20px; 
+    margin-left: -20px; 
+    margin-right: -20px; 
+    padding-left: 20px; 
+}
+
+/* Cache la barre de défilement par défaut (sur WebKit/Chrome/Safari) */
+.carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.carousel::-webkit-scrollbar-thumb {
+    background: var(--dusty-grape);
+    border-radius: 10px;
+}
+.carousel::-webkit-scrollbar-track {
+    background: var(--parchment);
+}
+
+.project-caroussel {
+    /* Fond de carte clair/soie d'amande */
+    background-color: var(--light-gray); 
+    color: var(--primary-color); /* Texte principal foncé */
+    
+    flex-shrink: 0; 
+    width: 300px; 
+    margin-right: 20px; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour effet de carte */
+
+    border-left: none; 
+    padding-left: 20px; 
+    scroll-snap-align: start;
+}
+
+/* Le texte et les dates dans les cartes */
+.project-caroussel h3 {
+    color: var(--primary-color);
+}
+.project-caroussel .date-range {
+    color: var(--accent-color);
+}
+.project-caroussel ul {
+    color: var(--primary-color);
+}
+.project-caroussel li {
+    color: var(--primary-color);
+}
+
+.carousel .project-caroussel:last-child {
+    margin-right: 20px; 
+}
+
+
+/* --- Style des Éléments (Cursus/Intérêts - Ceux qui ne sont PAS dans le carrousel) --- */
+
+.minimal-item {
+    /* Style pour Cursus et Intérêts (liste verticale) */
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 3px solid var(--border-color); /* Bordure latérale subtile */
+    background-color: var(--bg-color); /* Retour au fond principal clair */
+    color: var(--primary-color); /* Retour au texte principal foncé */
+    box-shadow: none; 
+    width: auto;
+    flex-shrink: unset;
+    margin-right: 0;
+}
+.minimal-item h3 {
+    color: var(--primary-color);
+}
+.minimal-item .date-range {
+    color: var(--accent-color); 
+}
+
+
+/* --- Listes --- */
+ul {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style-type: disc;
+    color: var(--primary-color);
+}
+
+
+/* --- Tag Listes (Compétences/Intérêts) --- */
+.tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+}
+
+.tag-list li {
+    background-color: var(--light-gray); /* Fond de tag clair/soie d'amande */
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 4px;
+    font-size: 0.9em;
+    border: 1px solid var(--border-color); 
+}
+
+
+/* --- Contact & Footer --- */
+.contact-info p {
+    margin: 10px 0;
+}
+
+.minimal-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--light-gray); /* Fond de footer clair/soie d'amande */
+    color: var(--primary-color);
+    border-top: 1px solid var(--border-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--link-hover-color);
+}
+
+/* Photo de Profil */
+.profile-photo {
+    float: right;
+    margin: 0 0 20px 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--accent-color); /* Bordure accentuée */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); 
+}
+.profile-photo figcaption {
+    display: none;
+}
