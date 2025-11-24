@@ -1,4 +1,5 @@
 /* --- Navigation & Header --- */
+
 .minimal-header {
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
@@ -23,6 +24,8 @@
 
 .minimal-navbar a:hover {
     color: var(--accent-color);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+    transform: scale(1.1);
 }
 
 .minimal-navbar a.active-page {

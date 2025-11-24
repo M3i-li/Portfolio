@@ -28,17 +28,11 @@ body {
     line-height: 1.6;
 }
 
-
 /* --- Contenu Principal --- */
 .minimal-main {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
-}
-
-.page-content {
-    background-color: var(--bg-color);
-    padding: 0;
 }
 
 h1 {
@@ -109,5 +103,24 @@ a {
 a:hover {
     text-decoration: none;
     color: var(--link-hover-color);
+}
+
+html {
+    height: 100%; 
+}
+
+body {
+    min-height: 100vh; 
+        display: flex;
+    flex-direction: column;
+    
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+main {
+    flex: 1; 
 }
 
