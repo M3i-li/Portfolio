@@ -1,9 +1,12 @@
-/* --- NOUVEAU CONTENU DE style-presentation.css --- */
-
+/* Fichier CSS pour le style de la page de présentation */
 /* 1. La section d'introduction (Hero) : Pleine hauteur avec l'image */
 .hero-image-section { 
+    min-height: 100vh;
     height: 100vh; /* Pleine hauteur de la fenêtre */
-    width: 100%; /* Prend toute la largeur (grâce au changement dans style.css) */
+    width: 100vw;
+    max-width: 100vw;
+    position: relative;
+    overflow: hidden;
     
     /* Image de fond */
     background-image: url(../ressources/starry-sky-2051448_1920.jpg); 
@@ -73,6 +76,10 @@
     margin: 60px auto;
     padding: 4vh 4vw;
     font-size: 1.25em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about-text-section p {

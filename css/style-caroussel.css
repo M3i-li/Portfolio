@@ -29,7 +29,7 @@
     perspective: 1000px;
     cursor: pointer;
     scroll-snap-align: start;
-    max-width: 90vw;
+    max-width: 98vw;
 }
 
 .flip-card-inner {
@@ -137,4 +137,12 @@
 
 .project-section {
     display: none;
+}
+
+@media (min-width: 1200px) {
+
+    .flip-card, .card {
+        flex: 0 0 520px;
+        height: 420px;
+    }
 }
