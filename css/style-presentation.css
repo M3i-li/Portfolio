@@ -6,7 +6,7 @@
     width: 100%; /* Prend toute la largeur (grâce au changement dans style.css) */
     
     /* Image de fond */
-    background-image: url(../ressources/astronomy-1868560_1280.jpg); 
+    background-image: url(../ressources/starry-sky-2051448_1920.jpg); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -68,14 +68,40 @@
 
 /* 5. Section du texte explicatif (visible au scroll) */
 .about-text-section { 
-    /* Contraint le texte à une largeur lisible et le centre (grâce au style.css) */
-    max-width: 800px; 
-    margin: 60px auto; 
+    max-width: 1100px;
+    width: 90%;
+    margin: 60px auto;
+    padding: 4vh 4vw;
+    font-size: 1.25em;
 }
 
 .about-text-section p {
     color: var(--primary-color);
     margin-top: 1.5em;
+}
+
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 24px;
+    flex-direction: row;
+}
+
+.about-header h2 {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: left;
+}
+
+.about-profile-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    margin-left: 32px;
 }
 
 .minimal-main {

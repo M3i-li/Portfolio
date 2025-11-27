@@ -4,8 +4,9 @@
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
-    position : sticky;
+    position: sticky;
     top: 0px;
+    z-index: 100;
 }
 
 .minimal-navbar {

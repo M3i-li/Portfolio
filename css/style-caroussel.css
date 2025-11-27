@@ -25,7 +25,7 @@
 
 .flip-card {
     flex: 0 0 340px;
-    height: 260px;
+    height: 500px;
     perspective: 1000px;
     cursor: pointer;
     scroll-snap-align: start;
@@ -95,9 +95,9 @@
 
 .project-caroussel {
     flex-shrink: 0; 
-    width: 400px; /* Taille confortable pour chaque projet */
-    max-width: 80vw; /* S'adapte mieux sur les petits écrans */
-    margin-right: 20px; /* Marge entre les cartes */
+    width: 400px;
+    max-width: 80vw;
+    margin-right: 20px;
     
     /* Style de la carte */
     background-color: var(--lilac-ash); 
@@ -133,4 +133,8 @@
     list-style-type: disc;
     margin-left: 20px;
     color: var(--space-indigo);
+}
+
+.project-section {
+    display: none;
 }
