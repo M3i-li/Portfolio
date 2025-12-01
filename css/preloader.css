@@ -1,0 +1,109 @@
+/* --- PRELOADER (Version VAGUE PARFAITE) --- */
+
+/* Utilisation des couleurs de la palette principale */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Utilise les couleurs de la palette pour l'animation de fond */
+    background: linear-gradient(
+        -45deg, 
+        var(--space-indigo),     
+        var(--dusty-grape),      
+        var(--space-indigo),
+        var(--dusty-grape)
+    );
+    background-size: 400% 400%; 
+    z-index: 9999;
+    display: flex;
+    /* CENTRAGE GLOBAL : Le conteneur entier est centré */
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    /* Transition plus rapide pour la disparition */
+    transition: opacity 0.3s ease-out; 
+    /* Animation du fond */
+    animation: gradientShift 8s ease infinite; 
+}
+
+/* Classe de disparition */
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animation du fond de l'écran */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- Style du message de chargement --- */
+.loading-message {
+    color: var(--parchment); 
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 30px; 
+    text-shadow: 0 0 10px rgba(154, 140, 152, 0.5); 
+}
+
+
+/* --- NOUVELLE STRUCTURE : Conteneur des points --- */
+.preloader-dots-container {
+    display: flex; /* Utilise Flexbox pour aligner les points horizontalement */
+    justify-content: center;
+    align-items: center;
+    width: 150px; 
+    height: 30px;
+}
+
+/* --- Style de base de chaque point (dot-1 à dot-4) --- */
+.dot-1, .dot-2, .dot-3, .dot-4 {
+    width: 18px; 
+    height: 18px;
+    border-radius: 50%;
+    margin: 0 5px; /* Espace entre chaque point */
+    /* Application de l'animation de rebond */
+    animation: bounce 1.2s infinite ease-in-out; 
+}
+
+/* Couleurs et Délais individuels (Vague Parfaite) */
+.dot-1 {
+    background: var(--parchment);
+    animation-delay: 0s;
+}
+
+.dot-2 {
+    background: var(--lilac-ash);
+    animation-delay: 0.1s; 
+}
+
+.dot-3 {
+    background: var(--almond-silk);
+    animation-delay: 0.2s; 
+}
+
+.dot-4 {
+    background: var(--dusty-grape);
+    animation-delay: 0.3s; 
+}
+
+/* Keyframe 'bounce' pour le mouvement vertical */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); /* Position normale */
+    }
+    50% {
+        transform: translateY(-20px); /* Position haute */
+    }
+}

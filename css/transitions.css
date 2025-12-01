@@ -1,0 +1,87 @@
+/* --- transitions.css (VERSION FINALE CORRIGÉE pour FADE-IN & HOVER FLUIDE) --- */
+
+/* 1. Éléments principaux : État Initial (Opacité seulement) */
+/* Cible tous les conteneurs de contenu pour l'opacité initiale (FADE-IN) */
+.page-content > *,
+.presentation-section > *,
+.contact-info > *,
+.minimal-item, 
+.tag-list li, 
+.tool-list li,
+.carousel .flip-card { 
+    opacity: 0;
+    /* Transition d'opacité lente (0.7s) */
+    transition-property: opacity;
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* 2. Surcharge des Transitions : Assure la Fluidité des Effets HOVER */
+/* Ces règles COMBINENT la transition d'opacité lente et les transitions rapides 
+   nécessaires pour le survol (transform, box-shadow, etc.). */
+
+/* Navigation Links (.minimal-navbar a) */
+.minimal-navbar a {
+    /* Combine l'opacité lente et les transitions rapides (header.css) */
+    transition: opacity 0.7s, 
+                color 0.3s, 
+                border-bottom 0.3s, 
+                transform 0.4s ease-out, 
+                box-shadow 0.4s ease-out;
+}
+
+/* Glass Card (Page d'Accueil) */
+.hero-image-section .glass-card {
+    opacity: 0;
+    /* Combinaison de l'opacité longue (1s) et des transitions rapides (style-presentation.css) */
+    transition: opacity 1s ease-out,
+                transform 0.5s ease-out, 
+                box-shadow 0.5s ease-out; 
+}
+
+/* Tag/Tool List Items (Compétences/Intérêts) */
+.tag-list li, 
+.tool-list li {
+    /* Combine l'opacité lente et les transitions rapides (style-listes.css) */
+    transition: opacity 0.7s, 
+                background 0.3s, 
+                transform 0.2s;
+}
+
+
+/* 3. État Cible (body.loaded) : L'Apparition */
+body.loaded .page-content > *,
+body.loaded .presentation-section > *,
+body.loaded .contact-info > *,
+body.loaded .minimal-item,
+body.loaded .tag-list li,
+body.loaded .tool-list li,
+body.loaded .carousel .flip-card,
+body.loaded .minimal-navbar a, /* Inclus ici pour l'opacité */
+body.loaded .hero-image-section .glass-card {
+    opacity: 1;
+}
+
+/* 4. ANIMATION D'ENTRÉE DU HEADER (Ajout) */
+.minimal-header {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    transition-delay: 0.2s; 
+    position: sticky; /* Assure que le header reste sticky */
+}
+body.loaded .minimal-header {
+    opacity: 1;
+}
+
+/* 5. TRANSITION DE SORTIE DE PAGE */
+body.page-exit {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+/* Maintient la prévention du défilement horizontal */
+.page-content, 
+.presentation-section {
+    overflow-x: hidden; 
+}
