@@ -23,6 +23,15 @@
     background: var(--space-indigo);
 }
 
+.carousel img {
+    width: 90%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 16px;
+    margin: 0 auto 16px auto;
+    display: block;
+}
+
 .flip-card {
     flex: 0 0 340px;
     height: 500px;
@@ -144,5 +153,37 @@
     .flip-card, .card {
         flex: 0 0 520px;
         height: 420px;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    .carousel img {
+        max-width: 200px;
+        border-radius: 14px;
+    }
+    .flip-card-back {
+        font-size: 0.90em;
+        padding: 12px;
+    }
+    .flip-card-back h3 {
+        font-size: 1.20em;
+    }
+    .flip-card-back ul {
+        font-size: 0.90em;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .flip-card-back {
+        font-size: 0.95em;
+        padding: 12px;
+    }
+    .flip-card-back h3 {
+        font-size: 1.05em;
+    }
+    .flip-card-back ul {
+        font-size: 0.95em;
     }
 }
