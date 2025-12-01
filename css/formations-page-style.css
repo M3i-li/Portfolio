@@ -1,0 +1,60 @@
+/* --- formations-page-style.css --- */
+
+/* Amélioration de la structure des articles de formation */
+.minimal-item {
+    /* Style du conteneur principal */
+    padding: 25px 30px;
+    border-radius: 8px; /* Coins légèrement arrondis */
+    margin-bottom: 40px;
+}
+
+.minimal-item h3 {
+    color: var(--parchment); /* Titre de l'article très visible */
+    font-size: 1.8em; /* TITRE PLUS GRAND */
+    font-weight: 700; /* Plus de gras */
+    margin-top: 0; 
+    margin-bottom: 5px;
+}
+
+.minimal-item p strong {
+    color: var(--almond-silk); /* Mise en évidence du lieu/organisme */
+    font-weight: 500;
+}
+
+.minimal-item .date-range {
+    color: var(--lilac-ash); /* Couleur d'accentuation pour les dates */
+    font-style: italic;
+    margin-bottom: 15px;
+    display: block; 
+    font-size: 1em;
+}
+
+/* On neutralise le style de liste par défaut, car tool-list s'en occupe */
+.minimal-item ul {
+    list-style-type: none; 
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style spécifique pour la mention du Bac */
+.minimal-item p:has(br) {
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: var(--almond-silk);
+}
+
+
+/* Media Query pour les petits écrans */
+@media (max-width: 700px) {
+    .minimal-item {
+        padding: 15px 20px;
+        margin-bottom: 25px;
+        border-left: 3px solid var(--accent-color);
+    }
+    .minimal-item h3 {
+        font-size: 1.5em; /* Ajustement pour mobile */
+    }
+}

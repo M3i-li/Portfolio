@@ -75,16 +75,23 @@
     width: 90%;
     margin: 60px auto;
     padding: 4vh 4vw;
-    font-size: 1.25em;
+    /* font-size: 1.25em; -> Remplacé par le style des paragraphes ci-dessous */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* NOUVEAU STYLE : Paragraphes comme un bloc de citation stylisé */
 .about-text-section p {
-    color: var(--primary-color);
+    color: rgb(174, 165, 190);
     margin-top: 1.5em;
+
+    /* Styles pour rendre le texte plus joli, gros et aligné à droite */
+    font-size: 1.4em;
+    line-height: 1.8;
+    text-align: left;
+    
 }
 
 .about-header {

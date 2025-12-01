@@ -16,7 +16,7 @@
     height: 8px;
 }
 .carousel::-webkit-scrollbar-thumb {
-    background: var(--dusty-grape);
+    background: var(--lilac-ash); /* Changement: Utiliser l'accentuation */
     border-radius: 10px;
 }
 .carousel::-webkit-scrollbar-track {
@@ -25,19 +25,22 @@
 
 .carousel img {
     width: 90%;
-    max-width: 220px;
+    max-width: 300px; /* Taille max des images augmentée */
     height: auto;
     border-radius: 16px;
     margin: 0 auto 16px auto;
     display: block;
+    /* Style ajouté: bords doux pour les images */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 .flip-card {
-    flex: 0 0 340px;
+    /* TAILLE MODIFIÉE : 30% de la largeur de la fenêtre */
+    flex: 0 0 30vw; 
     height: 500px;
     perspective: 1000px;
     cursor: pointer;
-    scroll-snap-align: start;
+    scroll-snap-align: center; /* Centrer la carte dans la vue lors du scroll */
     max-width: 98vw;
 }
 
@@ -55,116 +58,152 @@
     transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+/* NOUVEAU STYLE : FACE AVANT */
+.flip-card-front {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    background: var(--lilac-ash);
-    color: var(--space-indigo);
+    /* Ombre plus subtile sur fond sombre */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
+    
+    /* Couleurs : Fond sombre et texte clair */
+    background: var(--dusty-grape); /* Gris foncé */
+    color: var(--parchment); /* Texte clair */
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding: 24px;
+    border: 1px solid var(--border-color); /* Bordure légère */
 }
 
+/* NOUVEAU STYLE : FACE ARRIÈRE */
 .flip-card-back {
     transform: rotateY(180deg);
-    background: var(--dusty-grape);
-    color: var(--parchment);
+    /* Couleurs : Fond très foncé */
+    background: var(--space-indigo); /* Indigo très foncé */
+    color: var(--parchment); /* Texte clair */
+    
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
+    padding: 24px;
+    border: 1px solid var(--border-color); /* Bordure légère */
+    overflow-y: auto; /* Permet le scroll si le contenu est trop long */
 }
 
-.flip-card h2 {
+/* Styles des titres (Face Avant) */
+.flip-card-front h2 {
     margin-top: 0;
-    font-size: 1.3em;
-    color: var(--space-indigo);
-    border-bottom: 1px solid rgba(34, 34, 59, 0.1);
+    font-size: 1.5em; /* Rendu plus présent */
+    color: var(--almond-silk); /* Titre en couleur douce */
+    border-bottom: 2px solid var(--lilac-ash); /* Ligne en couleur d'accentuation */
     padding-bottom: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.flip-card .date-range {
-    color: var(--dusty-grape);
+/* Styles des dates (Face Avant) */
+.flip-card-front .date-range {
+    color: var(--lilac-ash); /* Date en couleur d'accentuation */
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
 }
 
+/* Styles des titres (Face Arrière) */
 .flip-card-back h3 {
-    color: var(--parchment);
+    color: var(--almond-silk); /* Titre en couleur douce */
     margin-bottom: 10px;
+    font-size: 1.4em; /* Augmenté pour l'importance */
+    border-bottom: 1px solid var(--lilac-ash); /* Ligne pleine en couleur d'accentuation */
+    padding-bottom: 5px;
 }
 
+/* --- AMÉLIORATIONS DE LA LISIBILITÉ DU DOS DE LA CARTE --- */
+
+/* Style pour encadrer les sections Outils/Compétences */
+.flip-card-back .project-section {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid var(--dusty-grape); /* Bordure pour séparer visuellement */
+    border-radius: 6px;
+    background-color: var(--dusty-grape); /* Fond légèrement plus clair pour le contraste */
+}
+
+/* Sous-titres "Outils/Compétences" */
+.flip-card-back .project-section p {
+    font-weight: 600; /* Plus gras */
+    color: var(--almond-silk); /* Couleur douce */
+    margin-top: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed var(--lilac-ash); /* Séparation légère */
+    padding-bottom: 4px;
+    font-size: 1.1em;
+}
+.flip-card-back .project-section p:first-child {
+    margin-top: 0; /* Pas de marge supérieure excessive pour le premier sous-titre */
+}
+
+/* Styles des listes */
 .flip-card-back ul {
     color: var(--parchment);
-    margin-left: 18px;
+    margin-left: 20px; 
+    font-size: 0.95em;
+    list-style: square; /* Utiliser un carré pour un style différent du point standard */
+}
+.flip-card-back ul li {
+    margin-bottom: 4px;
 }
 
+
+/* Nettoyage des styles non utilisés / doublons */
 .project-caroussel {
-    flex-shrink: 0; 
-    width: 400px;
-    max-width: 80vw;
-    margin-right: 20px;
-    
-    /* Style de la carte */
-    background-color: var(--lilac-ash); 
-    color: var(--space-indigo); 
-
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-
-    border-left: none; 
-    padding-left: 20px; 
-
-    scroll-snap-align: start;
-}
-
-/* Le texte et les dates doivent être réajustés pour la carte */
-.project-caroussel h3,
-.project-caroussel h2 {
-    color: var(--space-indigo); 
-    border-bottom: 1px solid rgba(34, 34, 59, 0.1); 
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.project-caroussel .date-range {
-    color: var(--dusty-grape); 
-    font-weight: 500;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.project-caroussel ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: var(--space-indigo);
-}
-
-.project-section {
     display: none;
 }
+.project-section {
+    display: block; /* Rendre le contenu Outils/Compétences visible sur le dos */
+}
+
+/* Ajout d'une marge entre les sections Outils et Compétences (dans la face arrière) */
+.flip-card-back .project-section {
+    margin-top: 15px;
+}
+.flip-card-back .project-section p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+/* Fin des améliorations pour le dos de la carte */
 
 @media (min-width: 1200px) {
 
     .flip-card, .card {
-        flex: 0 0 520px;
-        height: 420px;
+        /* TAILLE MODIFIÉE : 30% de la largeur sur grand écran (nouvelle valeur) */
+        flex: 0 0 30vw; 
+        height: 520px; 
     }
 }
 
 @media (max-width: 1200px) {
 
     .carousel img {
-        max-width: 200px;
+        max-width: 250px; 
         border-radius: 14px;
+    }
+    .flip-card-front h2 {
+        font-size: 1.3em; 
+    }
+    .flip-card-front .date-range {
+        font-size: 1em;
     }
     .flip-card-back {
         font-size: 0.90em;
-        padding: 12px;
+        padding: 18px; 
     }
     .flip-card-back h3 {
         font-size: 1.20em;
@@ -176,6 +215,10 @@
 
 @media (max-width: 600px) {
 
+    /* Sur petit écran, la carte doit rester large pour la lisibilité (inchangé) */
+    .flip-card {
+        flex: 0 0 90vw; 
+    }
     .flip-card-back {
         font-size: 0.95em;
         padding: 12px;
