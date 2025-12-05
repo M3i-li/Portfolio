@@ -35,3 +35,41 @@
     border-bottom: 3px solid var(--accent-color);
     color: var(--accent-color);
 }
+
+@media (max-width: 700px) {
+    .minimal-navbar {
+        /* Changement de disposition : les liens s'alignent verticalement */
+        flex-direction: column; 
+        /* Aligne le texte des liens à gauche */
+        align-items: flex-start; 
+        /* Ajoute un peu de padding horizontal pour l'esthétique */
+        padding: 0 10px; 
+    }
+
+    .minimal-navbar a {
+        /* Élargit le lien pour occuper toute la largeur disponible */
+        width: 100%; 
+        /* Augmente le padding vertical pour faciliter le clic */
+        padding: 8px 15px; 
+        /* Retire les marges latérales */
+        margin: 2px 0; 
+        /* Rend la transition de la bordure plus propre */
+        border-radius: 4px; 
+    }
+    
+    .minimal-navbar a:hover {
+        /* Ajout d'un fond subtil au survol sur mobile pour un meilleur feedback */
+        background-color: var(--light-gray); 
+        /* Annule la transformation pour les petits écrans (moins d'espace) */
+        transform: none; 
+        /* Ajuste la transition pour le nouveau fond */
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .minimal-navbar a.active-page {
+        /* Applique une couleur de fond pour le lien actif sur mobile */
+        background-color: var(--accent-color);
+        color: var(--bg-color); /* Texte devient foncé pour contraster */
+        border-bottom: none; /* Retire la bordure du bas pour un style plus "bouton" */
+    }
+}
