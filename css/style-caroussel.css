@@ -213,20 +213,40 @@
     }
 }
 
-@media (max-width: 600px) {
+/* --- style-caroussel.css - Partie Mobile --- */
 
-    /* Sur petit écran, la carte doit rester large pour la lisibilité (inchangé) */
+@media (max-width: 850px) {
+
+    .carousel {
+        /* Désactiver le scroll horizontal */
+        display: flex;
+        flex-direction: column; /* Empile les éléments verticalement */
+        flex-wrap: nowrap;
+        overflow-x: hidden; /* Cache la barre horizontale */
+        overflow-y: visible; /* Laisse le contenu s'étendre vers le bas */
+        height: auto; /* Hauteur automatique selon le contenu */
+        padding-bottom: 0;
+        scroll-snap-type: none; /* Désactive l'accroche au scroll horizontal */
+        gap: 40px; /* Espace vertical entre les cartes */
+        align-items: center; /* Centre les cartes */
+    }
+
     .flip-card {
-        flex: 0 0 90vw; 
+        /* Largeur presque totale */
+        flex: 0 0 auto;
+        width: 90vw; 
+        max-width: 400px; /* Limite pour ne pas être trop géant sur tablettes */
+        height: 550px; /* Hauteur fixe nécessaire pour le flip */
+        margin-bottom: 20px;
     }
-    .flip-card-back {
-        font-size: 0.95em;
-        padding: 12px;
+
+    .flip-card-front h2 {
+        font-size: 1.4em;
     }
-    .flip-card-back h3 {
-        font-size: 1.05em;
-    }
-    .flip-card-back ul {
-        font-size: 0.95em;
+
+    /* Ajustement de l'image dans la carte mobile */
+    .carousel img {
+        max-width: 200px;
+        margin-bottom: 20px;
     }
 }

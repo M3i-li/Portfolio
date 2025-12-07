@@ -1,19 +1,29 @@
-/* --- Navigation & Header --- */
+/* --- header.css --- */
 
+/* --- Navigation & Header --- */
 .minimal-header {
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
     position: sticky;
     top: 0px;
-    z-index: 100;
+    z-index: 1000; /* Z-index élevé pour passer au-dessus de tout */
 }
 
 .minimal-navbar {
     display: flex;
     justify-content: center;
+    align-items: center;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+}
+
+/* Conteneur des liens (pour gérer l'affichage Desktop/Mobile) */
+.minimal-navbar .nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .minimal-navbar a {
@@ -23,11 +33,11 @@
     margin: 0 5px;
     transition: color 0.3s, border-bottom 0.3s;
     font-weight: 500;
+    position: relative;
 }
 
 .minimal-navbar a:hover {
     color: var(--accent-color);
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     transform: scale(1.1);
 }
 
@@ -36,44 +46,94 @@
     color: var(--accent-color);
 }
 
-@media (max-width: 700px) {
+/* --- STYLE DU BURGER (Caché sur Desktop) --- */
+.burger {
+    display: none; /* Caché par défaut */
+    cursor: pointer;
+}
 
-    .minimal-navbar {
-        /* Changement de disposition : les liens s'alignent verticalement */
-        flex-direction: column; 
-        /* Aligne le texte des liens à gauche */
-        align-items: flex-start; 
-        /* Ajoute un peu de padding horizontal pour l'esthétique */
-        padding: 0 10px; 
-        font-size: 0.7em;
+.burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
 
+/* --- MEDIA QUERY MOBILE (Tablettes et Mobiles) --- */
+@media (max-width: 850px) {
+
+    /* 1. Afficher le Burger */
+    .burger {
+        display: block;
+        position: absolute;
+        right: 20px; /* Placé à droite */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001; /* Au-dessus du menu déroulant */
     }
 
+    /* 2. Cacher et styliser le menu des liens */
+    .minimal-navbar .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 100vh;
+        width: 100%; /* Plein écran ou partiel (ex: 70%) */
+        background-color: var(--space-indigo); /* Fond opaque couleur thème */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%); /* Caché à droite de l'écran */
+        transition: transform 0.4s ease-in-out;
+        z-index: 1000;
+        
+        /* Effet "Glassmorphism" optionnel pour le menu mobile */
+        backdrop-filter: blur(10px);
+        background: rgba(34, 34, 59, 0.95); /* Opacité légère */
+    }
+
+    /* 3. Style des liens dans le menu mobile */
     .minimal-navbar a {
-        /* Élargit le lien pour occuper toute la largeur disponible */
-        width: 100%; 
-        /* Augmente le padding vertical pour faciliter le clic */
-        padding: 8px 15px; 
-        /* Retire les marges latérales */
-        margin: 2px 0; 
-        /* Rend la transition de la bordure plus propre */
-        border-radius: 4px; 
-    }
-    
-    
-    .minimal-navbar a:hover {
-        /* Ajout d'un fond subtil au survol sur mobile pour un meilleur feedback */
-        background-color: var(--light-gray); 
-        /* Annule la transformation pour les petits écrans (moins d'espace) */
-        transform: none; 
-        /* Ajuste la transition pour le nouveau fond */
-        transition: background-color 0.3s, color 0.3s;
+        opacity: 0; /* Caché pour l'animation */
+        margin: 20px 0;
+        font-size: 1.5em; /* Texte plus gros */
+        width: auto;
+        border-bottom: none; /* Pas de soulignement par défaut */
     }
 
     .minimal-navbar a.active-page {
-        /* Applique une couleur de fond pour le lien actif sur mobile */
+        border-bottom: none;
+        color: var(--almond-silk); /* Couleur différente pour l'actif */
+        font-weight: 700;
+    }
+
+    /* 4. Classe active (ajoutée par JS) pour ouvrir le menu */
+    .nav-active .nav-links {
+        transform: translateX(0%); /* Ramène le menu visible */
+    }
+
+    /* Animation d'apparition des liens */
+    .nav-active a {
+        opacity: 1;
+        transition: opacity 0.5s ease 0.2s; /* Délai pour l'effet */
+    }
+
+    /* 5. Animation du Burger en Croix (X) */
+    .toggle .burger span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
         background-color: var(--accent-color);
-        color: var(--bg-color); /* Texte devient foncé pour contraster */
-        border-bottom: none; /* Retire la bordure du bas pour un style plus "bouton" */
+    }
+
+    .toggle .burger span:nth-child(2) {
+        opacity: 0; /* La barre du milieu disparait */
+    }
+
+    .toggle .burger span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+        background-color: var(--accent-color);
     }
 }
