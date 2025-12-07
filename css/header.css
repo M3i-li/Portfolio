@@ -4,7 +4,7 @@
     background-color: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
-    position: relative;
+    position: sticky;
     top: 0px;
     z-index: 100;
 }
@@ -37,6 +37,7 @@
 }
 
 @media (max-width: 700px) {
+
     .minimal-navbar {
         /* Changement de disposition : les liens s'alignent verticalement */
         flex-direction: column; 
@@ -44,6 +45,8 @@
         align-items: flex-start; 
         /* Ajoute un peu de padding horizontal pour l'esthétique */
         padding: 0 10px; 
+        font-size: 0.7em;
+
     }
 
     .minimal-navbar a {
@@ -56,6 +59,7 @@
         /* Rend la transition de la bordure plus propre */
         border-radius: 4px; 
     }
+    
     
     .minimal-navbar a:hover {
         /* Ajout d'un fond subtil au survol sur mobile pour un meilleur feedback */
