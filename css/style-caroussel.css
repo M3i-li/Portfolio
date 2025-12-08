@@ -185,7 +185,7 @@
     .flip-card, .card {
         /* TAILLE MODIFIÉE : 30% de la largeur sur grand écran (nouvelle valeur) */
         flex: 0 0 30vw; 
-        height: 520px; 
+        height: 720px; 
     }
 }
 
@@ -263,4 +263,40 @@
 .flip-card.flipped .flip-card-front::after {
     display: none;
 }
+}
+
+/* --- BOUTON GITHUB DANS LES CARTES --- */
+.github-card-btn {
+    display: block; /* Prend toute la largeur disponible ou se comporte comme un bloc */
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 0;
+    
+    background-color: var(--lilac-ash); /* Couleur d'accentuation */
+    color: var(--space-indigo); /* Texte foncé pour le contraste */
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 1px solid var(--parchment); /* Petite bordure fine */
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.github-card-btn:hover {
+    background-color: var(--parchment); /* Devient clair au survol */
+    color: var(--space-indigo);
+    transform: translateY(-3px); /* Petit effet de soulèvement */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Ajustement pour mobile pour être sûr que c'est facilement cliquable */
+@media (max-width: 850px) {
+    .github-card-btn {
+        padding: 15px 0;
+        font-size: 1.1em;
+        margin-bottom: 10px; /* Petit espace en bas au cas où */
+    }
 }

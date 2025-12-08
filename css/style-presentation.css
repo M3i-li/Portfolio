@@ -1,5 +1,6 @@
 /* Fichier CSS pour le style de la page de présentation */
-/* 1. La section d'introduction (Hero) : Pleine hauteur avec l'image */
+
+/* Section d'introduction (Hero) */
 .hero-image-section { 
     min-height: 100vh;
     height: 100vh; /* Pleine hauteur de la fenêtre */
