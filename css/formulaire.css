@@ -1,0 +1,114 @@
+    /* --- Styles du Formulaire de Contact --- */
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 30px;
+        justify-content: center;
+    }
+
+    /* Colonne Info (Gauche) */
+    .contact-details {
+        flex: 1;
+        min-width: 300px;
+        background: rgba(74, 78, 105, 0.2); /* Dusty Grape transparent */
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+
+    .contact-details h3 {
+        color: var(--almond-silk);
+        margin-top: 0;
+        border-bottom: 2px solid var(--lilac-ash);
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .contact-item {
+        margin: 20px 0;
+        font-size: 1.1em;
+    }
+    
+    .contact-item strong {
+        color: var(--lilac-ash);
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Colonne Formulaire (Droite) */
+    .contact-form-wrapper {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .minimal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label {
+        margin-bottom: 8px;
+        color: var(--lilac-ash);
+        font-weight: 500;
+    }
+
+    .minimal-input, .minimal-textarea {
+        background-color: rgba(34, 34, 59, 0.5); /* Space Indigo foncé */
+        border: 1px solid var(--dusty-grape);
+        color: var(--parchment);
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1em;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .minimal-input:focus, .minimal-textarea:focus {
+        outline: none;
+        border-color: var(--almond-silk);
+        box-shadow: 0 0 8px rgba(201, 173, 167, 0.3);
+    }
+
+    .minimal-textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    /* Bouton d'envoi */
+    .submit-btn {
+        background: linear-gradient(90deg, var(--dusty-grape), var(--space-indigo));
+        color: var(--parchment);
+        padding: 14px 24px;
+        border: 1px solid var(--lilac-ash);
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        width: fit-content;
+        align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+        background: var(--parchment);
+        color: var(--space-indigo);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+        }
+        .submit-btn {
+            width: 100%;
+        }
+    }

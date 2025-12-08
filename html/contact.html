@@ -3,48 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursus - Mei Li UNG</title>
+    <title>Contact - Mei Li UNG</title>
+    
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
-
+    <link rel="stylesheet" href="../css/transitions.css">
+    <link rel="stylesheet" href="../css/preloader.css">
+    <link rel="stylesheet" href="../css/formulaire.css">
+    
 </head>
 <body>
-    <header class="minimal-header">
-    <nav class="minimal-navbar">
-        <div class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
 
-        <div class="nav-links"> <a href="../index.html">Accueil</a>
-            <a href="Formations.html">Formations</a>
-            <a href="experiences.html">Projets & Expériences</a>
-            <a href="competences.html">Compétences</a>
-            <a href="interets.html">Intérêts</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
-</header>
-    <main>
+    <header class="minimal-header">
+        <nav class="minimal-navbar">
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links"> 
+                <a href="../index.html">Accueil</a>
+                <a href="Formations.html">Formations</a>
+                <a href="experiences.html">Projets & Expériences</a>
+                <a href="competences.html">Compétences</a>
+                <a href="interets.html">Intérêts</a>
+                <a href="contact.html" class="active-page">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="minimal-main">
         <section class="page-content contact-page">
-            <h2>Contact</h2>
-            <p>N'hésitez pas à me contacter pour toute opportunité professionnelle</p>
+            <h1>Contact</h1>
+            <p>Une idée de projet ou une opportunité professionnelle ? N'hésitez pas à m'envoyer un message.</p>
             
-            <div class="contact-info">
-                <p><strong>Email :</strong> <a href="mailto: meili.ung@outlook.fr"><mail>meili.ung@outlook.fr</a></p>
-                <p><strong>Localisation :</strong> Lille</p>
+            <div class="contact-container">
+                
+                <div class="contact-details">
+                    <h3>Mes Coordonnées</h3>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:meili.ung@outlook.fr">meili.ung@outlook.fr</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Localisation</strong>
+                        <p>Lille, France</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Réseaux</strong>
+                        <p>Retrouvez-moi aussi sur LinkedIn et GitHub via les liens en bas de page.</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST" class="minimal-form">
+                        
+                        <div class="form-group">
+                            <label for="name">Votre Nom</label>
+                            <input type="text" id="name" name="name" class="minimal-input" required placeholder="Ex: Jean Dupont">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Votre Email</label>
+                            <input type="email" id="email" name="email" class="minimal-input" required placeholder="Ex: jean@exemple.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" class="minimal-input" required placeholder="Proposition de stage, question...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="minimal-textarea" required placeholder="Bonjour Mei Li..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                    </form>
+                </div>
+
             </div>
         </section>
     </main>
+
     <footer class="minimal-footer">
         <p>CV Numérique Mei Li UNG | &copy; 2025</p>
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/mei-li-ung" class="footer-btn">LinkedIn</a>
             <a href="https://github.com/M3i-li" class="footer-btn">GitHub</a>
             <a href="https://gitlab.univ-lille.fr/mei-li.ung.etu" class="footer-btn">GitLab</a>
-            <a href="../html/contact.html" class="footer-btn">Contact</a>
+            <a href="contact.html" class="footer-btn">Contact</a>
         </div>
     </footer>
+
+    <script src="../js/portfolio-transitions.js"></script>
 </body>
 </html>

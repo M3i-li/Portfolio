@@ -10,38 +10,50 @@
     min-height: 340px;
     box-sizing: border-box;
     padding-bottom: 32px;
+    padding-left: 20px; /* Petit espace à gauche pour le premier item */
+    padding-right: 20px;
 }
 
+/* Scrollbar du caroussel horizontal */
 .carousel::-webkit-scrollbar {
     height: 8px;
 }
 .carousel::-webkit-scrollbar-thumb {
-    background: var(--lilac-ash); /* Changement: Utiliser l'accentuation */
+    background: var(--lilac-ash);
     border-radius: 10px;
 }
 .carousel::-webkit-scrollbar-track {
     background: var(--space-indigo);
 }
 
+/* --- STYLE DES IMAGES (Face Avant) --- */
 .carousel img {
     width: 90%;
-    max-width: 300px; /* Taille max des images augmentée */
-    height: auto;
-    border-radius: 16px;
-    margin: 0 auto 16px auto;
+    /* CORRECTION : Taille contrôlée pour ne pas casser la hauteur */
+    max-width: 280px; 
+    max-height: 180px; /* Empêche l'image de prendre toute la hauteur */
+    object-fit: contain; /* L'image ne sera pas déformée */
+    
+    border-radius: 12px;
+    margin: 10px auto 16px auto;
     display: block;
-    /* Style ajouté: bords doux pour les images */
     box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
+/* --- STRUCTURE DE LA CARTE --- */
 .flip-card {
-    /* TAILLE MODIFIÉE : 30% de la largeur de la fenêtre */
-    flex: 0 0 30vw; 
-    height: 500px;
+    /* CORRECTION : Largeur flexible mais Bornée */
+    flex: 0 0 auto; /* Ne pas écraser la largeur */
+    width: 30vw;    /* Base relative */
+    min-width: 320px; /* Jamais plus petit que ça */
+    max-width: 420px; /* Jamais plus grand que ça */
+    
+    height: 550px; /* Hauteur fixe standardisée */
+    
     perspective: 1000px;
     cursor: pointer;
-    scroll-snap-align: center; /* Centrer la carte dans la vue lors du scroll */
-    max-width: 98vw;
+    scroll-snap-align: center;
+    position: relative; /* Sécurité */
 }
 
 .flip-card-inner {
@@ -58,245 +70,222 @@
     transform: rotateY(180deg);
 }
 
-/* NOUVEAU STYLE : FACE AVANT */
-.flip-card-front {
+/* --- FACES AVANT ET ARRIÈRE (Commun) --- */
+.flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 8px;
-    /* Ombre plus subtile sur fond sombre */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
-    
-    /* Couleurs : Fond sombre et texte clair */
-    background: var(--dusty-grape); /* Gris foncé */
-    color: var(--parchment); /* Texte clair */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 24px;
-    border: 1px solid var(--border-color); /* Bordure légère */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    border: 1px solid var(--border-color);
+    box-sizing: border-box; /* Important pour que le padding ne dépasse pas */
 }
 
-/* NOUVEAU STYLE : FACE ARRIÈRE */
+/* FACE AVANT */
+.flip-card-front {
+    background: var(--dusty-grape);
+    color: var(--parchment);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligne le contenu en haut */
+    align-items: center; /* Centre horizontalement */
+    padding: 24px;
+    text-align: center;
+    overflow: hidden; /* Cache ce qui dépasse si jamais */
+}
+
+/* FACE ARRIÈRE */
 .flip-card-back {
     transform: rotateY(180deg);
-    /* Couleurs : Fond très foncé */
-    background: var(--space-indigo); /* Indigo très foncé */
-    color: var(--parchment); /* Texte clair */
-    
-    position: absolute; 
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
+    background: var(--space-indigo);
+    color: var(--parchment);
     padding: 24px;
-    border: 1px solid var(--border-color); /* Bordure légère */
-    overflow-y: auto; /* Permet le scroll si le contenu est trop long */
+    text-align: left;
+    
+    /* CORRECTION : Scroll interne pour le texte trop long */
+    overflow-y: auto; 
+    scrollbar-width: thin; /* Pour Firefox */
+    scrollbar-color: var(--lilac-ash) var(--space-indigo);
+}
+
+/* Scrollbar interne de la carte (Webkit) */
+.flip-card-back::-webkit-scrollbar {
+    width: 6px;
+}
+.flip-card-back::-webkit-scrollbar-thumb {
+    background-color: var(--lilac-ash);
+    border-radius: 3px;
 }
 
 /* Styles des titres (Face Avant) */
 .flip-card-front h2 {
-    margin-top: 0;
-    font-size: 1.5em; /* Rendu plus présent */
-    color: var(--almond-silk); /* Titre en couleur douce */
-    border-bottom: 2px solid var(--lilac-ash); /* Ligne en couleur d'accentuation */
+    margin-top: 10px;
+    font-size: 1.6em;
+    color: var(--almond-silk);
+    border-bottom: 2px solid var(--lilac-ash);
     padding-bottom: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+    width: 100%; /* Ligne prend toute la largeur */
 }
 
 /* Styles des dates (Face Avant) */
 .flip-card-front .date-range {
-    color: var(--lilac-ash); /* Date en couleur d'accentuation */
+    color: var(--lilac-ash);
     font-weight: 500;
     margin-bottom: 15px;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 /* Styles des titres (Face Arrière) */
 .flip-card-back h3 {
-    color: var(--almond-silk); /* Titre en couleur douce */
-    margin-bottom: 10px;
-    font-size: 1.4em; /* Augmenté pour l'importance */
-    border-bottom: 1px solid var(--lilac-ash); /* Ligne pleine en couleur d'accentuation */
+    color: var(--almond-silk);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    border-bottom: 1px solid var(--lilac-ash);
     padding-bottom: 5px;
 }
 
-/* --- AMÉLIORATIONS DE LA LISIBILITÉ DU DOS DE LA CARTE --- */
-
-/* Style pour encadrer les sections Outils/Compétences */
+/* --- SECTIONS INTERNES (Back) --- */
 .flip-card-back .project-section {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid var(--dusty-grape); /* Bordure pour séparer visuellement */
+    border: 1px solid var(--dusty-grape);
     border-radius: 6px;
-    background-color: var(--dusty-grape); /* Fond légèrement plus clair pour le contraste */
+    background-color: rgba(74, 78, 105, 0.3); /* Fond légèrement transparent */
 }
 
-/* Sous-titres "Outils/Compétences" */
 .flip-card-back .project-section p {
-    font-weight: 600; /* Plus gras */
-    color: var(--almond-silk); /* Couleur douce */
+    font-weight: 600;
+    color: var(--almond-silk);
     margin-top: 15px;
     margin-bottom: 8px;
-    border-bottom: 1px dashed var(--lilac-ash); /* Séparation légère */
+    border-bottom: 1px dashed var(--lilac-ash);
     padding-bottom: 4px;
     font-size: 1.1em;
 }
 .flip-card-back .project-section p:first-child {
-    margin-top: 0; /* Pas de marge supérieure excessive pour le premier sous-titre */
+    margin-top: 0;
 }
 
-/* Styles des listes */
 .flip-card-back ul {
     color: var(--parchment);
     margin-left: 20px; 
     font-size: 0.95em;
-    list-style: square; /* Utiliser un carré pour un style différent du point standard */
+    list-style: square;
 }
 .flip-card-back ul li {
     margin-bottom: 4px;
 }
 
-
-/* Nettoyage des styles non utilisés / doublons */
-.project-caroussel {
-    display: none;
-}
-.project-section {
-    display: block; /* Rendre le contenu Outils/Compétences visible sur le dos */
-}
-
-/* Ajout d'une marge entre les sections Outils et Compétences (dans la face arrière) */
-.flip-card-back .project-section {
-    margin-top: 15px;
-}
-.flip-card-back .project-section p {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-/* Fin des améliorations pour le dos de la carte */
-
-@media (min-width: 1200px) {
-
-    .flip-card, .card {
-        /* TAILLE MODIFIÉE : 30% de la largeur sur grand écran (nouvelle valeur) */
-        flex: 0 0 30vw; 
-        height: 720px; 
-    }
-}
-
-@media (max-width: 1200px) {
-
-    .carousel img {
-        max-width: 250px; 
-        border-radius: 14px;
-    }
-    .flip-card-front h2 {
-        font-size: 1.3em; 
-    }
-    .flip-card-front .date-range {
-        font-size: 1em;
-    }
-    .flip-card-back {
-        font-size: 0.90em;
-        padding: 18px; 
-    }
-    .flip-card-back h3 {
-        font-size: 1.20em;
-    }
-    .flip-card-back ul {
-        font-size: 0.90em;
-    }
-}
-
-/* --- style-caroussel.css - Partie Mobile --- */
-
-@media (max-width: 850px) {
-
-    .carousel {
-        /* Désactiver le scroll horizontal */
-        display: flex;
-        flex-direction: column; /* Empile les éléments verticalement */
-        flex-wrap: nowrap;
-        overflow-x: hidden; /* Cache la barre horizontale */
-        overflow-y: visible; /* Laisse le contenu s'étendre vers le bas */
-        height: auto; /* Hauteur automatique selon le contenu */
-        padding-bottom: 0;
-        scroll-snap-type: none; /* Désactive l'accroche au scroll horizontal */
-        gap: 40px; /* Espace vertical entre les cartes */
-        align-items: center; /* Centre les cartes */
-    }
-
-    .flip-card {
-        /* Largeur presque totale */
-        flex: 0 0 auto;
-        width: 90vw; 
-        max-width: 400px; /* Limite pour ne pas être trop géant sur tablettes */
-        height: 550px; /* Hauteur fixe nécessaire pour le flip */
-        margin-bottom: 20px;
-    }
-
-    .flip-card-front h2 {
-        font-size: 1.4em;
-    }
-
-    /* Ajustement de l'image dans la carte mobile */
-    .carousel img {
-        max-width: 200px;
-        margin-bottom: 20px;
-    }
-
-    /* Pour indiquer à l'utilisateur qu'il peut cliquer */
-.flip-card-front::after {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    font-size: 1.5em;
-    opacity: 0.7;
-    animation: bounce 2s infinite;
-}
-/* On cache l'indicateur une fois retourné */
-.flip-card.flipped .flip-card-front::after {
-    display: none;
-}
-}
-
-/* --- BOUTON GITHUB DANS LES CARTES --- */
+/* BOUTON GITHUB */
 .github-card-btn {
-    display: block; /* Prend toute la largeur disponible ou se comporte comme un bloc */
+    display: block;
     width: 100%;
-    margin-top: 20px;
+    margin-top: auto; /* Pousse le bouton vers le bas si flex space */
     padding: 12px 0;
-    
-    background-color: var(--lilac-ash); /* Couleur d'accentuation */
-    color: var(--space-indigo); /* Texte foncé pour le contraste */
-    
+    background-color: var(--lilac-ash);
+    color: var(--space-indigo);
     text-align: center;
     text-decoration: none;
     font-weight: 700;
     border-radius: 8px;
-    border: 1px solid var(--parchment); /* Petite bordure fine */
-    
+    border: 1px solid var(--parchment);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 .github-card-btn:hover {
-    background-color: var(--parchment); /* Devient clair au survol */
+    background-color: var(--parchment);
     color: var(--space-indigo);
-    transform: translateY(-3px); /* Petit effet de soulèvement */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
 }
 
-/* Ajustement pour mobile pour être sûr que c'est facilement cliquable */
-@media (max-width: 850px) {
-    .github-card-btn {
-        padding: 15px 0;
-        font-size: 1.1em;
-        margin-bottom: 10px; /* Petit espace en bas au cas où */
+/* --- INDICATEUR DE RETOURNEMENT (Global) --- */
+/* Positionné en haut à droite pour ne jamais gêner le bouton du bas */
+.flip-card-front::after {
+    content: '↻ Au dos'; /* Texte court avec icône */
+    position: absolute;
+    top: 12px;         
+    right: 12px;       
+    z-index: 10;       
+    
+    /* Design type "Badge" */
+    background-color: rgba(34, 34, 59, 0.8); /* Fond sombre semi-transparent */
+    color: var(--almond-silk);
+    border: 1px solid var(--lilac-ash);
+    padding: 6px 12px;
+    border-radius: 20px;
+    
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    pointer-events: none; /* Permet de cliquer "au travers" si besoin */
+    
+    /* Animation douce pour attirer l'œil */
+    animation: floatingBadge 3s ease-in-out infinite;
+}
+
+/* On cache l'indicateur quand la carte est retournée */
+.flip-card.flipped .flip-card-front::after {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Animation de l'indicateur */
+@keyframes floatingBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Très grands écrans */
+@media (min-width: 1400px) {
+    .flip-card {
+        height: 600px; /* Un peu plus grand verticalement */
+        width: 400px;
     }
+}
+
+/* Écrans moyens (Laptops standards) */
+@media (max-width: 1200px) {
+    .flip-card-front h2 { font-size: 1.4em; }
+    .flip-card-back { padding: 18px; }
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 850px) {
+
+    .carousel {
+        /* Passage en mode vertical */
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: auto;
+        padding-bottom: 0;
+        scroll-snap-type: none;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .flip-card {
+        /* CORRECTION : Taille adaptée au mobile */
+        flex: 0 0 auto;
+        width: 90vw; /* Prend presque toute la largeur */
+        max-width: 400px; /* Mais pas géant sur tablette */
+        height: 580px; /* Assez haut pour lire sans trop scroller */
+        margin-bottom: 20px;
+    }
+
+    .flip-card-front h2 { font-size: 1.4em; }
+
+    /* Ajustement de l'image */
+    .carousel img {
+        max-width: 200px;
+        max-height: 150px;
+        margin-bottom: 15px;
+    }
+
 }
