@@ -90,10 +90,17 @@
         transform: translateX(100%); /* Caché à droite de l'écran */
         transition: transform 0.4s ease-in-out;
         z-index: 1000;
-        
+
         /* Effet "Glassmorphism" optionnel pour le menu mobile */
         backdrop-filter: blur(10px);
         background: rgba(34, 34, 59, 0.95); /* Opacité légère */
+        
+        /* AJOUTS POUR LE SCROLL MOBILE : */
+        overflow-y: auto; /* Active le scroll si le menu est trop long */
+        max-height: 100vh;
+        padding-bottom: 50px; /* Espace en bas pour ne pas couper le dernier lien */
+        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+        
     }
 
     /* 3. Style des liens dans le menu mobile */

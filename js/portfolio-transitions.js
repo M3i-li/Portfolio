@@ -1,17 +1,16 @@
 /**
- * portfolio-transitions.js
- * Gère le préchargeur, l'animation d'entrée,
- * le nettoyage des transitions (hover fix) et le MENU MOBILE.
+ * portfolio-transitions.js - VERSION FINALE RESPONSIVE
+ * Gère : Préchargeur, Transitions, Menu Mobile, et Cartes Tactiles
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. Constantes et Variables ---
+    // --- 1. CONFIGURATION ---
     const PRELOADER_DELAY = 1200; 
     const EXIT_DELAY = 300;
     const ANIMATION_DURATION_BUFFER = 2000; 
     const preloader = document.getElementById('preloader');
 
-    // --- 2. Fonction d'animation d'entrée des éléments ---
+    // --- 2. FONCTION D'ANIMATION D'ENTRÉE ---
     function animatePageElements() {
         document.body.classList.add('loaded');
         
@@ -21,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let elementDelay = 0.1;
         contentElements.forEach(element => {
+            // Délais différents selon le type d'élément pour un effet "cascade"
             if (element.matches('.tag-list li, .tool-list li, .flip-card')) {
                  elementDelay += 0.05; 
             } 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.transitionDelay = `${elementDelay}s`;
         });
 
-        // Nettoyage pour permettre le hover instantané après l'intro
+        // Nettoyage des délais après l'animation pour ne pas gêner le hover CSS
         setTimeout(() => {
             contentElements.forEach(element => {
                 element.style.transitionDelay = ''; 
@@ -38,11 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }, ANIMATION_DURATION_BUFFER);
     }
 
-    // --- 3. Gestion du Préchargeur ---
+    // --- 3. GESTION DU PRÉCHARGEUR (Logic) ---
     const pathname = window.location.pathname;
-    const isHomePage = pathname.endsWith('/accueil.html') || pathname.endsWith('/index.html') || pathname === '/' || preloader !== null;
+    const isHomePage = pathname.endsWith('/index.html') || pathname === '/' || preloader !== null;
 
     if (isHomePage && preloader) {
+        // Si c'est l'accueil et qu'on l'a déjà vu (SessionStorage)
         if (sessionStorage.getItem('page-loaded')) {
             preloader.style.opacity = '0';
             preloader.style.pointerEvents = 'none';
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 animatePageElements(); 
             }, 50); 
         } else {
+            // Première visite
             window.onload = function() {
                 sessionStorage.setItem('page-loaded', 'true');
                 setTimeout(function() {
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
     } else {
+        // Autres pages (pas de preloader, animation directe)
         if (document.readyState === 'complete') {
             animatePageElements();
         } else {
@@ -67,50 +70,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 4. GESTION DU BURGER MENU (NOUVEAU) ---
+    // --- 4. GESTION DU MENU MOBILE (BURGER) ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.minimal-navbar');
-    // On cible le conteneur des liens ou la navbar elle-même si pas de conteneur
-    // Note: Dans le CSS on utilise .nav-active sur .minimal-navbar pour cibler .nav-links
-    
-    if (burger) {
-        burger.addEventListener('click', () => {
-            // Basculer la classe pour montrer/cacher le menu
+    const navLinks = document.querySelector('.nav-links'); // Ciblage direct
+
+    if (burger && nav) {
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche le clic de se propager
             nav.classList.toggle('nav-active');
-            // Basculer la classe pour animer le burger (croix)
             nav.classList.toggle('toggle');
             
-            // Empêcher le scroll du body quand le menu est ouvert (optionnel mais recommandé)
-            document.body.style.overflow = nav.classList.contains('nav-active') ? 'hidden' : '';
-        });
-    }
-    
-    // Fermer le menu si on clique sur un lien
-    const navLinks = document.querySelectorAll('.minimal-navbar a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+            // Empêche le scroll du site quand le menu est ouvert
             if (nav.classList.contains('nav-active')) {
-                nav.classList.remove('nav-active');
-                nav.classList.remove('toggle');
+                document.body.style.overflow = 'hidden';
+            } else {
                 document.body.style.overflow = '';
             }
         });
+
+        // Fermer le menu si on clique ailleurs sur l'écran
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
+                 nav.classList.remove('nav-active');
+                 nav.classList.remove('toggle');
+                 document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // --- 5. GESTION DES FLIP CARDS (TACTILE MOBILE) ---
+    // Permet de retourner les cartes au clic sur mobile/tablette
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Enlève la classe .flipped de toutes les autres cartes (optionnel, pour n'en avoir qu'une ouverte à la fois)
+            // flipCards.forEach(c => { if(c !== card) c.classList.remove('flipped'); });
+            
+            this.classList.toggle('flipped');
+        });
     });
 
-
-    // --- 5. Transition de sortie (Liens internes) ---
+    // --- 6. TRANSITION DE SORTIE (LIENS INTERNES) ---
     document.querySelectorAll('a').forEach(link => {
+        // Vérifie si c'est un lien interne et pas un target_blank
         if (link.hostname === window.location.hostname && !link.getAttribute('href').startsWith('#') && link.target !== '_blank') {
             link.addEventListener('click', function(e) {
                 const targetUrl = link.href;
                 const currentUrl = window.location.href;
 
+                // Ignore si c'est la même page ou un lien mailto/tel
                 if (targetUrl === currentUrl || targetUrl.split('#')[0] === currentUrl.split('#')[0]) return;
                 if (targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:')) return;
 
                 e.preventDefault();
                 
-                // Si c'est un lien du menu mobile, on attend un peu moins
+                // Si le menu mobile est ouvert, on le ferme d'abord proprement
+                if (nav && nav.classList.contains('nav-active')) {
+                    document.body.style.overflow = '';
+                }
+
                 document.body.classList.add('page-exit');
                 setTimeout(() => {
                     window.location.href = targetUrl;

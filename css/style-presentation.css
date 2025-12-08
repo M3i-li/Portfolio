@@ -122,3 +122,48 @@
     margin: 0 0;
     padding: 0; 
 }
+
+/* --- MEDIA QUERIES POUR LA RÉACTIVITÉ --- */
+@media (max-width: 700px) {
+    .glass-card {
+        width: 92%; /* Beaucoup plus large sur mobile */
+        padding: 30px 20px; /* Moins de padding interne */
+        margin-top: 60px; /* Évite que le menu sticky ne cache le haut */
+    }
+
+    .hero-image-section {
+        /* On permet à la section de grandir si le contenu est long */
+        height: auto; 
+        min-height: 100vh;
+        padding-top: 80px; /* Espace pour le header */
+        padding-bottom: 40px;
+    }
+
+    .about-header {
+        flex-direction: column; /* Empile titre et image */
+        text-align: center;
+    }
+
+    .about-profile-img {
+        margin: 20px 0 0 0; /* Reset des marges */
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .glass-card {
+        width: 95%; /* Prend presque toute la largeur */
+        padding: 30px 20px; /* Réduit le padding interne */
+    }
+    .about-header {
+        flex-direction: column; /* Empile l'image et le titre */
+        text-align: center;
+    }
+    .about-profile-img {
+        margin-left: 0;
+        margin-bottom: 20px;
+        width: 150px; /* Image plus petite sur mobile */
+        height: 150px;
+    }
+}

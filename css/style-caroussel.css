@@ -249,4 +249,18 @@
         max-width: 200px;
         margin-bottom: 20px;
     }
+
+    /* Pour indiquer à l'utilisateur qu'il peut cliquer */
+.flip-card-front::after {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.5em;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+/* On cache l'indicateur une fois retourné */
+.flip-card.flipped .flip-card-front::after {
+    display: none;
+}
 }
