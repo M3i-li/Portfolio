@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursus - Mei Li UNG</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/style-caroussel.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/transitions.css">
-    <link rel="stylesheet" href="../css/style-listes.css">
 
 </head>
 <body>
+  <div class="animated-background">
+        <div class="stars"></div>
+    </div>
     <header class="minimal-header">
     <nav class="minimal-navbar">
         <div class="burger">
@@ -34,13 +41,13 @@
             <h2>Projets Principaux & Expériences</h2>
 
             <div class="carousel">
-                <div class="flip-card">
+                <div class="flip-card theme-mazel">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img src="../ressources/logo.png" alt="Mazel logo" class="mazel_logo-img">
                       <h2>Mazel</h2>
                       <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
-                      <p>Jeu de labyrinthe interactif <br>(Java et javaFX)</p>
+                      <p>Jeu de labyrinthe interactif</p>
                       
                       <div class="card-actions">
                           <button class="flip-btn-description">Description</button>
@@ -50,10 +57,11 @@
                     <div class="flip-card-back">
                       <h3>Description du projet:</h3>
 
-                      <p>Mazel est un jeu de labyrinthe à un joueur qui possède deux modes de jeu.
-                        Le premier est un mode progression accessible lorsqu'un utilisateur de "connecte" via un mot de passe reconue par le système, et ainsi accède à 8 niveaux différents, à difficultées progressives, qu'il doit compéter pour avancer dans les méandres du jardin de Mazel.
-                        Le second est un mode créatif de labyrinthes, personalisable par le joueur à l'aide de différentes options, comme entre autres :
-                        la taille du labyrinthe, le choix du type de labyrinthe, ou encore l'ajout d'd'un ennemi qui pourchasse le joueur.
+                      <p>Mazel est un jeu de labyrinthe à un joueur qui possède deux modes.
+                        - Le premier est un mode de progression accessible lorsqu'un utilisateur de "connecte" via un mot de passe reconue par le système, et accède ainsi à 8 niveaux différents, à difficultées progressives, qu'il doit compéter pour avancer dans les méandres du jardin de Mazel. <br>
+                        - Le second est un mode créatif de labyrinthes, personalisables par le joueur à l'aide de différentes options, comme entre autres :
+                        la taille du labyrinthe, la vision dans le labyrinthe, ou encore l'ajout d'd'un ennemi qui pourchasse le joueur jurqu'à la sortie. <br>
+                        Le jeu a été développé en équipe de quatre personnes, sur une durée de deux mois.
                       </p>
                       <div class="project-section">
                         <p>Outils employés :</p>
@@ -63,11 +71,12 @@
                           <li>Patron de conception MVC et Observers pour la communication entre l'utilisateur et le logiciel</li>
                           <li>Utilisation du TDD pour la création de code pertinent</li>
                           <li>Utilisation de SceneBuilder pour les interfaces du jeu</li>
+                          <li>Utilisation des principes SOLID lors de la création du code</li>
                         </ul>
 
                         <p>Compétences développées :</p>
                         <ul>
-                          <li>Externaisation de données et traitement sur celles-ci dans le logiciel(gestions de fichiers CV avec java)</li>
+                          <li>Externaisation de données et traitement sur celles-ci dans le logiciel(gestions de fichiers CSV avec java)</li>
                           <li>Utilisation de javaFX pour une interface responsive et design</li>
                           <li>Gestion des algorithmes de labyrinthe</li>
                           <li>Gestion des entrées utilisateurs au clavier</li>
@@ -80,13 +89,13 @@
                   </div>
                 </div>
 
-                <div class="flip-card">
+                <div class="flip-card theme-golden">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img src="../ressources/golden_ace.png" alt="Golden Ace page" class="goldenAce_menu-img">
                       <h2>Golden Ace</h2>
                       <p class="date-range">SEPTEMBRE 2025</p>
-                      <p>Mini projet Agile d'un jeu de casino (Java)</p>
+                      <p>Mini projet Agile d'un jeu de casino</p>
                       
                       <div class="card-actions">
                           <button class="flip-btn-description">Description</button>
@@ -97,8 +106,8 @@
                       <h3>Description du projet:</h3>
 
                       <p>Golden Ace est un mini-jeu de casino développé en Java dans le cadre d'un projet agile, jouable via le terminal.
-                        Le jeu fait commencer l'utiisateur avec une somme d'argent virtuelle de base, qu'il lui propose de parier dur différents jeux qui lui apporteront gains ou pertes.
-                        Les fonctionnalités incluent la gestion des paris, le suivi du solde du joueur, et une interface utilisateur simple pour une expérience de jeu fluide.
+                        Le jeu fait commencer l'utilisateur avec une somme d'argent virtuelle par défaut, qu'il lui propose de parier sur différents mini-jeux qui lui apporteront gains ou pertes.
+                        Les fonctionnalités incluent la gestion des paris, le suivi du solde du joueur, et une interface utilisateur simple pour une expérience de jeu fluide. <br>
                         Les différents jeux proposés sont: 
                         <ul>
                           <li>Un Black Jack simple</li>
@@ -106,21 +115,29 @@
                           <li>Un démineur</li>
                           <li>Une machine à sous</li>
                         </ul>
+                        <br>
+                        Le projet a été réalisé en équipe de six personnes, choisies aléatoirement, sur une durée de quatre jours.
                       </p>
+
                       <div class="project-section">
                         <p>Outils employés :</p>
                         <ul>
                           <li>Java</li>
                           <li>Git</li>
-                          <li>Utilisation de la méthode Scrum et de la philosohie agile durant toute la durée du projet (quatres jours)</li>
+                          <li>Utilisation de la méthode Scrum et de la philosohie Agile durant toute la durée du projet</li>
+                          <li>Utilisation du terminal pour l'interface utilisateur</li>
+                          <li>Création de diagrammes UML pour la modélisation du projet</li>
+                          <li>Répartition des tâches via un Kanban</li>
+                          <li>Utilisation de LiveShare pour le travail collaboratif</li>
+                          <li>Utilisation de tests unitaires pour la création de code pertinent</li>
                         </ul>
 
                         <p>Compétences développées :</p>
                         <ul>
                           <li>Externaisation de données et traitement sur celles-ci dans le jeu (gestion d'ASCII et fichier csv)</li>
-                          <li>Apprentissage de la méthodologie agile</li>
-                          <li>Travail en équipe aléatoires avec la méthode Scrum</li>
-                          <li>Gestion des entrées utilisateurs au clavier</li>
+                          <li>Apprentissage de la philosohie Agile</li>
+                          <li>Travail en équipes aléatoires avec la méthode Scrum</li>
+                          <li>Gestion des entrées utilisateur au clavier</li>
                         </ul>
                       </div>
                       
@@ -129,13 +146,13 @@
                   </div>
                 </div>
 
-                <div class="flip-card">
+                <div class="flip-card theme-pokemon">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img src="../ressources/PokeQuizAdventures.png" alt="ubisoft-location page" class="ubisoft-location-page-img">
                       <h2>PokéQuizAdventures</h2>
-                      <p class="date-range">NOVEMBRE 2024 - JUIN 2025</p>
-                      <p>Création d'un jeu ludo-pédagogique (Java/JavaFX)</p>
+                      <p class="date-range">NOVEMBRE 2024 - JANVIER 2025</p>
+                      <p>Création d'un jeu ludo-pédagogique</p>
                       
                       <div class="card-actions">
                           <button class="flip-btn-description">Description</button>
@@ -146,22 +163,23 @@
                       <h3>Description du projet:</h3>
 
                       <p>PokéQuizAdventures est un jeu proposant d'incarner un pokémon et son dresseur qui partent à l'aventure.
-                         Pour combattre les ennemis ou  soigner son pokémon, le joueur va devoir répondre à des questions de culture générale de différents niveaux de difficulté en fonction du nombre de points souhaités.
-                         La partie s'arrête lorsque le joueur a terminé tous les niveaux, que le pokémon n'a plus de vie, ou que le joueur décide de quitter le jeu.
-                         Il s’agit d’un jeu implémenté en ijava, une version simplifiée du Java mais sans la partie développement orienté objet.
+                         Pour combattre les ennemis ou soigner son pokémon, le joueur va devoir répondre à des questions de culture générale de différents niveaux de difficulté en fonction du nombre de points souhaités.
+                         La partie s'arrête lorsque le joueur a terminé tous les niveaux, que le pokémon n'a plus de vie, ou que le joueur décide de quitter le jeu. <br>
+                         Il s’agit d’un jeu implémenté en ijava, une version simplifiée du Java mais sans le concept Objet. <br>
+                          Le projet a été réalisé en binôme sur une durée de deux mois.
                       </p>
                       <div class="project-section">
                         <p>Outils employés :</p>
                         <ul>
-                          <li>iJava: pour un apprentissage du langage Java</li>
-                          <li>GitHub et LiveShare</li>
+                          <li>iJava: pour un apprentissage du langage Java et de l'algorithmique</li>
+                          <li>Git et LiveShare</li>
                         </ul>
 
                         <p>Compétences développées :</p>
                         <ul>
                           <li>Un apprentissage de l'algorithmique et de la logique de programmation</li>
-                          <li>Travailler la mise en forme console dans un programme java</li>
-                          <li>concevoir et conceptualiser des fonction génériques mais pertinentes</li>
+                          <li>Travailler la mise en forme dansun terminal d'un programme java</li>
+                          <li>Concevoir et conceptualiser des fonction génériques mais pertinentes</li>
                           <li>Apprendre à utiliser des plateformes collaboratives de travail tel que GitHub et LiveShare</li>
                         </ul>
                       </div>
@@ -171,13 +189,13 @@
                   </div>
                 </div>
 
-                <div class="flip-card">
+                <div class="flip-card theme-sql">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img src="../ressources/logo.png" alt="Mazel logo" class="mazel_logo-img">
-                      <h2>Gestion d'une Base de Données (SQL)</h2>
-                      <p class="date-range">OCTOBRE 2024 - MAI 2025</p>
-                      <p>Deux projets de gestion de bases de données relationnelles</p>
+                      <h2>Gestion d'une Base de Données des JO</h2>
+                      <p class="date-range">MARS 2025 - MAI 2025</p>
+                      <p>Création et exploitation d'une base de donnée des JO</p>
                       
                       <div class="card-actions">
                           <button class="flip-btn-description">Description</button>
@@ -187,16 +205,17 @@
                     <div class="flip-card-back">
                       <h3>Description du projet:</h3>
 
-                      <p>Le projet avait pour but d’apprendre à gérer une base de donnée.
-                          Il a ainsi permis de travailler le langage SQL, ainsi que ses différentes applications dans des cas concrets de données, la création de tables et la ventilation de celles-ci, et le traitement de données.
-                          Ces deux projets se sont réalisés en binômes. 
+                      <p> Le projet consistait à créer et exploiter une base de données relationnelle à partir des données des Jeux Olympiques, en utilisant le langage SQL.
+                        La base de données comprend plusieurs tables interconnectées, telles que Athlètes, Épreuves, Médailles, Pays, et Éditions des Jeux. Le tout a été modélisé à l'aide de diagrammes UML pour assurer une structure cohérente et efficace. <br>
+                        Le projet a été réalisé en binome sur une durée de trois mois.
                       </p>
 
                       <div class="project-section">
                         <p>Outils employés :</p>
                         <ul>
                           <li>Access et Postgresql</li>
-                          <li>SQL</li>
+                          <li>Création de MCD et de MLD pour rendre la base optimisée</li>
+                          <li>Language SQL</li>
                         </ul>
 
                         <p>Compétences développées :</p>
@@ -204,6 +223,8 @@
                           <li>Création et gestion de bases de données relationnelles</li>
                           <li>Maîtrise du langage SQL pour le traitement et la manipulation de données</li>
                           <li>Conception de requêtes complexes pour extraire des informations pertinentes</li>
+                          <li>Modélisation de données à l'aide de diagrammes UML</li>
+                          <li>Analyse et interprétation de données réelles</li>
                         </ul>
                       </div>
                       
@@ -212,13 +233,13 @@
                   </div>
                 </div>
                 
-                <div class="flip-card">
+                <div class="flip-card theme-ubisoft">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img src="../ressources/ubisoft-location.png" alt="ubisoft-location page" class="ubisoft-location-page-img">
                       <h2>Ubisoft Location</h2>
                       <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
-                      <p>La création de Site Web Vitrine (HTML/CSS)</p>
+                      <p>La création de Site Web d'écomobilité</p>
                       
                       <div class="card-actions">
                           <button class="flip-btn-description">Description</button>
@@ -228,7 +249,7 @@
                     <div class="flip-card-back">
                       <h3>Description du projet:</h3>
 
-                      <p>Ubisoft LOCATION est un site Web vitrine (les utilisateurs allant sur le site ne peuvent pas réellement interagir avec les fonctionnalités du site) <br>
+                      <p>Ubisoft LOCATION est un site Web vitrine. Ainsi, les utilisateurs allant sur le site ne peuvent pas réellement interagir avec e réelles fonctionnalités. <br>
                         Il est basé sur la location de véhicules à mobilité vertes. Il se présente comme un site de la société Ubisoft, proposant à ses employés d’emprunter ou de louer leurs véhicules dans toute la France, aux autres collaborateurs de la marque.
                       </p>
                       
@@ -243,7 +264,7 @@
                         <ul>
                           <li>Création de site web vitrine</li>
                           <li>Apprentissage du HTML et du CSS</li>
-                          <li>Design responsive</li>
+                          <li>Travail sur le design responsive</li>
                           <li>Collaboration en équipe via LiveShare</li>
                         </ul>
                       </div>

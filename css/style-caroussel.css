@@ -14,7 +14,6 @@
     padding-right: 20px;
 }
 
-/* Scrollbar du caroussel horizontal */
 .carousel::-webkit-scrollbar {
     height: 8px;
 }
@@ -26,30 +25,68 @@
     background: var(--space-indigo);
 }
 
-/* --- STYLE DES IMAGES (Face Avant) --- */
-.carousel img {
-    width: 90%;
-    max-width: 280px; 
-    max-height: 160px; /* Ajusté légèrement pour laisser place aux boutons */
-    object-fit: contain;
-    border-radius: 12px;
-    margin: 10px auto 10px auto;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-}
-
-/* --- STRUCTURE DE LA CARTE --- */
+/* --- PALETTE DYNAMIQUE HARMONISÉE --- */
 .flip-card {
+    --card-bg-front: var(--dusty-grape);
+    --card-bg-back: var(--space-indigo);
+    --card-text: var(--parchment);
+    --card-accent: var(--almond-silk);
+    --card-secondary: var(--lilac-ash);
+    
     flex: 0 0 auto;
     width: 30vw;
     min-width: 320px;
     max-width: 420px;
-    height: 580px; /* Hauteur ajustée pour le contenu */
+    height: 580px; 
     perspective: 1000px;
-    /* Suppression du curseur pointer global car le clic ne fait plus rien sur la carte entière */
     cursor: default; 
     scroll-snap-align: center;
     position: relative;
+    font-family: 'Inter', sans-serif; /* Police de base de la carte */
+}
+
+/* Thèmes (inchangés mais rappelés pour la structure) */
+.flip-card.theme-mazel {
+    --card-bg-front: #4b5842; 
+    --card-bg-back: #262b26; 
+    --card-accent: #d4c5a3; 
+    --card-secondary: #8c9c86; 
+}
+.flip-card.theme-golden {
+    --card-bg-front: #3a3a40; 
+    --card-bg-back: #1c1c24; 
+    --card-accent: #c5afa0; 
+    --card-secondary: #7e7e85; 
+}
+.flip-card.theme-pokemon {
+    --card-bg-front: #5c4d63; 
+    --card-bg-back: #2e2230; 
+    --card-accent: #e3ce88; 
+    --card-secondary: #ad9bb5; 
+}
+.flip-card.theme-sql {
+    --card-bg-front: #3e4c5e; 
+    --card-bg-back: #1f252e; 
+    --card-accent: #8fbcd4; 
+    --card-secondary: #7f8c9a; 
+}
+.flip-card.theme-ubisoft {
+    --card-bg-front: #37474f; 
+    --card-bg-back: #1a2226; 
+    --card-accent: #dcb695; 
+    --card-secondary: #90a4ae; 
+}
+
+/* --- IMAGES --- */
+.carousel img {
+    width: 90%;
+    max-width: 280px; 
+    max-height: 160px; 
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 10px auto 10px auto;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .flip-card-inner {
@@ -60,29 +97,26 @@
     transform-style: preserve-3d;
 }
 
-/* IMPORTANT : J'ai supprimé les règles :active, :focus qui retournaient la carte.
-   Seule la classe JavaScript '.flipped' active le retournement maintenant.
-*/
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-/* --- FACES AVANT ET ARRIÈRE (Commun) --- */
+/* --- FACES --- */
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
+    border: 1px solid var(--card-secondary);
     box-sizing: border-box;
 }
 
 /* FACE AVANT */
 .flip-card-front {
-    background: var(--dusty-grape);
-    color: var(--parchment);
+    background: var(--card-bg-front);
+    color: var(--card-text);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -90,192 +124,189 @@
     padding: 24px;
     text-align: center;
     overflow: hidden;
+    background: linear-gradient(160deg, var(--card-bg-front) 0%, rgba(0,0,0,0.2) 100%);
 }
 
 /* FACE ARRIÈRE */
 .flip-card-back {
     transform: rotateY(180deg);
-    background: var(--space-indigo);
-    color: var(--parchment);
+    background: var(--card-bg-back);
+    color: var(--card-text);
     padding: 24px;
     text-align: left;
-    
-    /* Layout Flex pour la face arrière pour bien placer le bouton Retour */
     display: flex;
     flex-direction: column;
-}
-
-/* Wrapper pour le contenu texte de la face arrière afin qu'il scroll sans cacher le bouton */
-.flip-card-back h3, .flip-card-back p, .flip-card-back .project-section {
-    /* Ces éléments défilent naturellement si besoin, mais on préfère scroller le conteneur */
-}
-
-/* On force le contenu à prendre la place disponible, le bouton reste en bas */
-.flip-card-back {
-    overflow-y: hidden; /* On gère le scroll sur un sous-conteneur si besoin, ou on laisse auto global */
-    overflow-y: auto; /* Gardons le scroll global simple pour l'instant */
+    overflow-y: auto; 
     scrollbar-width: thin;
-    scrollbar-color: var(--lilac-ash) var(--space-indigo);
+    scrollbar-color: var(--card-secondary) var(--card-bg-back);
 }
 .flip-card-back::-webkit-scrollbar {
     width: 6px;
 }
 .flip-card-back::-webkit-scrollbar-thumb {
-    background-color: var(--lilac-ash);
+    background-color: var(--card-secondary);
     border-radius: 3px;
 }
 
-/* Styles des titres (Face Avant) */
+/* --- TYPOGRAPHIE DYNAMIQUE (UPDATED FONTS) --- */
+
+/* Titres H2 (Avant) */
 .flip-card-front h2 {
+    font-family: 'Outfit', sans-serif; /* Police Titre */
     margin-top: 5px;
-    font-size: 1.5em;
-    color: var(--almond-silk);
-    border-bottom: 2px solid var(--lilac-ash);
+    font-size: 1.6em; /* Un peu plus grand avec la nouvelle police */
+    color: var(--card-accent); 
+    border-bottom: 2px solid var(--card-secondary);
     padding-bottom: 8px;
     margin-bottom: 8px;
     width: 100%;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.flip-card-front p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
 }
 
 .flip-card-front .date-range {
-    color: var(--lilac-ash);
-    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
+    color: var(--card-secondary); 
+    font-weight: 600;
     margin-bottom: 10px;
-    font-size: 0.95em;
+    font-size: 0.9em;
+    font-style: normal; /* Outfit est joli sans italique */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Styles des titres (Face Arrière) */
+/* Titres H3 (Arrière) */
 .flip-card-back h3 {
-    color: var(--almond-silk);
+    font-family: 'Outfit', sans-serif;
+    color: var(--card-accent);
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.4em;
-    border-bottom: 1px solid var(--lilac-ash);
+    border-bottom: 1px solid var(--card-secondary);
     padding-bottom: 5px;
+    font-weight: 600;
 }
 
-/* --- SECTIONS INTERNES (Back) --- */
+/* --- SECTIONS INTERNES --- */
 .flip-card-back .project-section {
     margin-top: 20px;
     padding: 15px;
-    border: 1px solid var(--dusty-grape);
+    border: 1px solid var(--card-secondary);
     border-radius: 6px;
-    background-color: rgba(74, 78, 105, 0.3);
-    margin-bottom: 20px; /* Espace avant le bouton retour */
+    background-color: rgba(255, 255, 255, 0.03); 
+    margin-bottom: 20px; 
 }
 
 .flip-card-back .project-section p {
+    font-family: 'Outfit', sans-serif;
     font-weight: 600;
-    color: var(--almond-silk);
+    color: var(--card-accent);
     margin-top: 15px;
     margin-bottom: 8px;
-    border-bottom: 1px dashed var(--lilac-ash);
+    border-bottom: 1px dashed var(--card-secondary);
     padding-bottom: 4px;
-    font-size: 1.1em;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 .flip-card-back .project-section p:first-child {
     margin-top: 0;
 }
 
 .flip-card-back ul {
-    color: var(--parchment);
+    color: var(--parchment); 
     margin-left: 20px; 
-    font-size: 0.95em;
+    font-size: 0.95em; /* Texte compact pour les listes */
+    line-height: 1.6;
     list-style: square;
 }
 .flip-card-back ul li {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
-/* --- NOUVEAUX BOUTONS --- */
-
-/* Conteneur pour aligner les boutons en bas de la face avant */
+/* --- BOUTONS DYNAMIQUES (AVEC NOUVELLE POLICE) --- */
 .card-actions {
-    margin-top: auto; /* Pousse les boutons vers le bas */
+    margin-top: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* Bouton Description (déclenche le flip) */
+/* Boutons communs */
+.flip-btn-description, .github-card-btn, .flip-btn-return {
+    font-family: 'Outfit', sans-serif; /* Police titre sur les boutons */
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
 .flip-btn-description {
     width: 100%;
     padding: 12px 0;
     background-color: transparent;
-    color: var(--almond-silk);
-    border: 2px solid var(--lilac-ash);
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1em;
+    color: var(--card-accent);
+    border: 2px solid var(--card-secondary);
     cursor: pointer;
-    transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
-
 .flip-btn-description:hover {
-    background-color: var(--lilac-ash);
-    color: var(--space-indigo);
+    background-color: var(--card-secondary);
+    color: var(--card-bg-back);
+    border-color: var(--card-secondary);
     transform: translateY(-2px);
 }
 
-/* Bouton GitHub (Style existant ajusté) */
 .github-card-btn {
     display: block;
     width: 100%;
     padding: 12px 0;
-    background-color: var(--lilac-ash);
-    color: var(--space-indigo);
+    background-color: var(--card-secondary); 
+    color: var(--card-bg-back); 
     text-align: center;
     text-decoration: none;
-    font-weight: 700;
-    border-radius: 8px;
-    border: 1px solid var(--parchment);
-    transition: all 0.3s ease;
+    border: 1px solid transparent;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    font-size: 1em;
 }
-
 .github-card-btn:hover {
-    background-color: var(--parchment);
-    color: var(--space-indigo);
+    background-color: var(--card-accent);
+    color: var(--card-bg-back);
     transform: translateY(-2px);
 }
 
-/* Bouton Retour (Face Arrière) */
 .flip-btn-return {
     display: block;
     width: 100%;
-    margin-top: auto; /* S'assure qu'il est en bas si Flexbox est actif */
+    margin-top: auto; 
     padding: 12px 0;
-    background-color: var(--dusty-grape);
-    color: var(--parchment);
-    border: 1px solid var(--lilac-ash);
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1em;
+    background-color: var(--card-secondary);
+    color: var(--card-bg-back);
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-bottom: 0;
 }
-
 .flip-btn-return:hover {
-    background-color: var(--almond-silk);
-    color: var(--space-indigo);
+    background-color: var(--card-accent);
+    color: var(--card-bg-back);
 }
 
-
-/* --- INDICATEUR VISUEL (Optionnel mais gardé pour le style) --- */
-/* J'ai changé le contenu pour 'Info' au lieu de 'Au dos' puisque c'est un bouton maintenant */
+/* Indicateur 'i' */
 .flip-card-front::after {
     content: 'i'; 
     position: absolute;
     top: 12px;         
     right: 12px;       
     z-index: 10;       
-    background-color: rgba(34, 34, 59, 0.8);
-    color: var(--almond-silk);
-    border: 1px solid var(--lilac-ash);
+    background-color: rgba(34, 34, 59, 0.6); 
+    color: var(--card-accent);
+    border: 1px solid var(--card-secondary);
     width: 25px;
     height: 25px;
     display: flex;
@@ -284,33 +315,25 @@
     border-radius: 50%;
     font-size: 0.9em;
     font-weight: bold;
-    font-family: serif;
+    font-family: 'Times New Roman', serif; /* On garde le serif pour le 'i' classique */
     pointer-events: none; 
 }
-
-/* On cache l'indicateur quand la carte est retournée */
 .flip-card.flipped .flip-card-front::after {
     opacity: 0;
-    transition: opacity 0.2s;
 }
 
 /* --- MEDIA QUERIES --- */
-
 @media (min-width: 1400px) {
     .flip-card {
         height: 620px; 
         width: 400px;
     }
 }
-
 @media (max-width: 1200px) {
-    .flip-card-front h2 { font-size: 1.4em; }
+    .flip-card-front h2 { font-size: 1.5em; }
     .flip-card-back { padding: 18px; }
 }
-
-/* --- VERSION MOBILE --- */
 @media (max-width: 850px) {
-
     .carousel {
         flex-direction: column;
         overflow-x: hidden;
@@ -318,29 +341,22 @@
         height: auto;
         padding-bottom: 0;
         scroll-snap-type: none;
-        gap: 40px; /* Plus d'espace entre les cartes */
+        gap: 40px; 
         align-items: center;
     }
-
     .flip-card {
         flex: 0 0 auto;
         width: 90vw;
         max-width: 400px;
-        height: auto; /* Hauteur auto pour s'adapter au contenu si besoin */
+        height: auto; 
         min-height: 580px; 
         margin-bottom: 20px;
     }
-
-    .flip-card-front h2 { font-size: 1.4em; }
-
+    .flip-card-front h2 { font-size: 1.5em; }
     .carousel img {
         max-width: 200px;
         max-height: 150px;
         margin-bottom: 10px;
     }
-    
-    /* Sur mobile, on s'assure que les boutons sont bien larges */
-    .card-actions {
-        width: 100%;
-    }
+    .card-actions { width: 100%; }
 }

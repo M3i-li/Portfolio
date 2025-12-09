@@ -1,13 +1,16 @@
-/* --- header.css --- */
+/* --- header.css : MENU MOBILE CASCADE --- */
 
 /* --- Navigation & Header --- */
 .minimal-header {
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(34, 34, 59, 0.7); /* Transparence augmentée */
+    backdrop-filter: blur(15px); /* Flou plus fort (Glassmorphism) */
+    -webkit-backdrop-filter: blur(15px); 
+    border-bottom: 1px solid rgba(154, 140, 152, 0.15); 
     padding: 15px 0;
     position: sticky;
     top: 0px;
-    z-index: 1000; /* Z-index élevé pour passer au-dessus de tout */
+    z-index: 1000; 
+    transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 .minimal-navbar {
@@ -19,128 +22,161 @@
     position: relative;
 }
 
-/* Conteneur des liens (pour gérer l'affichage Desktop/Mobile) */
 .minimal-navbar .nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Liens Desktop */
 .minimal-navbar a {
     text-decoration: none;
-    color: var(--primary-color);
-    padding: 10px 15px;
-    margin: 0 5px;
-    transition: color 0.3s, border-bottom 0.3s;
+    font-family: 'Outfit', sans-serif; 
+    color: var(--parchment); 
+    padding: 8px 16px;
+    margin: 0 4px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-weight: 500;
+    font-size: 1rem;
     position: relative;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    opacity: 0.9;
 }
 
 .minimal-navbar a:hover {
-    color: var(--accent-color);
-    transform: scale(1.1);
+    color: var(--almond-silk); 
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.08); 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .minimal-navbar a.active-page {
-    border-bottom: 3px solid var(--accent-color);
-    color: var(--accent-color);
+    color: var(--almond-silk);
+    opacity: 1;
+    background-color: rgba(74, 78, 105, 0.4); 
+    border: 1px solid rgba(154, 140, 152, 0.2);
 }
 
-/* --- STYLE DU BURGER (Caché sur Desktop) --- */
+/* --- STYLE DU BURGER --- */
 .burger {
-    display: none; /* Caché par défaut */
+    display: none; 
     cursor: pointer;
+    z-index: 1002; /* Au dessus du menu */
 }
 
 .burger span {
     display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 5px;
-    transition: all 0.3s ease;
+    width: 26px;
+    height: 2px; /* Lignes plus fines */
+    background-color: var(--parchment);
+    margin: 6px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animation rebond */
     border-radius: 2px;
 }
 
 /* --- MEDIA QUERY MOBILE (Tablettes et Mobiles) --- */
 @media (max-width: 850px) {
 
-    /* 1. Afficher le Burger */
     .burger {
         display: block;
         position: absolute;
-        right: 20px; /* Placé à droite */
+        right: 20px;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1001; /* Au-dessus du menu déroulant */
     }
 
-    /* 2. Cacher et styliser le menu des liens */
+    /* Conteneur Menu Mobile */
     .minimal-navbar .nav-links {
         position: fixed;
         right: 0px;
         top: 0px;
         height: 100vh;
-        width: 100%; /* Plein écran ou partiel (ex: 70%) */
-        background-color: var(--space-indigo); /* Fond opaque couleur thème */
+        width: 100%; 
+        
+        /* Fond Sombre Profond + Blur */
+        background: rgba(34, 34, 59, 0.98); 
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transform: translateX(100%); /* Caché à droite de l'écran */
-        transition: transform 0.4s ease-in-out;
+        
+        /* Animation d'entrée du panneau */
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         z-index: 1000;
-
-        /* Effet "Glassmorphism" optionnel pour le menu mobile */
-        backdrop-filter: blur(10px);
-        background: rgba(34, 34, 59, 0.95); /* Opacité légère */
         
-        /* AJOUTS POUR LE SCROLL MOBILE : */
-        overflow-y: auto; /* Active le scroll si le menu est trop long */
-        max-height: 100vh;
-        padding-bottom: 50px; /* Espace en bas pour ne pas couper le dernier lien */
-        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
-        
+        overflow-y: auto;
+        padding-bottom: 50px;
     }
 
-    /* 3. Style des liens dans le menu mobile */
+    /* Liens Mobile (Etat initial) */
     .minimal-navbar a {
-        opacity: 0; /* Caché pour l'animation */
-        margin: 20px 0;
-        font-size: 1.5em; /* Texte plus gros */
+        opacity: 0; /* Cachés au départ */
+        transform: translateY(20px); /* Décalés vers le bas */
+        margin: 15px 0;
+        font-size: 1.8em; 
+        font-weight: 700; 
         width: auto;
-        border-bottom: none; /* Pas de soulignement par défaut */
+        background: transparent; 
+        border: none;
+        transition: none; /* On gère l'anim via keyframes ou delay */
     }
 
     .minimal-navbar a.active-page {
-        border-bottom: none;
-        color: var(--almond-silk); /* Couleur différente pour l'actif */
-        font-weight: 700;
+        color: var(--almond-silk);
+        background: transparent;
+        border: none;
+        text-shadow: 0 0 20px rgba(201, 173, 167, 0.5);
     }
 
-    /* 4. Classe active (ajoutée par JS) pour ouvrir le menu */
+    /* CLASSE ACTIVE (Menu Ouvert) */
     .nav-active .nav-links {
-        transform: translateX(0%); /* Ramène le menu visible */
+        transform: translateX(0%);
     }
 
-    /* Animation d'apparition des liens */
+    /* ANIMATION EN CASCADE (Stagger Effect) */
+    /* Quand le menu est ouvert, les liens remontent et apparaissent un par un */
     .nav-active a {
-        opacity: 1;
-        transition: opacity 0.5s ease 0.2s; /* Délai pour l'effet */
+        animation: slideUpFade 0.5s ease forwards;
     }
 
-    /* 5. Animation du Burger en Croix (X) */
+    /* Délais pour chaque lien (jusqu'à 6 liens) */
+    .nav-active a:nth-child(1) { animation-delay: 0.1s; }
+    .nav-active a:nth-child(2) { animation-delay: 0.2s; }
+    .nav-active a:nth-child(3) { animation-delay: 0.3s; }
+    .nav-active a:nth-child(4) { animation-delay: 0.4s; }
+    .nav-active a:nth-child(5) { animation-delay: 0.5s; }
+    .nav-active a:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes slideUpFade {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Animation Burger en Croix */
     .toggle .burger span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-        background-color: var(--accent-color);
+        transform: rotate(45deg) translate(5px, 6px);
+        background-color: var(--almond-silk);
     }
 
     .toggle .burger span:nth-child(2) {
-        opacity: 0; /* La barre du milieu disparait */
+        opacity: 0;
+        transform: translateX(-20px); /* Disparait vers la gauche */
     }
 
     .toggle .burger span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-        background-color: var(--accent-color);
+        transform: rotate(-45deg) translate(5px, -6px);
+        background-color: var(--almond-silk);
     }
 }
