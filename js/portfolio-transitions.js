@@ -1,6 +1,6 @@
 /**
- * portfolio-transitions.js - VERSION FINALE RESPONSIVE
- * Gère : Préchargeur, Transitions, Menu Mobile, et Cartes Tactiles
+ * portfolio-transitions.js - VERSION FINALE AVEC BOUTONS
+ * Gère : Préchargeur, Transitions, Menu Mobile, et Cartes (Flip via bouton)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let elementDelay = 0.1;
         contentElements.forEach(element => {
-            // Délais différents selon le type d'élément pour un effet "cascade"
             if (element.matches('.tag-list li, .tool-list li, .flip-card')) {
                  elementDelay += 0.05; 
             } 
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             element.style.transitionDelay = `${elementDelay}s`;
         });
 
-        // Nettoyage des délais après l'animation pour ne pas gêner le hover CSS
         setTimeout(() => {
             contentElements.forEach(element => {
                 element.style.transitionDelay = ''; 
@@ -38,12 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, ANIMATION_DURATION_BUFFER);
     }
 
-    // --- 3. GESTION DU PRÉCHARGEUR (Logic) ---
+    // --- 3. GESTION DU PRÉCHARGEUR ---
     const pathname = window.location.pathname;
     const isHomePage = pathname.endsWith('/index.html') || pathname === '/' || preloader !== null;
 
     if (isHomePage && preloader) {
-        // Si c'est l'accueil et qu'on l'a déjà vu (SessionStorage)
         if (sessionStorage.getItem('page-loaded')) {
             preloader.style.opacity = '0';
             preloader.style.pointerEvents = 'none';
@@ -52,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 animatePageElements(); 
             }, 50); 
         } else {
-            // Première visite
             window.onload = function() {
                 sessionStorage.setItem('page-loaded', 'true');
                 setTimeout(function() {
@@ -62,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
     } else {
-        // Autres pages (pas de preloader, animation directe)
         if (document.readyState === 'complete') {
             animatePageElements();
         } else {
@@ -73,15 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 4. GESTION DU MENU MOBILE (BURGER) ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.minimal-navbar');
-    const navLinks = document.querySelector('.nav-links'); // Ciblage direct
 
     if (burger && nav) {
         burger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Empêche le clic de se propager
+            e.stopPropagation(); 
             nav.classList.toggle('nav-active');
             nav.classList.toggle('toggle');
             
-            // Empêche le scroll du site quand le menu est ouvert
             if (nav.classList.contains('nav-active')) {
                 document.body.style.overflow = 'hidden';
             } else {
@@ -89,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Fermer le menu si on clique ailleurs sur l'écran
         document.addEventListener('click', (e) => {
             if (nav.classList.contains('nav-active') && !nav.contains(e.target) && !burger.contains(e.target)) {
                  nav.classList.remove('nav-active');
@@ -99,33 +91,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. GESTION DES FLIP CARDS (TACTILE MOBILE) ---
-    // Permet de retourner les cartes au clic sur mobile/tablette
-    const flipCards = document.querySelectorAll('.flip-card');
-    flipCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Enlève la classe .flipped de toutes les autres cartes (optionnel, pour n'en avoir qu'une ouverte à la fois)
-            // flipCards.forEach(c => { if(c !== card) c.classList.remove('flipped'); });
+    // --- 5. GESTION DES FLIP CARDS (VIA BOUTONS UNIQUEMENT) ---
+    
+    // Boutons "Description" (Pour retourner la carte)
+    const descButtons = document.querySelectorAll('.flip-btn-description');
+    descButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault(); // Empêche le comportement par défaut si c'était un lien
+            e.stopPropagation(); // Empêche la propagation
             
-            this.classList.toggle('flipped');
+            // Trouve la carte parente
+            const card = btn.closest('.flip-card');
+            if (card) {
+                card.classList.add('flipped');
+            }
         });
     });
 
-    // --- 6. TRANSITION DE SORTIE (LIENS INTERNES) ---
+    // Boutons "Retour" (Pour revenir à la face avant)
+    const returnButtons = document.querySelectorAll('.flip-btn-return');
+    returnButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const card = btn.closest('.flip-card');
+            if (card) {
+                card.classList.remove('flipped');
+            }
+        });
+    });
+
+    // --- 6. TRANSITION DE SORTIE ---
     document.querySelectorAll('a').forEach(link => {
-        // Vérifie si c'est un lien interne et pas un target_blank
         if (link.hostname === window.location.hostname && !link.getAttribute('href').startsWith('#') && link.target !== '_blank') {
             link.addEventListener('click', function(e) {
                 const targetUrl = link.href;
                 const currentUrl = window.location.href;
 
-                // Ignore si c'est la même page ou un lien mailto/tel
                 if (targetUrl === currentUrl || targetUrl.split('#')[0] === currentUrl.split('#')[0]) return;
                 if (targetUrl.startsWith('mailto:') || targetUrl.startsWith('tel:')) return;
 
                 e.preventDefault();
                 
-                // Si le menu mobile est ouvert, on le ferme d'abord proprement
                 if (nav && nav.classList.contains('nav-active')) {
                     document.body.style.overflow = '';
                 }

@@ -10,7 +10,7 @@
     min-height: 340px;
     box-sizing: border-box;
     padding-bottom: 32px;
-    padding-left: 20px; /* Petit espace à gauche pour le premier item */
+    padding-left: 20px;
     padding-right: 20px;
 }
 
@@ -29,31 +29,27 @@
 /* --- STYLE DES IMAGES (Face Avant) --- */
 .carousel img {
     width: 90%;
-    /* CORRECTION : Taille contrôlée pour ne pas casser la hauteur */
     max-width: 280px; 
-    max-height: 180px; /* Empêche l'image de prendre toute la hauteur */
-    object-fit: contain; /* L'image ne sera pas déformée */
-    
+    max-height: 160px; /* Ajusté légèrement pour laisser place aux boutons */
+    object-fit: contain;
     border-radius: 12px;
-    margin: 10px auto 16px auto;
+    margin: 10px auto 10px auto;
     display: block;
     box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 /* --- STRUCTURE DE LA CARTE --- */
 .flip-card {
-    /* CORRECTION : Largeur flexible mais Bornée */
-    flex: 0 0 auto; /* Ne pas écraser la largeur */
-    width: 30vw;    /* Base relative */
-    min-width: 320px; /* Jamais plus petit que ça */
-    max-width: 420px; /* Jamais plus grand que ça */
-    
-    height: 550px; /* Hauteur fixe standardisée */
-    
+    flex: 0 0 auto;
+    width: 30vw;
+    min-width: 320px;
+    max-width: 420px;
+    height: 580px; /* Hauteur ajustée pour le contenu */
     perspective: 1000px;
-    cursor: pointer;
+    /* Suppression du curseur pointer global car le clic ne fait plus rien sur la carte entière */
+    cursor: default; 
     scroll-snap-align: center;
-    position: relative; /* Sécurité */
+    position: relative;
 }
 
 .flip-card-inner {
@@ -64,8 +60,9 @@
     transform-style: preserve-3d;
 }
 
-.flip-card:active .flip-card-inner,
-.flip-card:focus .flip-card-inner,
+/* IMPORTANT : J'ai supprimé les règles :active, :focus qui retournaient la carte.
+   Seule la classe JavaScript '.flipped' active le retournement maintenant.
+*/
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
@@ -79,7 +76,7 @@
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     border: 1px solid var(--border-color);
-    box-sizing: border-box; /* Important pour que le padding ne dépasse pas */
+    box-sizing: border-box;
 }
 
 /* FACE AVANT */
@@ -88,11 +85,11 @@
     color: var(--parchment);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Aligne le contenu en haut */
-    align-items: center; /* Centre horizontalement */
+    justify-content: flex-start;
+    align-items: center;
     padding: 24px;
     text-align: center;
-    overflow: hidden; /* Cache ce qui dépasse si jamais */
+    overflow: hidden;
 }
 
 /* FACE ARRIÈRE */
@@ -103,13 +100,23 @@
     padding: 24px;
     text-align: left;
     
-    /* CORRECTION : Scroll interne pour le texte trop long */
-    overflow-y: auto; 
-    scrollbar-width: thin; /* Pour Firefox */
-    scrollbar-color: var(--lilac-ash) var(--space-indigo);
+    /* Layout Flex pour la face arrière pour bien placer le bouton Retour */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Scrollbar interne de la carte (Webkit) */
+/* Wrapper pour le contenu texte de la face arrière afin qu'il scroll sans cacher le bouton */
+.flip-card-back h3, .flip-card-back p, .flip-card-back .project-section {
+    /* Ces éléments défilent naturellement si besoin, mais on préfère scroller le conteneur */
+}
+
+/* On force le contenu à prendre la place disponible, le bouton reste en bas */
+.flip-card-back {
+    overflow-y: hidden; /* On gère le scroll sur un sous-conteneur si besoin, ou on laisse auto global */
+    overflow-y: auto; /* Gardons le scroll global simple pour l'instant */
+    scrollbar-width: thin;
+    scrollbar-color: var(--lilac-ash) var(--space-indigo);
+}
 .flip-card-back::-webkit-scrollbar {
     width: 6px;
 }
@@ -120,21 +127,20 @@
 
 /* Styles des titres (Face Avant) */
 .flip-card-front h2 {
-    margin-top: 10px;
-    font-size: 1.6em;
+    margin-top: 5px;
+    font-size: 1.5em;
     color: var(--almond-silk);
     border-bottom: 2px solid var(--lilac-ash);
     padding-bottom: 8px;
     margin-bottom: 8px;
-    width: 100%; /* Ligne prend toute la largeur */
+    width: 100%;
 }
 
-/* Styles des dates (Face Avant) */
 .flip-card-front .date-range {
     color: var(--lilac-ash);
     font-weight: 500;
-    margin-bottom: 15px;
-    font-size: 1em;
+    margin-bottom: 10px;
+    font-size: 0.95em;
 }
 
 /* Styles des titres (Face Arrière) */
@@ -153,7 +159,8 @@
     padding: 15px;
     border: 1px solid var(--dusty-grape);
     border-radius: 6px;
-    background-color: rgba(74, 78, 105, 0.3); /* Fond légèrement transparent */
+    background-color: rgba(74, 78, 105, 0.3);
+    margin-bottom: 20px; /* Espace avant le bouton retour */
 }
 
 .flip-card-back .project-section p {
@@ -179,11 +186,43 @@
     margin-bottom: 4px;
 }
 
-/* BOUTON GITHUB */
+/* --- NOUVEAUX BOUTONS --- */
+
+/* Conteneur pour aligner les boutons en bas de la face avant */
+.card-actions {
+    margin-top: auto; /* Pousse les boutons vers le bas */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Bouton Description (déclenche le flip) */
+.flip-btn-description {
+    width: 100%;
+    padding: 12px 0;
+    background-color: transparent;
+    color: var(--almond-silk);
+    border: 2px solid var(--lilac-ash);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.flip-btn-description:hover {
+    background-color: var(--lilac-ash);
+    color: var(--space-indigo);
+    transform: translateY(-2px);
+}
+
+/* Bouton GitHub (Style existant ajusté) */
 .github-card-btn {
     display: block;
     width: 100%;
-    margin-top: auto; /* Pousse le bouton vers le bas si flex space */
     padding: 12px 0;
     background-color: var(--lilac-ash);
     color: var(--space-indigo);
@@ -194,37 +233,59 @@
     border: 1px solid var(--parchment);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-size: 1em;
 }
 
 .github-card-btn:hover {
     background-color: var(--parchment);
     color: var(--space-indigo);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-/* --- INDICATEUR DE RETOURNEMENT (Global) --- */
-/* Positionné en haut à droite pour ne jamais gêner le bouton du bas */
+/* Bouton Retour (Face Arrière) */
+.flip-btn-return {
+    display: block;
+    width: 100%;
+    margin-top: auto; /* S'assure qu'il est en bas si Flexbox est actif */
+    padding: 12px 0;
+    background-color: var(--dusty-grape);
+    color: var(--parchment);
+    border: 1px solid var(--lilac-ash);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+}
+
+.flip-btn-return:hover {
+    background-color: var(--almond-silk);
+    color: var(--space-indigo);
+}
+
+
+/* --- INDICATEUR VISUEL (Optionnel mais gardé pour le style) --- */
+/* J'ai changé le contenu pour 'Info' au lieu de 'Au dos' puisque c'est un bouton maintenant */
 .flip-card-front::after {
-    content: '↻ Au dos'; /* Texte court avec icône */
+    content: 'i'; 
     position: absolute;
     top: 12px;         
     right: 12px;       
     z-index: 10;       
-    
-    /* Design type "Badge" */
-    background-color: rgba(34, 34, 59, 0.8); /* Fond sombre semi-transparent */
+    background-color: rgba(34, 34, 59, 0.8);
     color: var(--almond-silk);
     border: 1px solid var(--lilac-ash);
-    padding: 6px 12px;
-    border-radius: 20px;
-    
-    font-size: 0.8em;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    pointer-events: none; /* Permet de cliquer "au travers" si besoin */
-    
-    /* Animation douce pour attirer l'œil */
-    animation: floatingBadge 3s ease-in-out infinite;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: serif;
+    pointer-events: none; 
 }
 
 /* On cache l'indicateur quand la carte est retournée */
@@ -233,23 +294,15 @@
     transition: opacity 0.2s;
 }
 
-/* Animation de l'indicateur */
-@keyframes floatingBadge {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-}
-
 /* --- MEDIA QUERIES --- */
 
-/* Très grands écrans */
 @media (min-width: 1400px) {
     .flip-card {
-        height: 600px; /* Un peu plus grand verticalement */
+        height: 620px; 
         width: 400px;
     }
 }
 
-/* Écrans moyens (Laptops standards) */
 @media (max-width: 1200px) {
     .flip-card-front h2 { font-size: 1.4em; }
     .flip-card-back { padding: 18px; }
@@ -259,33 +312,35 @@
 @media (max-width: 850px) {
 
     .carousel {
-        /* Passage en mode vertical */
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: visible;
         height: auto;
         padding-bottom: 0;
         scroll-snap-type: none;
-        gap: 30px;
+        gap: 40px; /* Plus d'espace entre les cartes */
         align-items: center;
     }
 
     .flip-card {
-        /* CORRECTION : Taille adaptée au mobile */
         flex: 0 0 auto;
-        width: 90vw; /* Prend presque toute la largeur */
-        max-width: 400px; /* Mais pas géant sur tablette */
-        height: 580px; /* Assez haut pour lire sans trop scroller */
+        width: 90vw;
+        max-width: 400px;
+        height: auto; /* Hauteur auto pour s'adapter au contenu si besoin */
+        min-height: 580px; 
         margin-bottom: 20px;
     }
 
     .flip-card-front h2 { font-size: 1.4em; }
 
-    /* Ajustement de l'image */
     .carousel img {
         max-width: 200px;
         max-height: 150px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
-
+    
+    /* Sur mobile, on s'assure que les boutons sont bien larges */
+    .card-actions {
+        width: 100%;
+    }
 }
