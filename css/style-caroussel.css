@@ -19,7 +19,7 @@
 }
 .carousel::-webkit-scrollbar-thumb {
     background: var(--lilac-ash);
-    border-radius: 10px;
+    border-radius: 2px;
 }
 .carousel::-webkit-scrollbar-track {
     background: var(--space-indigo);
@@ -42,10 +42,10 @@
     cursor: default; 
     scroll-snap-align: center;
     position: relative;
-    font-family: 'Inter', sans-serif; /* Police de base de la carte */
+    font-family: 'Inter', sans-serif; 
 }
 
-/* Thèmes (inchangés mais rappelés pour la structure) */
+/* Thèmes */
 .flip-card.theme-mazel {
     --card-bg-front: #4b5842; 
     --card-bg-back: #262b26; 
@@ -77,14 +77,14 @@
     --card-secondary: #90a4ae; 
 }
 
-/* --- IMAGES --- */
+/* --- IMAGES (Version PC) --- */
 .carousel img {
-    width: 90%;
+    width: 100%; /* Prend toute la largeur dispo */
     max-width: 280px; 
-    max-height: 160px; 
+    height: 160px; /* Hauteur fixe pour uniformité */
     object-fit: contain;
-    border-radius: 12px;
-    margin: 10px auto 10px auto;
+    border-radius: 8px;
+    margin: 0 auto 15px auto;
     display: block;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
@@ -119,7 +119,8 @@
     color: var(--card-text);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    /* CHANGE ICI : Space-between répartit les éléments (Haut - Milieu - Bas) */
+    justify-content: space-between; 
     align-items: center;
     padding: 24px;
     text-align: center;
@@ -148,40 +149,47 @@
     border-radius: 3px;
 }
 
-/* --- TYPOGRAPHIE DYNAMIQUE (UPDATED FONTS) --- */
-
-/* Titres H2 (Avant) */
+/* --- TYPOGRAPHIE --- */
 .flip-card-front h2 {
-    font-family: 'Outfit', sans-serif; /* Police Titre */
-    margin-top: 5px;
-    font-size: 1.6em; /* Un peu plus grand avec la nouvelle police */
+    font-family: 'Outfit', sans-serif;
+    margin-top: 0;
+    font-size: 1.6em;
     color: var(--card-accent); 
     border-bottom: 2px solid var(--card-secondary);
-    padding-bottom: 8px;
-    margin-bottom: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
     width: 100%;
     letter-spacing: 0.5px;
     font-weight: 700;
 }
 
+/* Description courte (Front) : Prend l'espace disponible */
 .flip-card-front p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     line-height: 1.5;
     font-weight: 400;
+    /* Astuce Flexbox : Ce paragraphe grandit pour occuper le vide */
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; /* Centre le texte verticalement dans son espace */
+    justify-content: center;
+    margin: 10px 0;
 }
 
 .flip-card-front .date-range {
     font-family: 'Outfit', sans-serif;
     color: var(--card-secondary); 
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     font-size: 0.9em;
-    font-style: normal; /* Outfit est joli sans italique */
     text-transform: uppercase;
     letter-spacing: 1px;
+    /* On empêche la date de grandir comme le paragraphe */
+    flex-grow: 0 !important; 
+    display: block;
 }
 
-/* Titres H3 (Arrière) */
+/* Face arrière Typography */
 .flip-card-back h3 {
     font-family: 'Outfit', sans-serif;
     color: var(--card-accent);
@@ -192,8 +200,6 @@
     padding-bottom: 5px;
     font-weight: 600;
 }
-
-/* --- SECTIONS INTERNES --- */
 .flip-card-back .project-section {
     margin-top: 20px;
     padding: 15px;
@@ -202,7 +208,6 @@
     background-color: rgba(255, 255, 255, 0.03); 
     margin-bottom: 20px; 
 }
-
 .flip-card-back .project-section p {
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
@@ -217,11 +222,10 @@
 .flip-card-back .project-section p:first-child {
     margin-top: 0;
 }
-
 .flip-card-back ul {
     color: var(--parchment); 
     margin-left: 20px; 
-    font-size: 0.95em; /* Texte compact pour les listes */
+    font-size: 0.95em; 
     line-height: 1.6;
     list-style: square;
 }
@@ -229,28 +233,26 @@
     margin-bottom: 6px;
 }
 
-/* --- BOUTONS DYNAMIQUES (AVEC NOUVELLE POLICE) --- */
+/* --- BOUTONS --- */
 .card-actions {
-    margin-top: auto;
+    margin-top: 0; /* Plus besoin de margin-top: auto car space-between gère l'écart */
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px; /* Un peu plus d'espace entre les boutons pour remplir */
+    padding-top: 10px;
 }
-
-/* Boutons communs */
 .flip-btn-description, .github-card-btn, .flip-btn-return {
-    font-family: 'Outfit', sans-serif; /* Police titre sur les boutons */
+    font-family: 'Outfit', sans-serif;
     font-size: 0.95em;
     font-weight: 600;
     letter-spacing: 1px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
-
 .flip-btn-description {
     width: 100%;
-    padding: 12px 0;
+    padding: 14px 0; /* Boutons plus épais pour remplir */
     background-color: transparent;
     color: var(--card-accent);
     border: 2px solid var(--card-secondary);
@@ -263,11 +265,10 @@
     border-color: var(--card-secondary);
     transform: translateY(-2px);
 }
-
 .github-card-btn {
     display: block;
     width: 100%;
-    padding: 12px 0;
+    padding: 14px 0;
     background-color: var(--card-secondary); 
     color: var(--card-bg-back); 
     text-align: center;
@@ -280,7 +281,6 @@
     color: var(--card-bg-back);
     transform: translateY(-2px);
 }
-
 .flip-btn-return {
     display: block;
     width: 100%;
@@ -315,7 +315,7 @@
     border-radius: 50%;
     font-size: 0.9em;
     font-weight: bold;
-    font-family: 'Times New Roman', serif; /* On garde le serif pour le 'i' classique */
+    font-family: 'Times New Roman', serif;
     pointer-events: none; 
 }
 .flip-card.flipped .flip-card-front::after {
@@ -333,30 +333,72 @@
     .flip-card-front h2 { font-size: 1.5em; }
     .flip-card-back { padding: 18px; }
 }
+
+/* --- VERSION MOBILE OPTIMISÉE (REMPLISSAGE) --- */
 @media (max-width: 850px) {
     .carousel {
         flex-direction: column;
         overflow-x: hidden;
         overflow-y: visible;
         height: auto;
-        padding-bottom: 0;
+        padding-bottom: 30px;
         scroll-snap-type: none;
         gap: 40px; 
         align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
     }
+
     .flip-card {
         flex: 0 0 auto;
-        width: 90vw;
+        min-width: 0; 
+        width: 95%; 
         max-width: 400px;
-        height: auto; 
-        min-height: 580px; 
+        /* On réduit un peu la hauteur totale pour qu'elle soit plus dense */
+        height: 540px; 
+        min-height: 540px;
         margin-bottom: 20px;
     }
-    .flip-card-front h2 { font-size: 1.5em; }
-    .carousel img {
-        max-width: 200px;
-        max-height: 150px;
-        margin-bottom: 10px;
+
+    .flip-card-front, .flip-card-back {
+        padding: 20px; /* Padding confortable */
     }
-    .card-actions { width: 100%; }
+
+    /* 1. IMAGE PLUS GRANDE SUR MOBILE */
+    .carousel img {
+        width: 100%;
+        max-width: 240px; /* On autorise l'image à être plus large */
+        max-height: 150px; /* Hauteur généreuse */
+        object-fit: contain;
+        margin-bottom: 5px;
+    }
+
+    /* 2. TEXTE BIEN DISTRIBUÉ */
+    .flip-card-front h2 { 
+        font-size: 1.6em; 
+        margin-bottom: 5px;
+        border-bottom-width: 1px;
+    }
+    
+    .flip-card-front .date-range {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    /* Le paragraphe va s'étirer pour combler le vide */
+    .flip-card-front p {
+        font-size: 1.1em; /* Texte un peu plus gros pour remplir */
+        flex-grow: 1; /* C'est lui qui mange l'espace vide */
+        margin: 5px 0;
+    }
+
+    /* 3. BOUTONS SOLIDES */
+    .card-actions { 
+        gap: 10px; 
+    }
+    
+    .flip-btn-description, .github-card-btn {
+        padding: 12px 0; 
+        font-size: 1em; /* Texte bouton lisible */
+    }
 }
