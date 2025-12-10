@@ -7,7 +7,6 @@ ul {
 
 
 /* --- Tag Listes (Compétences/Intérêts) --- */
-/* Modern tag list style */
 .tag-list {
     display: flex;
     flex-wrap: wrap;

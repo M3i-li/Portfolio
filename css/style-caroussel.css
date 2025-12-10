@@ -1,3 +1,4 @@
+/* --- CONTENEUR CARROUSSEL RESPONSIVE --- */
 /* Responsive carousel container */
 .carousel {
     display: flex;
@@ -79,9 +80,9 @@
 
 /* --- IMAGES (Version PC) --- */
 .carousel img {
-    width: 100%; /* Prend toute la largeur dispo */
+    width: 100%; 
     max-width: 280px; 
-    height: 160px; /* Hauteur fixe pour uniformité */
+    height: 160px;
     object-fit: contain;
     border-radius: 8px;
     margin: 0 auto 15px auto;
@@ -119,7 +120,6 @@
     color: var(--card-text);
     display: flex;
     flex-direction: column;
-    /* CHANGE ICI : Space-between répartit les éléments (Haut - Milieu - Bas) */
     justify-content: space-between; 
     align-items: center;
     padding: 24px;
@@ -163,15 +163,13 @@
     font-weight: 700;
 }
 
-/* Description courte (Front) : Prend l'espace disponible */
 .flip-card-front p {
     font-size: 1.05rem;
     line-height: 1.5;
     font-weight: 400;
-    /* Astuce Flexbox : Ce paragraphe grandit pour occuper le vide */
     flex-grow: 1; 
     display: flex;
-    align-items: center; /* Centre le texte verticalement dans son espace */
+    align-items: center;
     justify-content: center;
     margin: 10px 0;
 }
@@ -184,12 +182,10 @@
     font-size: 0.9em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    /* On empêche la date de grandir comme le paragraphe */
     flex-grow: 0 !important; 
     display: block;
 }
 
-/* Face arrière Typography */
 .flip-card-back h3 {
     font-family: 'Outfit', sans-serif;
     color: var(--card-accent);
@@ -235,11 +231,11 @@
 
 /* --- BOUTONS --- */
 .card-actions {
-    margin-top: 0; /* Plus besoin de margin-top: auto car space-between gère l'écart */
+    margin-top: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Un peu plus d'espace entre les boutons pour remplir */
+    gap: 12px;
     padding-top: 10px;
 }
 .flip-btn-description, .github-card-btn, .flip-btn-return {
@@ -252,7 +248,7 @@
 }
 .flip-btn-description {
     width: 100%;
-    padding: 14px 0; /* Boutons plus épais pour remplir */
+    padding: 14px 0;
     background-color: transparent;
     color: var(--card-accent);
     border: 2px solid var(--card-secondary);
@@ -334,7 +330,7 @@
     .flip-card-back { padding: 18px; }
 }
 
-/* --- VERSION MOBILE OPTIMISÉE (REMPLISSAGE) --- */
+/* --- VERSION MOBILE --- */
 @media (max-width: 850px) {
     .carousel {
         flex-direction: column;
@@ -354,21 +350,19 @@
         min-width: 0; 
         width: 95%; 
         max-width: 400px;
-        /* On réduit un peu la hauteur totale pour qu'elle soit plus dense */
         height: 540px; 
         min-height: 540px;
         margin-bottom: 20px;
     }
 
     .flip-card-front, .flip-card-back {
-        padding: 20px; /* Padding confortable */
+        padding: 20px;
     }
 
-    /* 1. IMAGE PLUS GRANDE SUR MOBILE */
     .carousel img {
         width: 100%;
-        max-width: 240px; /* On autorise l'image à être plus large */
-        max-height: 150px; /* Hauteur généreuse */
+        max-width: 240px;
+        max-height: 150px;
         object-fit: contain;
         margin-bottom: 5px;
     }
@@ -385,10 +379,9 @@
         margin-bottom: 5px;
     }
 
-    /* Le paragraphe va s'étirer pour combler le vide */
     .flip-card-front p {
-        font-size: 1.1em; /* Texte un peu plus gros pour remplir */
-        flex-grow: 1; /* C'est lui qui mange l'espace vide */
+        font-size: 1.1em;
+        flex-grow: 1;
         margin: 5px 0;
     }
 
@@ -399,6 +392,6 @@
     
     .flip-btn-description, .github-card-btn {
         padding: 12px 0; 
-        font-size: 1em; /* Texte bouton lisible */
+        font-size: 1em;
     }
 }

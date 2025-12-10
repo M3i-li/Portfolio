@@ -11,7 +11,7 @@
     .contact-details {
         flex: 1;
         min-width: 300px;
-        background: rgba(74, 78, 105, 0.2); /* Dusty Grape transparent */
+        background: rgba(74, 78, 105, 0.2);
         padding: 30px;
         border-radius: 12px;
         border: 1px solid var(--border-color);
@@ -60,7 +60,7 @@
     }
 
     .minimal-input, .minimal-textarea {
-        background-color: rgba(34, 34, 59, 0.5); /* Space Indigo foncé */
+        background-color: rgba(34, 34, 59, 0.5);
         border: 1px solid var(--dusty-grape);
         color: var(--parchment);
         padding: 12px 15px;

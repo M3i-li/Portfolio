@@ -1,7 +1,7 @@
-/* --- transitions.css (VERSION FINALE CORRIGÉE pour FADE-IN & HOVER FLUIDE) --- */
+/* --- transitions.css : Transitions et Animations Fluides -- */
 
 /* 1. Éléments principaux : État Initial (Opacité seulement) */
-/* Cible tous les conteneurs de contenu pour l'opacité initiale (FADE-IN) */
+
 .page-content > *,
 .presentation-section > *,
 .contact-info > *,
@@ -18,12 +18,9 @@
 
 
 /* 2. Surcharge des Transitions : Assure la Fluidité des Effets HOVER */
-/* Ces règles COMBINENT la transition d'opacité lente et les transitions rapides 
-   nécessaires pour le survol (transform, box-shadow, etc.). */
 
 /* Navigation Links (.minimal-navbar a) */
 .minimal-navbar a {
-    /* Combine l'opacité lente et les transitions rapides (header.css) */
     transition: opacity 0.7s, 
                 color 0.3s, 
                 border-bottom 0.3s, 
@@ -34,13 +31,11 @@
 /* Glass Card (Page d'Accueil) */
 .hero-image-section .glass-card {
     opacity: 0;
-    /* Combinaison de l'opacité longue (1s) et des transitions rapides (style-presentation.css) */
     transition: opacity 1s ease-out,
                 transform 0.5s ease-out, 
                 box-shadow 0.5s ease-out; 
 }
 
-/* Tag/Tool List Items (Compétences/Intérêts) */
 .tag-list li, 
 .tool-list li {
     /* Combine l'opacité lente et les transitions rapides (style-listes.css) */
@@ -68,7 +63,7 @@ body.loaded .hero-image-section .glass-card {
     opacity: 0;
     transition: opacity 0.5s ease-out;
     transition-delay: 0.2s; 
-    position: sticky; /* Assure que le header reste sticky */
+    position: sticky;
 }
 body.loaded .minimal-header {
     opacity: 1;

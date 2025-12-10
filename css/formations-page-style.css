@@ -1,60 +1,231 @@
-/* --- formations-page-style.css --- */
+/* --- formations-page-style.css : TIMELINE COSMIQUE --- */
 
-/* Amélioration de la structure des articles de formation */
-.minimal-item {
-    /* Style du conteneur principal */
-    padding: 25px 30px;
-    border-radius: 8px; /* Coins légèrement arrondis */
-    margin-bottom: 40px;
+/* Conteneur principal de la timeline */
+.timeline-container {
+    position: relative;
+    max-width: 1300px; 
+    margin: 40px auto;
+    padding: 20px 0;
 }
 
-.minimal-item h3 {
-    color: var(--parchment); /* Titre de l'article très visible */
-    font-size: 1.8em; /* TITRE PLUS GRAND */
-    font-weight: 700; /* Plus de gras */
-    margin-top: 0; 
-    margin-bottom: 5px;
+/* La ligne centrale verticale lumineuse */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        var(--lilac-ash), 
+        var(--almond-silk), 
+        var(--lilac-ash), 
+        transparent
+    );
+    box-shadow: 0 0 15px rgba(154, 140, 152, 0.4); 
+    top: 0;
+    bottom: 0;
+    left: 50%; 
+    margin-left: -2px; 
+    border-radius: 2px;
 }
 
-.minimal-item p strong {
-    color: var(--almond-silk); /* Mise en évidence du lieu/organisme */
-    font-weight: 500;
+/* --- UN ITEM DE LA TIMELINE --- */
+.timeline-item {
+    padding: 20px 60px;
+    position: relative;
+    background-color: inherit;
+    width: 50%; 
+    box-sizing: border-box;
 }
 
-.minimal-item .date-range {
-    color: var(--lilac-ash); /* Couleur d'accentuation pour les dates */
-    font-style: italic;
-    margin-bottom: 15px;
-    display: block; 
-    font-size: 1em;
+/* --- L'ORBE LUMINEUX --- */
+.timeline-marker {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: -12px; 
+    background: var(--space-indigo);
+    border: 3px solid var(--almond-silk);
+    top: 30px; 
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 15px var(--almond-silk), inset 0 0 10px var(--lilac-ash);
+    transition: all 0.3s ease;
 }
 
-/* On neutralise le style de liste par défaut, car tool-list s'en occupe */
-.minimal-item ul {
-    list-style-type: none; 
-    margin-left: 0;
-    padding-left: 0;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.timeline-item:hover .timeline-marker {
+    transform: scale(1.2);
+    background: var(--almond-silk);
+    box-shadow: 0 0 25px var(--almond-silk), 0 0 40px var(--lilac-ash);
 }
 
-/* Style spécifique pour la mention du Bac */
-.minimal-item p:has(br) {
-    margin-top: -10px;
-    margin-bottom: 20px;
-    font-weight: 500;
+/* --- LA CARTE DE CONTENU --- */
+.timeline-content {
+    padding: 30px 35px;
+    background: rgba(34, 34, 59, 0.5); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(201, 173, 167, 0.15); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden; 
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    border-color: rgba(201, 173, 167, 0.4); 
+}
+
+.timeline-item:hover .timeline-content::before {
+    left: 100%; 
+}
+
+/* --- ALTERNANCE GAUCHE / DROITE --- */
+.timeline-item.left { left: 0; }
+.timeline-item.right { left: 50%; }
+
+.timeline-item.right .timeline-marker {
+    left: -12px; 
+    right: auto;
+}
+
+/* Flèches */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 36px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    z-index: 1;
+    transition: border-color 0.3s ease;
+}
+
+.timeline-item.left .timeline-content::after {
+    right: -10px;
+    border-left: 10px solid rgba(154, 140, 152, 0.4); 
+}
+.timeline-item.left:hover .timeline-content::after {
+    border-left-color: var(--almond-silk);
+}
+
+.timeline-item.right .timeline-content::after {
+    left: -10px;
+    border-right: 10px solid rgba(154, 140, 152, 0.4);
+}
+.timeline-item.right:hover .timeline-content::after {
+    border-right-color: var(--almond-silk);
+}
+
+/* --- TYPOGRAPHIE --- */
+.timeline-content h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2em;
     color: var(--almond-silk);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(201, 173, 167, 0.3);
 }
 
+.timeline-place {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 1.1em;
+    color: var(--parchment);
+    margin-bottom: 5px;
+    display: block;
+}
 
-/* Media Query pour les petits écrans */
-@media (max-width: 700px) {
-    .minimal-item {
-        padding: 15px 20px;
-        margin-bottom: 25px;
-        border-left: 3px solid var(--accent-color);
+.timeline-date {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--lilac-ash);
+    font-weight: 600;
+    font-size: 1.05em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 4px 14px;
+    background: rgba(154, 140, 152, 0.1);
+    border-radius: 20px;
+}
+
+.timeline-desc {
+    font-family: 'Inter', sans-serif;
+    color: rgba(242, 233, 228, 0.9);
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+.timeline-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2em;
+    color: var(--almond-silk);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(201, 173, 167, 0.2);
+    padding-bottom: 5px;
+}
+
+.timeline-list {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.timeline-list li {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+    color: rgba(242, 233, 228, 0.85);
+    font-size: 1.05em;
+}
+
+.timeline-list li::before {
+    content: '✦'; 
+    position: absolute;
+    left: 0;
+    color: var(--lilac-ash);
+    font-size: 1.2em;
+    top: -2px;
+}
+
+/* --- RESPONSIVE (Mobile < 850px) --- */
+@media screen and (max-width: 950px) {
+    .timeline-container::after { display: none; }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 40px;
     }
-    .minimal-item h3 {
-        font-size: 1.5em; /* Ajustement pour mobile */
-    }
+    
+    .timeline-item.left, .timeline-item.right { left: 0; }
+    
+    .timeline-marker, .timeline-content::after { display: none; }
+
+    .timeline-content { padding: 25px; }
+    
+    .timeline-content h3 { font-size: 1.6em; }
 }

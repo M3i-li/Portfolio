@@ -1,9 +1,7 @@
-/* --- style-competences.css --- */
-
+/* --- CONTENEUR PRINCIPAL DES COMPÉTENCES --- */
 /* Conteneur principal en Grille */
 .competences-grid {
     display: grid;
-    /* Responsive : s'adapte automatiquement (min 300px de large) */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
@@ -61,7 +59,7 @@
     margin-bottom: 12px;
     opacity: 0.8;
     color: var(--parchment);
-    border-left: 3px solid; /* Couleur définie par le thème */
+    border-left: 3px solid;
     padding-left: 10px;
 }
 

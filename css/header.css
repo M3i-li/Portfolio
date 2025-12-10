@@ -1,9 +1,8 @@
-/* --- header.css : MENU MOBILE CASCADE --- */
-
+/* --- header.css --- */
 /* --- Navigation & Header --- */
 .minimal-header {
-    background-color: rgba(34, 34, 59, 0.7); /* Transparence augmentée */
-    backdrop-filter: blur(15px); /* Flou plus fort (Glassmorphism) */
+    background-color: rgba(34, 34, 59, 0.7);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px); 
     border-bottom: 1px solid rgba(154, 140, 152, 0.15); 
     padding: 15px 0;
@@ -124,7 +123,7 @@
         width: auto;
         background: transparent; 
         border: none;
-        transition: none; /* On gère l'anim via keyframes ou delay */
+        transition: none; /* Gestion de l'anim via keyframes ou delay */
     }
 
     .minimal-navbar a.active-page {
@@ -140,7 +139,6 @@
     }
 
     /* ANIMATION EN CASCADE (Stagger Effect) */
-    /* Quand le menu est ouvert, les liens remontent et apparaissent un par un */
     .nav-active a {
         animation: slideUpFade 0.5s ease forwards;
     }
