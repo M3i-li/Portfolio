@@ -81,8 +81,9 @@
 
     font-size: 1.4em;
     line-height: 1.8;
-    text-align: left;
     
+    /* MODIFICATION ICI : Texte justifié */
+    text-align: justify;
 }
 
 .about-header {
@@ -139,7 +140,7 @@
         width: 90%;
         max-width: 150px;
         height: auto;
-        aspect-ratio: 1 / 1; /* Assure qu'elle reste parfaitement carrée/ronde */
+        aspect-ratio: 1 / 1; 
     }
 }
 
