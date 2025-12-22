@@ -318,19 +318,6 @@
     opacity: 0;
 }
 
-.tech-badge {
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.85em;
-    color: var(--card-accent);
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    display: inline-block;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
 /* --- MEDIA QUERIES --- */
 @media (min-width: 1400px) {
     .flip-card {
@@ -407,11 +394,4 @@
         padding: 12px 0; 
         font-size: 1em;
     }
-
-    .tech-badge {
-        font-size: 0.8em;
-        padding: 3px 10px;
-    }
 }
-
-    

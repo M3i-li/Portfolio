@@ -1,145 +1,114 @@
-/* --- Styles de la Carte Contact (Remplacement du Formulaire) --- */
-
-.contact-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
-}
-
-.contact-card {
-    background: rgba(74, 78, 105, 0.2); /* Fond léger transparent */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--lilac-ash);
-    border-radius: 16px;
-    padding: 50px;
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    border-color: var(--almond-silk);
-}
-
-.contact-card h3 {
-    color: var(--almond-silk);
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--dusty-grape);
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-/* Blocs d'information */
-.contact-info-block {
-    margin-bottom: 25px;
-}
-
-.info-label {
-    display: block;
-    color: var(--lilac-ash);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.email-link {
-    font-size: 1.4rem;
-    color: var(--parchment);
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.email-link:hover {
-    color: var(--almond-silk);
-    text-shadow: 0 0 10px rgba(201, 173, 167, 0.4);
-}
-
-.info-text {
-    font-size: 1.3rem;
-    color: var(--parchment);
-    margin: 0;
-}
-
-/* Séparateur visuel */
-.contact-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--lilac-ash), transparent);
-    margin: 30px 0;
-    opacity: 0.5;
-}
-
-/* Boutons d'action */
-.contact-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
-.primary-action-btn, .secondary-action-btn {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    padding: 14px 20px;
-    border-radius: 50px;
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-/* Bouton principal (Email) */
-.primary-action-btn {
-    background-color: var(--lilac-ash);
-    color: var(--bg-color);
-    border: 1px solid var(--lilac-ash);
-}
-
-.primary-action-btn:hover {
-    background-color: var(--almond-silk);
-    border-color: var(--almond-silk);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(201, 173, 167, 0.3);
-}
-
-/* Bouton secondaire (LinkedIn) */
-.secondary-action-btn {
-    background-color: transparent;
-    color: var(--parchment);
-    border: 1px solid var(--lilac-ash);
-}
-
-.secondary-action-btn:hover {
-    background-color: rgba(154, 140, 152, 0.15);
-    border-color: var(--parchment);
-    transform: translateY(-3px);
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-    .contact-card {
-        padding: 30px 20px;
+    /* --- Styles du Formulaire de Contact --- */
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 30px;
+        justify-content: center;
     }
-    .email-link {
-        font-size: 1.1rem; /* Plus petit sur mobile pour éviter que ça dépasse */
-        word-break: break-all;
+
+    /* Colonne Info (Gauche) */
+    .contact-details {
+        flex: 1;
+        min-width: 300px;
+        background: rgba(74, 78, 105, 0.2);
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
     }
-    .info-text {
-        font-size: 1.1rem;
+
+    .contact-details h3 {
+        color: var(--almond-silk);
+        margin-top: 0;
+        border-bottom: 2px solid var(--lilac-ash);
+        padding-bottom: 10px;
+        display: inline-block;
     }
-}
+
+    .contact-item {
+        margin: 20px 0;
+        font-size: 1.1em;
+    }
+    
+    .contact-item strong {
+        color: var(--lilac-ash);
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Colonne Formulaire (Droite) */
+    .contact-form-wrapper {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .minimal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group label {
+        margin-bottom: 8px;
+        color: var(--lilac-ash);
+        font-weight: 500;
+    }
+
+    .minimal-input, .minimal-textarea {
+        background-color: rgba(34, 34, 59, 0.5);
+        border: 1px solid var(--dusty-grape);
+        color: var(--parchment);
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1em;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .minimal-input:focus, .minimal-textarea:focus {
+        outline: none;
+        border-color: var(--almond-silk);
+        box-shadow: 0 0 8px rgba(201, 173, 167, 0.3);
+    }
+
+    .minimal-textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    /* Bouton d'envoi */
+    .submit-btn {
+        background: linear-gradient(90deg, var(--dusty-grape), var(--space-indigo));
+        color: var(--parchment);
+        padding: 14px 24px;
+        border: 1px solid var(--lilac-ash);
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        width: fit-content;
+        align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+        background: var(--parchment);
+        color: var(--space-indigo);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+        }
+        .submit-btn {
+            width: 100%;
+        }
+    }
