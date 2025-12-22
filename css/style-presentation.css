@@ -1,6 +1,5 @@
 /* --- style-presentation.css --- */
 
-/* Section d'introduction (Hero) */
 .hero-image-section { 
     min-height: 100vh;
     height: 100vh;
@@ -16,7 +15,6 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     
-    /* Centrage parfait du contenu (.glass-card) */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +23,6 @@
     padding: 0;
 }
 
-/* 2. La carte de verre (.glass-card) : Plus grande et adaptative */
 .glass-card {
     background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); 
@@ -46,13 +43,11 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* 3. Effet de survol (Zoom) */
 .glass-card:hover {
     transform: scale(1.05); 
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
 }
 
-/* 4. Styles des titres dans la Glass-Card */
 .glass-card h1,
 .glass-card h2 , .glass-card h3{
     color: inherit;
@@ -63,7 +58,6 @@
     text-align: center;
 }
 
-/* 5. Section du texte explicatif (visible au scroll) */
 .about-text-section { 
     max-width: 1100px;
     width: 90%;
@@ -82,7 +76,6 @@
     font-size: 1.4em;
     line-height: 1.8;
     
-    /* MODIFICATION ICI : Texte justifié */
     text-align: justify;
 }
 
@@ -115,7 +108,6 @@
     padding: 0; 
 }
 
-/* --- MEDIA QUERIES POUR LA RÉACTIVITÉ --- */
 @media (max-width: 850px) {
     .glass-card {
         width: 92%;
