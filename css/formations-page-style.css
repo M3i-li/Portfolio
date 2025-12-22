@@ -1,10 +1,10 @@
-/* --- formations-page-style.css : TIMELINE COSMIQUE --- */
+/* --- formations-page-style.css : TIMELINE COSMIC --- */
 
 /* Conteneur principal de la timeline */
 .timeline-container {
     position: relative;
     max-width: 1300px; 
-    margin: 40px auto;
+    margin: 40px auto 80px auto;
     padding: 20px 0;
 }
 
@@ -133,7 +133,7 @@
 }
 
 /* --- TYPOGRAPHIE --- */
-.timeline-content h3 {
+.timeline-content h3, .formation-detail-card h3 {
     font-family: 'Rajdhani', sans-serif;
     font-size: 2em;
     color: var(--almond-silk);
@@ -170,21 +170,68 @@
 .timeline-desc {
     font-family: 'Inter', sans-serif;
     color: rgba(242, 233, 228, 0.9);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 1.05em;
     line-height: 1.6;
 }
 
-.timeline-content h4 {
+.more-details-btn {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--lilac-ash);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--lilac-ash);
+    transition: all 0.3s ease;
+}
+.more-details-btn:hover {
+    color: var(--almond-silk);
+    border-color: var(--almond-silk);
+    transform: translateY(2px);
+}
+
+
+.formations-details-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.formation-detail-card {
+    background: rgba(34, 34, 59, 0.3); 
+    border: 1px solid rgba(154, 140, 152, 0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 40px;
+    scroll-margin-top: 100px; 
+}
+
+.formation-detail-card h3 {
+    border-bottom: 1px solid rgba(154, 140, 152, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.formation-detail-card h4, .timeline-content h4 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.2em;
     color: var(--almond-silk);
-    margin-top: 25px;
+    margin-top: 0;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid rgba(201, 173, 167, 0.2);
-    padding-bottom: 5px;
+}
+
+.detail-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.detail-col {
+    flex: 1;
+    min-width: 300px;
 }
 
 .timeline-list {
@@ -210,7 +257,6 @@
     top: -2px;
 }
 
-/* --- RESPONSIVE (Mobile < 850px) --- */
 @media screen and (max-width: 950px) {
     .timeline-container::after { display: none; }
     
@@ -228,4 +274,9 @@
     .timeline-content { padding: 25px; }
     
     .timeline-content h3 { font-size: 1.6em; }
+
+    .detail-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
