@@ -1,180 +1,193 @@
 /* --- header.css --- */
 /* --- Navigation & Header --- */
 .minimal-header {
-    background-color: rgba(34, 34, 59, 0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px); 
-    border-bottom: 1px solid rgba(154, 140, 152, 0.15); 
-    padding: 15px 0;
-    position: sticky;
-    top: 0px;
-    z-index: 1000; 
-    transition: background-color 0.3s ease, padding 0.3s ease;
+  background-color: rgba(34, 34, 59, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(154, 140, 152, 0.15);
+  padding: 15px 0;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  transition:
+    background-color 0.3s ease,
+    padding 0.3s ease;
 }
 
 .minimal-navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .minimal-navbar .nav-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Liens Desktop */
 .minimal-navbar a {
-    text-decoration: none;
-    font-family: 'Outfit', sans-serif; 
-    color: var(--parchment); 
-    padding: 8px 16px;
-    margin: 0 4px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    font-weight: 500;
-    font-size: 1rem;
-    position: relative;
-    letter-spacing: 0.5px;
-    border-radius: 8px;
-    opacity: 0.9;
+  text-decoration: none;
+  font-family: "Outfit", sans-serif;
+  color: var(--parchment);
+  padding: 8px 16px;
+  margin: 0 4px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  opacity: 0.9;
 }
 
 .minimal-navbar a:hover {
-    color: var(--almond-silk); 
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.08); 
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  color: var(--almond-silk);
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .minimal-navbar a.active-page {
-    color: var(--almond-silk);
-    opacity: 1;
-    background-color: rgba(74, 78, 105, 0.4); 
-    border: 1px solid rgba(154, 140, 152, 0.2);
+  color: var(--almond-silk);
+  opacity: 1;
+  background-color: rgba(74, 78, 105, 0.4);
+  border: 1px solid rgba(154, 140, 152, 0.2);
 }
 
 /* --- STYLE DU BURGER --- */
 .burger {
-    display: none; 
-    cursor: pointer;
-    z-index: 1002; /* Au dessus du menu */
+  display: none;
+  cursor: pointer;
+  z-index: 1002; /* Au dessus du menu */
 }
 
 .burger span {
-    display: block;
-    width: 26px;
-    height: 2px; /* Lignes plus fines */
-    background-color: var(--parchment);
-    margin: 6px;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animation rebond */
-    border-radius: 2px;
+  display: block;
+  width: 26px;
+  height: 2px; /* Lignes plus fines */
+  background-color: var(--parchment);
+  margin: 6px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animation rebond */
+  border-radius: 2px;
 }
 
 /* --- MEDIA QUERY MOBILE (Tablettes et Mobiles) --- */
 @media (max-width: 850px) {
+  .burger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-    .burger {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+  /* Conteneur Menu Mobile */
+  .minimal-navbar .nav-links {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 100%;
+
+    /* Fond Sombre Profond + Blur */
+    background: rgba(34, 34, 59, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Animation d'entrée du panneau */
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1000;
+
+    overflow-y: auto;
+    padding-bottom: 50px;
+  }
+
+  /* Liens Mobile (Etat initial) */
+  .minimal-navbar a {
+    opacity: 0; /* Cachés au départ */
+    transform: translateY(20px); /* Décalés vers le bas */
+    margin: 15px 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    width: auto;
+    background: transparent;
+    border: none;
+    transition: none; /* Gestion de l'anim via keyframes ou delay */
+  }
+
+  .minimal-navbar a.active-page {
+    color: var(--almond-silk);
+    background: transparent;
+    border: none;
+    text-shadow: 0 0 20px rgba(201, 173, 167, 0.5);
+  }
+
+  /* CLASSE ACTIVE (Menu Ouvert) */
+  .nav-active .nav-links {
+    transform: translateX(0%);
+  }
+
+  /* ANIMATION EN CASCADE (Stagger Effect) */
+  .nav-active a {
+    animation: slideUpFade 0.5s ease forwards;
+  }
+
+  /* Délais pour chaque lien (jusqu'à 6 liens) */
+  .nav-active a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .nav-active a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .nav-active a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  .nav-active a:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .nav-active a:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  .nav-active a:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-
-    /* Conteneur Menu Mobile */
-    .minimal-navbar .nav-links {
-        position: fixed;
-        right: 0px;
-        top: 0px;
-        height: 100vh;
-        width: 100%; 
-        
-        /* Fond Sombre Profond + Blur */
-        background: rgba(34, 34, 59, 0.98); 
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-        /* Animation d'entrée du panneau */
-        transform: translateX(100%);
-        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-        z-index: 1000;
-        
-        overflow-y: auto;
-        padding-bottom: 50px;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    /* Liens Mobile (Etat initial) */
-    .minimal-navbar a {
-        opacity: 0; /* Cachés au départ */
-        transform: translateY(20px); /* Décalés vers le bas */
-        margin: 15px 0;
-        font-size: 1.8em; 
-        font-weight: 700; 
-        width: auto;
-        background: transparent; 
-        border: none;
-        transition: none; /* Gestion de l'anim via keyframes ou delay */
-    }
+  /* Animation Burger en Croix */
+  .toggle .burger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+    background-color: var(--almond-silk);
+  }
 
-    .minimal-navbar a.active-page {
-        color: var(--almond-silk);
-        background: transparent;
-        border: none;
-        text-shadow: 0 0 20px rgba(201, 173, 167, 0.5);
-    }
+  .toggle .burger span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px); /* Disparait vers la gauche */
+  }
 
-    /* CLASSE ACTIVE (Menu Ouvert) */
-    .nav-active .nav-links {
-        transform: translateX(0%);
-    }
-
-    /* ANIMATION EN CASCADE (Stagger Effect) */
-    .nav-active a {
-        animation: slideUpFade 0.5s ease forwards;
-    }
-
-    /* Délais pour chaque lien (jusqu'à 6 liens) */
-    .nav-active a:nth-child(1) { animation-delay: 0.1s; }
-    .nav-active a:nth-child(2) { animation-delay: 0.2s; }
-    .nav-active a:nth-child(3) { animation-delay: 0.3s; }
-    .nav-active a:nth-child(4) { animation-delay: 0.4s; }
-    .nav-active a:nth-child(5) { animation-delay: 0.5s; }
-    .nav-active a:nth-child(6) { animation-delay: 0.6s; }
-
-    @keyframes slideUpFade {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Animation Burger en Croix */
-    .toggle .burger span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-        background-color: var(--almond-silk);
-    }
-
-    .toggle .burger span:nth-child(2) {
-        opacity: 0;
-        transform: translateX(-20px); /* Disparait vers la gauche */
-    }
-
-    .toggle .burger span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-        background-color: var(--almond-silk);
-    }
+  .toggle .burger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+    background-color: var(--almond-silk);
+  }
 }

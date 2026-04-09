@@ -1,227 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cursus - Mei Li UNG</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="../css/style-caroussel.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/transitions.css">
-
-</head>
-<body>
-  <div class="animated-background">
-        <div class="stars"></div>
+    <link rel="stylesheet" href="../css/style-caroussel.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/transitions.css" />
+  </head>
+  <body>
+    <div class="animated-background">
+      <div class="stars"></div>
     </div>
     <header class="minimal-header">
-    <nav class="minimal-navbar">
+      <nav class="minimal-navbar">
         <div class="burger">
-            <span></span>
-            <span></span>
-            <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
 
-        <div class="nav-links"> <a href="../index.html">Accueil</a>
-            <a href="Formations.html">Formations</a>
-            <a href="experiences.html" class="active-page">Projets & Expériences</a>
-            <a href="competences.html">Compétences</a>
-            <a href="interets.html">Intérêts</a>
-            <a href="contact.html">Contact</a>
+        <div class="nav-links">
+          <a href="../index.html">Accueil</a>
+          <a href="Formations.html">Formations</a>
+          <a href="experiences.html" class="active-page"
+            >Projets & Expériences</a
+          >
+          <a href="competences.html">Compétences</a>
+          <a href="interets.html">Intérêts</a>
+          <a href="contact.html">Contact</a>
         </div>
-    </nav>
-</header>
+      </nav>
+    </header>
     <main class="minimal-main">
-        <section class="page-content">
-            <h1>Projets Principaux & Expériences</h1>
+      <section class="page-content">
+        <h1>Projets Principaux & Expériences</h1>
 
-            <h2>Développement Java & Algorithmique</h2>
-            <div class="carousel">
-                <div class="flip-card theme-mazel">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <img src="../ressources/LogoMaze.png" alt="Mazel logo" class="mazel_logo-img">
-                      <h2>Mazel</h2>
-                      <div class="tech-badge">Java / JavaFX</div>
-                      <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
-                      <p>Jeu de labyrinthe interactif</p>
-                      
-                      <div class="card-actions">
-                          <button class="flip-btn-description">Description</button>
-                          <a href="https://github.com/M3i-li/Mazel" class="github-card-btn">Voir le code</a>
-                      </div>
-                    </div>
-                    <div class="flip-card-back">
-                      <h3>Description du projet:</h3>
-                      <p>Mazel est un jeu de labyrinthe développé en Java et JavaFX possédant deux modes distincts.</p>
-                      <p>- Le premier est un mode de progression accessible lorsqu'un utilisateur se "connecte" via un mot de passe reconnu par le système.</p><br/>
-                      <p>- Le second est un mode créatif de labyrinthes, personnalisables par le joueur.</p><br/>
-                      <p>Le jeu a été développé en équipe de quatre personnes, sur une durée de deux mois.</p>
-                      <div class="project-section">
-                        <p>Outils employés :</p>
-                        <ul>
-                          <li>Java et JavaFX</li>
-                          <li>Patron de conception MVC et Observers</li>
-                          <li>Utilisation du TDD et principes SOLID</li>
-                        </ul>
-                        <p>Compétences développées :</p>
-                        <ul>
-                          <li>Gestion de fichiers CSV avec Java</li>
-                          <li>Interface responsive avec SceneBuilder</li>
-                          <li>Algorithmes de labyrinthe</li>
-                        </ul>
-                      </div>
-                      <button class="flip-btn-return">Retour</button>
-                    </div>
-                  </div>
-                </div>
+        <h2>Développement Java & Algorithmique</h2>
+        <div class="carousel">
+          <div class="flip-card theme-mazel">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/LogoMaze.png"
+                  alt="Mazel logo"
+                  class="mazel_logo-img"
+                />
+                <h2>Mazel</h2>
+                <div class="tech-badge">Java / JavaFX</div>
+                <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
+                <p>Jeu de labyrinthe interactif</p>
 
-                <div class="flip-card theme-golden">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <img src="../ressources/Golden-Ace-logo.png" alt="Golden Ace page" class="goldenAce_menu-img">
-                      <h2>Golden Ace</h2>
-                      <div class="tech-badge">Java / Agile Scrum</div>
-                      <p class="date-range">SEPTEMBRE 2025</p>
-                      <p>Mini projet Agile d'un jeu de casino</p>
-                      
-                      <div class="card-actions">
-                          <button class="flip-btn-description">Description</button>
-                          <a href="https://github.com/M3i-li/Golden-Ace" class="github-card-btn">Voir le code</a>
-                      </div>
-                    </div>
-                    <div class="flip-card-back">
-                      <h3>Description du projet:</h3>
-                      <p>Golden Ace est un mini-jeu de casino développé en Java dans le cadre d'un projet agile, jouable via le terminal.</p><br/>
-                      <p>Jeux proposés : Black Jack, Roulette, Démineur, Machine à sous.</p><br/>
-                      <p>Projet réalisé en équipe de six personnes sur une durée de quatre jours.</p>
-                      <div class="project-section">
-                        <p>Outils employés :</p>
-                        <ul>
-                          <li>Java & Git</li>
-                          <li>Méthode Scrum / Kanban</li>
-                          <li>Diagrammes UML</li>
-                        </ul>
-                      </div>
-                      <button class="flip-btn-return">Retour</button>
-                    </div>
-                  </div>
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://github.com/M3i-li/Mazel"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
                 </div>
-
-                <div class="flip-card theme-pokemon">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <img src="../ressources/pokeQuizAdventures_logo.png" alt="pokeQuiz logo" class=".img-pokeQuiz-logo">
-                      <h2>PokéQuizAdventures</h2>
-                      <div class="tech-badge">iJava / Algorithmique</div>
-                      <p class="date-range">NOVEMBRE 2024 - JANVIER 2025</p>
-                      <p>Création d'un jeu ludo-pédagogique</p>
-                      
-                      <div class="card-actions">
-                          <button class="flip-btn-description">Description</button>
-                          <a href="https://github.com/M3i-li/PokeQuiz-Adventures" class="github-card-btn">Voir le code</a>
-                      </div>
-                    </div>
-                    <div class="flip-card-back">
-                      <h3>Description du projet:</h3>
-                      <p>Jeu proposant d'incarner un pokémon et son dresseur. Le joueur doit répondre à des questions de culture générale pour avancer.</p><br>
-                      <p>Implémenté en iJava (version simplifiée sans concept Objet pour l'apprentissage de la logique).</p>
-                      <div class="project-section">
-                        <p>Compétences développées :</p>
-                        <ul>
-                          <li>Logique de programmation</li>
-                          <li>Mise en forme terminal (ASCII Art)</li>
-                          <li>Fonctions génériques</li>
-                        </ul>
-                      </div>
-                      <button class="flip-btn-return">Retour</button>
-                    </div>
-                  </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Mazel est un jeu de labyrinthe développé en Java et JavaFX
+                  possédant deux modes distincts.
+                </p>
+                <p>
+                  - Le premier est un mode de progression accessible lorsqu'un
+                  utilisateur se "connecte" via un mot de passe reconnu par le
+                  système.
+                </p>
+                <br />
+                <p>
+                  - Le second est un mode créatif de labyrinthes,
+                  personnalisables par le joueur.
+                </p>
+                <br />
+                <p>
+                  Le jeu a été développé en équipe de quatre personnes, sur une
+                  durée de deux mois.
+                </p>
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>Java et JavaFX</li>
+                    <li>Patron de conception MVC et Observers</li>
+                    <li>Utilisation du TDD et principes SOLID</li>
+                  </ul>
+                  <p>Compétences développées :</p>
+                  <ul>
+                    <li>Gestion de fichiers CSV avec Java</li>
+                    <li>Interface responsive avec SceneBuilder</li>
+                    <li>Algorithmes de labyrinthe</li>
+                  </ul>
                 </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
             </div>
+          </div>
 
-            <h2>Développement Web</h2>
-            <div class="carousel">
-                <div class="flip-card theme-ubisoft">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <img src="../ressources/ubisoft-location.png" alt="ubisoft-location page" class="ubisoft-location-page-img">
-                      <h2>Ubisoft Location</h2>
-                      <div class="tech-badge">HTML5 / CSS3 / Design</div>
-                      <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
-                      <p>La création de Site Web d'écomobilité</p>
-                      
-                      <div class="card-actions">
-                          <button class="flip-btn-description">Description</button>
-                          <a href="https://github.com/M3i-li/Ubisoft-Location" class="github-card-btn">Voir le code</a>
-                      </div>
-                    </div>
-                    <div class="flip-card-back">
-                      <h3>Description du projet:</h3>
-                      <p>Ubisoft LOCATION est un site Web vitrine basé sur la location de véhicules à mobilité verte pour les employés d'Ubisoft.</p><br>
-                      <p>Projet réalisé en équipe de trois personnes sur un mois et demi.</p>
-                      <div class="project-section">
-                        <p>Outils employés :</p>
-                        <ul>
-                          <li>HTML et CSS</li>
-                          <li>Travail sur le design responsive</li>
-                        </ul>
-                      </div>
-                      <button class="flip-btn-return">Retour</button>
-                    </div>
-                  </div>
+          <div class="flip-card theme-golden">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/Golden-Ace-logo.png"
+                  alt="Golden Ace page"
+                  class="goldenAce_menu-img"
+                />
+                <h2>Golden Ace</h2>
+                <div class="tech-badge">Java / Agile Scrum</div>
+                <p class="date-range">SEPTEMBRE 2025</p>
+                <p>Mini projet Agile d'un jeu de casino</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://github.com/M3i-li/Golden-Ace"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
                 </div>
-            </div>
-
-            <h2>Base de Données</h2>
-            <div class="carousel">
-                <div class="flip-card theme-sql">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <img src="../ressources/database-4941301_1280.png" alt="BDD logo" class="bdd_logo-img">
-                      <h2>Base de Données JO</h2>
-                      <div class="tech-badge">SQL / PostgreSQL / UML</div>
-                      <p class="date-range">MARS 2025 - MAI 2025</p>
-                      <p>Création et exploitation d'une base de donnée</p>
-                      
-                      <div class="card-actions">
-                          <button class="flip-btn-description">Description</button>
-                          <a href="https://github.com/M3i-li/Gestion-de-base-de-donnee-des-JO" class="github-card-btn">Voir le code</a>
-                      </div>
-                    </div>
-                    <div class="flip-card-back">
-                      <h3>Description du projet:</h3>
-                      <p>Création et exploitation d'une base de données relationnelle sur les Jeux Olympiques (Athlètes, Épreuves, Médailles...).</p><br>
-                      <div class="project-section">
-                        <p>Outils employés :</p>
-                        <ul>
-                          <li>PostgreSQL & Access</li>
-                          <li>MCD / MLD (Optimisation)</li>
-                          <li>Langage SQL</li>
-                        </ul>
-                      </div>
-                      <button class="flip-btn-return">Retour</button>
-                    </div>
-                  </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Golden Ace est un mini-jeu de casino développé en Java dans le
+                  cadre d'un projet agile, jouable via le terminal.
+                </p>
+                <br />
+                <p>
+                  Jeux proposés : Black Jack, Roulette, Démineur, Machine à
+                  sous.
+                </p>
+                <br />
+                <p>
+                  Projet réalisé en équipe de six personnes sur une durée de
+                  quatre jours.
+                </p>
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>Java & Git</li>
+                    <li>Méthode Scrum / Kanban</li>
+                    <li>Diagrammes UML</li>
+                  </ul>
                 </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
             </div>
+          </div>
 
-        </section>
+          <div class="flip-card theme-pokemon">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/pokeQuizAdventures_logo.png"
+                  alt="pokeQuiz logo"
+                  class=".img-pokeQuiz-logo"
+                />
+                <h2>PokéQuizAdventures</h2>
+                <div class="tech-badge">iJava / Algorithmique</div>
+                <p class="date-range">NOVEMBRE 2024 - JANVIER 2025</p>
+                <p>Création d'un jeu ludo-pédagogique</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://github.com/M3i-li/PokeQuiz-Adventures"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Jeu proposant d'incarner un pokémon et son dresseur. Le joueur
+                  doit répondre à des questions de culture générale pour
+                  avancer.
+                </p>
+                <br />
+                <p>
+                  Implémenté en iJava (version simplifiée sans concept Objet
+                  pour l'apprentissage de la logique).
+                </p>
+                <div class="project-section">
+                  <p>Compétences développées :</p>
+                  <ul>
+                    <li>Logique de programmation</li>
+                    <li>Mise en forme terminal (ASCII Art)</li>
+                    <li>Fonctions génériques</li>
+                  </ul>
+                </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Développement Web</h2>
+        <div class="carousel">
+
+          <div class="flip-card theme-CatStars">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/"
+                  alt="logo CatStars"
+                  class="catStars-img"
+                />
+                <h2>CatStars</h2>
+                <div class="tech-badge">TypeScript / NodeJS</div>
+                <p class="date-range">MARS 2026 - AVRIL 2026</p>
+                <p>La création d'un jeu multi-joueur</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://gitlab.univ-lille.fr/jsae/2025-2026/projets/groupe-i/equipe-3/equipei3catstar"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  CatStars est un jeu multi-joueur développé en un mois. Le jeu
+                  consiste à tirer sur des ennemis à travers différents niveaux
+                  de difficultés, seuls ou à plusieurs.
+                </p>
+                <br />
+                <p>Projet réalisé en équipe de trois personnes en un mois.</p>
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>Front: HTML et CSS</li>
+                    <li>Back: TypeScript</li>
+                    <li>Gestion d'un serveur local: NodeJS</li>
+                    <li>Gestion du projet: Git</li>
+                  </ul>
+                  <p>Compétences développées :</p>
+                  <ul>
+                    <li>Travail en équipe sur Git</li>
+                    <li>Apprentissage du TypeScript</li>
+                    <li>Gestion d'une architecture Client-Serveur</li>
+                  </ul>
+                </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card theme-ubisoft">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/ubisoft-location.png"
+                  alt="ubisoft-location page"
+                  class="ubisoft-location-page-img"
+                />
+                <h2>Ubisoft Location</h2>
+                <div class="tech-badge">HTML5 / CSS3 / Design</div>
+                <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
+                <p>La création de Site Web d'écomobilité</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://github.com/M3i-li/Ubisoft-Location"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Ubisoft LOCATION est un site Web vitrine basé sur la location
+                  de véhicules à mobilité verte pour les employés d'Ubisoft.
+                </p>
+                <br />
+                <p>
+                  Projet réalisé en équipe de trois personnes sur un mois et
+                  demi.
+                </p>
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>HTML et CSS</li>
+                    <li>Travail sur le design responsive</li>
+                  </ul>
+                </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Base de Données</h2>
+        <div class="carousel">
+          <div class="flip-card theme-sql">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/"
+                  alt="logo API REST"
+                  class="restDecheterie-img"
+                />
+                <h2>API Eco-Drop</h2>
+                <div class="tech-badge">Rest / JEE / SQL</div>
+                <p class="date-range">MARS 2026 - AVRIL 2026</p>
+                <p>Création d'une API REST pour la gestion d'une décheterie</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="../ressources/Documentation-Rest.pdf"
+                    class="github-card-btn"
+                    >Voir le rapport</a
+                  >
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Ce projet consistait à créer une API Rest pour la gestion
+                  d'une décheterie. IL s'agissait de créer les tables sur une
+                  BDD PostgreSQL ainsi que les liens nécessaires, créer les DTO
+                  correspondants en Java, gérer des controleurs pour chaque
+                  Servlet instanciées, puis lier le tout par des DAO.
+                </p>
+                <br />
+                <p>Projet réalisé par un binôme en un mois.</p>
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>API REST</li>
+                    <li>JEE</li>
+                    <li>PostgreSQL</li>
+                    <li>Gestion du projet: Git</li>
+                  </ul>
+                  <p>Compétences développées :</p>
+                  <ul>
+                    <li>Mose en oeuvre d'une API Rest</li>
+                    <li>
+                      Travail avec une architecture MVC avec DAO, DTO et
+                      Controleurs
+                    </li>
+                    <li>Gestion d'une base de donnée</li>
+                  </ul>
+                </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card theme-sql">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="../ressources/images/database-4941301_1280.png"
+                  alt="BDD logo"
+                  class="bdd_logo-img"
+                />
+                <h2>Base de Données JO</h2>
+                <div class="tech-badge">SQL / PostgreSQL / UML</div>
+                <p class="date-range">MARS 2025 - MAI 2025</p>
+                <p>Création et exploitation d'une base de donnée</p>
+
+                <div class="card-actions">
+                  <button class="flip-btn-description">Description</button>
+                  <a
+                    href="https://github.com/M3i-li/Gestion-de-base-de-donnee-des-JO"
+                    class="github-card-btn"
+                    >Voir le code</a
+                  >
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h3>Description du projet:</h3>
+                <p>
+                  Création et exploitation d'une base de données relationnelle
+                  sur les Jeux Olympiques (Athlètes, Épreuves, Médailles...).
+                </p>
+                <br />
+                <div class="project-section">
+                  <p>Outils employés :</p>
+                  <ul>
+                    <li>PostgreSQL & Access</li>
+                    <li>MCD / MLD (Optimisation)</li>
+                    <li>Langage SQL</li>
+                  </ul>
+                </div>
+                <button class="flip-btn-return">Retour</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="minimal-footer">
-        <p>CV Numérique Mei Li UNG | &copy; 2025</p>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/mei-li-ung" class="footer-btn">LinkedIn</a>
-            <a href="https://github.com/M3i-li" class="footer-btn">GitHub</a>
-            <a href="https://gitlab.univ-lille.fr/mei-li.ung.etu" class="footer-btn">GitLab</a>
-            <a href="../html/contact.html" class="footer-btn">Contact</a>
-        </div>
+      <p>CV Numérique Mei Li UNG | &copy; 2025</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/mei-li-ung" class="footer-btn"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/M3i-li" class="footer-btn">GitHub</a>
+        <a href="https://gitlab.univ-lille.fr/mei-li.ung.etu" class="footer-btn"
+          >GitLab</a
+        >
+        <a href="../html/contact.html" class="footer-btn">Contact</a>
+      </div>
     </footer>
     <script src="../js/portfolio-transitions.js"></script>
-</body>
+  </body>
 </html>

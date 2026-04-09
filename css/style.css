@@ -1,286 +1,324 @@
 /* --- VARIABLES CSS GLOBALES --- */
 
 :root {
-    /* Palette personnalisée */
-    --space-indigo: #22223b;
-    --dusty-grape: #4a4e69;
-    --lilac-ash: #9a8c98;
-    --almond-silk: #c9ada7;
-    --parchment: #f2e9e4;
+  /* Palette personnalisée */
+  --space-indigo: #22223b;
+  --dusty-grape: #4a4e69;
+  --lilac-ash: #9a8c98;
+  --almond-silk: #c9ada7;
+  --parchment: #f2e9e4;
 
-    /* Mappage */
-    --primary-color: var(--parchment);
-    --accent-color: var(--lilac-ash);
-    --bg-color: var(--space-indigo);
-    --light-gray: var(--dusty-grape);
-    --border-color: var(--dusty-grape);
-    --link-hover-color: var(--almond-silk);
-    
-    /* Polices (Rondes & Modernes) */
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    
-    /* Courbe d'animation "Signature" (Fluide et élastique) */
-    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  /* Mappage */
+  --primary-color: var(--parchment);
+  --accent-color: var(--lilac-ash);
+  --bg-color: var(--space-indigo);
+  --light-gray: var(--dusty-grape);
+  --border-color: var(--dusty-grape);
+  --link-hover-color: var(--almond-silk);
+
+  /* Polices (Rondes & Modernes) */
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Courbe d'animation "Signature" (Fluide et élastique) */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth; /* Défilement fluide natif */
+  scroll-behavior: smooth; /* Défilement fluide natif */
 }
 
 body {
-    font-family: var(--font-body);
-    color: var(--primary-color);
-    background-color: var(--bg-color);
-    line-height: 1.7; 
-    font-size: 16px; 
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden; 
+  font-family: var(--font-body);
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+  line-height: 1.7;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* --- FOND ANIMÉ "COSMIC" --- */
 .animated-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; 
-    overflow: hidden;
-    background-color: var(--bg-color);
-    /* Dégradé subtil pour la profondeur */
-    background: radial-gradient(circle at center, #2d2d4e 0%, var(--space-indigo) 80%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  /* Dégradé subtil pour la profondeur */
+  background: radial-gradient(
+    circle at center,
+    #2d2d4e 0%,
+    var(--space-indigo) 80%
+  );
 }
 
 /* Couche d'étoiles (Stars) */
 .animated-background .stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
-    background-size: 200px 200px;
-    opacity: 0.15; /* Etoiles très discrètes */
-    animation: twinkle 10s infinite linear;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0, 0, 0, 0));
+  background-size: 200px 200px;
+  opacity: 0.15; /* Etoiles très discrètes */
+  animation: twinkle 10s infinite linear;
 }
 
 /* Halos colorés (Nébuleuse) */
 .animated-background::before,
 .animated-background::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px); /* Flou max pour effet vapeur */
-    opacity: 0.15; 
-    transition: all 0.5s ease-in-out;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px); /* Flou max pour effet vapeur */
+  opacity: 0.15;
+  transition: all 0.5s ease-in-out;
 }
 
 .animated-background::before {
-    background: var(--lilac-ash);
-    width: 50vw;
-    height: 50vw;
-    top: -15%;
-    left: -15%;
-    animation: moveHalo1 40s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--lilac-ash);
+  width: 50vw;
+  height: 50vw;
+  top: -15%;
+  left: -15%;
+  animation: moveHalo1 40s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animated-background::after {
-    background: var(--almond-silk);
-    width: 45vw;
-    height: 45vw;
-    bottom: -10%;
-    right: -10%;
-    animation: moveHalo2 50s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--almond-silk);
+  width: 45vw;
+  height: 45vw;
+  bottom: -10%;
+  right: -10%;
+  animation: moveHalo2 50s infinite alternate-reverse
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes moveHalo1 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(100px, 50px) scale(1.1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(100px, 50px) scale(1.1);
+  }
 }
 
 @keyframes moveHalo2 {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-100px, -50px) scale(1.15); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-100px, -50px) scale(1.15);
+  }
 }
 
 @keyframes twinkle {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-200px); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-200px);
+  }
 }
 
 main {
-    flex: 1; 
-    position: relative;
-    z-index: 1;
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Contenu Principal --- */
 
-.page-content, .about-text-section {
-    padding: 0 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+.page-content,
+.about-text-section {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* --- TYPOGRAPHIE (Outfit & Inter) --- */
 
 h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem; 
-    margin-top: 40px;
-    margin-bottom: 18px;
-    font-weight: 700;
-    letter-spacing: -1px; 
-    text-shadow: 0 4px 15px rgba(34, 34, 59, 0.5);
-    line-height: 1.1;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 15px rgba(34, 34, 59, 0.5);
+  line-height: 1.1;
 }
 
 h2 {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: var(--almond-silk); 
-    border-bottom: 1px solid rgba(154, 140, 152, 0.3); 
-    padding-bottom: 15px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    text-shadow: 0 0 20px rgba(201, 173, 167, 0.15);
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--almond-silk);
+  border-bottom: 1px solid rgba(154, 140, 152, 0.3);
+  padding-bottom: 15px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 20px rgba(201, 173, 167, 0.15);
 }
 
 h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-top: 25px;
-    margin-bottom: 12px;
-    color: var(--primary-color);
-    font-weight: 600;
-    letter-spacing: 0px;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: 0px;
 }
 
 p {
-    margin-bottom: 24px;
-    font-size: 1.1rem; 
-    font-weight: 300; 
-    line-height: 1.8;
-    color: rgba(242, 233, 228, 0.95); 
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(242, 233, 228, 0.95);
 }
 
 /* --- Style des Éléments "Minimal Item" --- */
 
 .minimal-item {
-    margin-bottom: 30px;
-    padding: 24px;
-    background: rgba(74, 78, 105, 0.1); 
-    border-left: 3px solid var(--lilac-ash); 
-    border-radius: 0 12px 12px 0; /* Arrondi moderne */
-    color: var(--primary-color); 
-    /* Animation fluide au survol */
-    transition: transform 0.4s var(--ease-out-expo), background 0.4s ease;
+  margin-bottom: 30px;
+  padding: 24px;
+  background: rgba(74, 78, 105, 0.1);
+  border-left: 3px solid var(--lilac-ash);
+  border-radius: 0 12px 12px 0; /* Arrondi moderne */
+  color: var(--primary-color);
+  /* Animation fluide au survol */
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    background 0.4s ease;
 }
 
 .minimal-item:hover {
-    transform: translateX(10px);
-    background: rgba(74, 78, 105, 0.25);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transform: translateX(10px);
+  background: rgba(74, 78, 105, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .minimal-item h3 {
-    color: var(--almond-silk);
-    margin-top: 0;
+  color: var(--almond-silk);
+  margin-top: 0;
 }
 .minimal-item .date-range {
-    color: var(--lilac-ash);
-    font-family: var(--font-heading); 
-    font-size: 0.9rem; 
-    font-weight: 500;
-    margin-bottom: 10px;
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: var(--lilac-ash);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* --- Contact & Footer --- */
 .contact-info p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .minimal-footer {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: transparent; 
-    /* Dégradé subtil pour fermer la page */
-    background: linear-gradient(to top, rgba(34,34,59,0.8), transparent);
-    border-top: 1px solid rgba(154, 140, 152, 0.2);
-    color: var(--lilac-ash);
-    margin-top: 60px;
-    font-size: 0.9rem;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: transparent;
+  /* Dégradé subtil pour fermer la page */
+  background: linear-gradient(to top, rgba(34, 34, 59, 0.8), transparent);
+  border-top: 1px solid rgba(154, 140, 152, 0.2);
+  color: var(--lilac-ash);
+  margin-top: 60px;
+  font-size: 0.9rem;
 }
 
 /* --- STYLE DES BOUTONS DU FOOTER --- */
 
 .footer-links {
-    margin-bottom: 25px; 
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .footer-links .footer-btn {
-    display: inline-block;
-    padding: 10px 24px;
-    margin: 6px 10px;
-    border: 1px solid var(--lilac-ash); 
-    border-radius: 50px; /* Capsule */
-    color: var(--parchment); 
-    background-color: rgba(34, 34, 59, 0.4); 
-    text-decoration: none;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s var(--ease-out-expo);
-    position: relative;
-    overflow: hidden;
+  display: inline-block;
+  padding: 10px 24px;
+  margin: 6px 10px;
+  border: 1px solid var(--lilac-ash);
+  border-radius: 50px; /* Capsule */
+  color: var(--parchment);
+  background-color: rgba(34, 34, 59, 0.4);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
 }
 
 .footer-links .footer-btn:hover {
-    background-color: var(--lilac-ash); 
-    color: var(--bg-color); 
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(154, 140, 152, 0.3); 
+  background-color: var(--lilac-ash);
+  color: var(--bg-color);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(154, 140, 152, 0.3);
 }
 
 a {
-    color: var(--almond-silk);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--almond-silk);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: none;
-    color: var(--parchment);
-    text-shadow: 0 0 10px rgba(201, 173, 167, 0.6);
+  text-decoration: none;
+  color: var(--parchment);
+  text-shadow: 0 0 10px rgba(201, 173, 167, 0.6);
 }
 
 /* --- RESPONSIVE TYPOGRAPHY (Mobile) --- */
 @media (max-width: 768px) {
-    body { font-size: 15px; }
-    .page-content, .about-text-section { padding: 0 20px; }
-    h1 { font-size: 2.2rem; margin-top: 10px; }
-    h2 { font-size: 1.8rem; margin-top: 40px; }
-    h3 { font-size: 1.3rem; }
-    p { font-size: 1rem; margin-bottom: 20px; }
-    .minimal-item { padding: 18px; }
+  body {
+    font-size: 15px;
+  }
+  .page-content,
+  .about-text-section {
+    padding: 0 20px;
+  }
+  h1 {
+    font-size: 2.2rem;
+    margin-top: 10px;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .minimal-item {
+    padding: 18px;
+  }
 }

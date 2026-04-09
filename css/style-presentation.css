@@ -1,144 +1,147 @@
 /* --- style-presentation.css --- */
 
-.hero-image-section { 
-    min-height: 100vh;
-    height: 100vh;
-    width: 100vw;
-    max-width: 100vw;
-    position: relative;
-    overflow: hidden;
-    
-    /* Image de fond */
-    background-image: url(../ressources/starry-sky-2051448_1920.jpg); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    margin: 0;
-    padding: 0;
+.hero-image-section {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  overflow: hidden;
+
+  /* Image de fond */
+  background-image: url(../ressources/starry-sky-2051448_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
 }
 
 .glass-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6); 
-    backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); 
-    
-    max-width: 900px;
-    width: 80%;
-    padding: 5vh 4vw; 
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 
-    margin: 0; 
-    border-radius: 12px; 
-    
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-    transform: scale(1);
+  max-width: 900px;
+  width: 80%;
+  padding: 5vh 4vw;
 
-    color: var(--parchment, #f2e9e4);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0;
+  border-radius: 12px;
+
+  transition:
+    transform 0.4s ease-out,
+    box-shadow 0.4s ease-out;
+  transform: scale(1);
+
+  color: var(--parchment, #f2e9e4);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .glass-card:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
 }
 
 .glass-card h1,
-.glass-card h2 , .glass-card h3{
-    color: inherit;
-    border-bottom: none; 
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 10px; 
-    text-align: center;
+.glass-card h2,
+.glass-card h3 {
+  color: inherit;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.about-text-section { 
-    max-width: 1100px;
-    width: 90%;
-    margin: 60px auto;
-    padding: 4vh 4vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.about-text-section {
+  max-width: 1100px;
+  width: 90%;
+  margin: 60px auto;
+  padding: 4vh 4vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .about-text-section p {
-    color: rgb(174, 165, 190);
-    margin-top: 1.5em;
+  color: rgb(174, 165, 190);
+  margin-top: 1.5em;
 
-    font-size: 1.4em;
-    line-height: 1.8;
-    
-    text-align: justify;
+  font-size: 1.4em;
+  line-height: 1.8;
+
+  text-align: justify;
 }
 
 .about-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    margin-bottom: 24px;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+  flex-direction: row;
 }
 
 .about-header h2 {
-    margin-bottom: 0;
-    flex: 1;
-    text-align: left;
+  margin-bottom: 0;
+  flex: 1;
+  text-align: left;
 }
 
 .about-profile-img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    margin-left: 32px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  margin-left: 32px;
 }
 
 .minimal-main {
-    margin: 0 0;
-    padding: 0; 
+  margin: 0 0;
+  padding: 0;
 }
 
 @media (max-width: 850px) {
-    .glass-card {
-        width: 92%;
-        padding: 30px 20px;
-        margin-top: 60px;
-    }
+  .glass-card {
+    width: 92%;
+    padding: 30px 20px;
+    margin-top: 60px;
+  }
 
-    .hero-image-section {
-        height: auto; 
-        min-height: 100vh;
-        padding-top: 80px;
-        padding-bottom: 40px;
-    }
+  .hero-image-section {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
 
-    .about-header {
-        flex-direction: column;
-        text-align: center;
-    }
+  .about-header {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .about-profile-img {
-        margin: 25px auto 0 auto;
-        width: 90%;
-        max-width: 150px;
-        height: auto;
-        aspect-ratio: 1 / 1; 
-    }
+  .about-profile-img {
+    margin: 25px auto 0 auto;
+    width: 90%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
 }
 
 @media (max-width: 600px) {
-    .glass-card {
-        width: 95%;
-        padding: 30px 20px;
-    }
+  .glass-card {
+    width: 95%;
+    padding: 30px 20px;
+  }
 }
