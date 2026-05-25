@@ -1,3 +1,27 @@
+// --- 7. CARROUSEL D'IMAGES DANS LES DOS DE CARTES ---
+document.querySelectorAll(".card-image-carousel").forEach((carousel) => {
+  const images = carousel.querySelectorAll(".carousel-images img");
+  const leftBtn = carousel.querySelector(".carousel-arrow.left");
+  const rightBtn = carousel.querySelector(".carousel-arrow.right");
+  let current = 0;
+  if (images.length > 0) images[0].classList.add("active");
+
+  function showImage(idx) {
+    images.forEach((img, i) => {
+      img.classList.toggle("active", i === idx);
+    });
+  }
+  leftBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  });
+  rightBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    current = (current + 1) % images.length;
+    showImage(current);
+  });
+});
 /**
  * portfolio-transitions.js - VERSION FINALE AVEC BOUTONS
  * Gère : Préchargeur, Transitions, Menu Mobile, et Cartes (Flip via bouton)
@@ -105,13 +129,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const descButtons = document.querySelectorAll(".flip-btn-description");
   descButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // Empêche le comportement par défaut si c'était un lien
-      e.stopPropagation(); // Empêche la propagation
-
-      // Trouve la carte parente
+      e.preventDefault();
+      e.stopPropagation();
       const card = btn.closest(".flip-card");
       if (card) {
         card.classList.add("flipped");
+        card.classList.add("enlarged");
       }
     });
   });
@@ -122,10 +145,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       const card = btn.closest(".flip-card");
       if (card) {
         card.classList.remove("flipped");
+        card.classList.remove("enlarged");
       }
     });
   });
