@@ -1,4 +1,6 @@
-/* ---Carte Contact  --- */
+.contact-info p {
+  margin: 10px 0;
+}
 
 .contact-card-container {
   display: flex;

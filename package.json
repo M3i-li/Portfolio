@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-meili-ung",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "description": "Portfolio numérique Mei Li UNG",
+  "author": "Mei Li UNG <mei-li.ung@univ-lille.fr>",
+  "homepage": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch",
+    "start": "webpack serve --mode=development"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
+    "babel-loader": "^10.0.0",
+    "prettier": "^3.8.1",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.3"
+  }
+}

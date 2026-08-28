@@ -1,646 +1,587 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cursus - Mei Li UNG</title>
+<section id="experience-page" class="page-content">
+	<!--TODO
+	<h1>Expérience professionnelle</h1>
+	-->
+	<h1>Projets Principaux</h1>
+	<h2>Développement Java & Algorithmique</h2>
+	<div class="carousel">
+		<div class="flip-card theme-mazel">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/LogoMaze.png"
+				alt="Mazel logo"
+				class="mazel_logo-img"
+			/>
+			<h2>Mazel</h2>
+			<div class="tech-badge">Java / JavaFX</div>
+			<p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
+			<div class="tech-badge">SAE</div>
+			<p>Jeu de labyrinthe interactif</p>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://github.com/M3i-li/Mazel"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			
+			<h3>Description du projet:</h3>
+			<p>
+				Mazel est un jeu de labyrinthe développé en Java et JavaFX.
+				Il intègre un algorithme de génération de labythnes aléatoires.
+				C'est un jeu qui possède deux modes distincts.
+			</p>
+			<p>
+				- Le premier est un mode de progression accessible lorsqu'un
+				utilisateur se "connecte" via un mot de passe reconnu par le
+				système.
+			</p>
+			<br />
+			<p>
+				- Le second est un mode créatif de labyrinthes,
+				personnalisables par le joueur.
+			</p>
+			<br />
+			<p>
+				Le jeu a été développé en équipe de quatre personnes, sur une
+				durée de deux mois.
+			</p>
+			<h3>Ce que ce projet m'a apporté</h3>
+			<p>Ce projet m'a permis de développer mes compétences en programmation Java et en utilisation de JavaFX. J'ai également approfondi mes connaissances en algorithmes de génération de labyrinthes .
+			</p>
+			<p>
+				Pour utiliser une structure MVC dans notre projet, nous l'avons à de nombreuses reprises refactorisé pour l'adapter à nos besoins, ce qui m'a permis de mieux comprendre les avantages et les inconvénients de cette architecture.
+			</p>
+				<p>
+				Cela m'a permis également de me rendre compte de l'importance de concevoir un projet de manière modulaire et évolutive, en anticipant les besoins futurs et en adoptant des pratiques de développement telles que le TDD et les principes SOLID, et ce dès le départ.
+			</p>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
+			<div class="card-image-carousel">
+				<button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
+				<div class="carousel-images">
+				<img src="ressources/images/LogoMaze.png" alt="Mazel screenshot 1" />
+				<img
+					src="ressources/images/mazel_homeScreen.png"
+					alt="Mazel home screen"
+				/>
+				<img
+					src="ressources/images/mazel_login.png"
+					alt="Mazel login screen"
+				/>
+				<img
+					src="ressources/images/mazel_ingame.png"
+					alt="Mazel game screen"
+				/>
+				<img
+					src="ressources/images/mazel_hard_game_and_hint.png"
+					alt="Mazel hard game and hint screen"
+				/>
+				<img
+					src="ressources/images/mazel_config_maze.png"
+					alt="Mazel config maze screen"
+				/>
+				<img
+					src="ressources/images/mazel_player_stats.png"
+					alt="Mazel player stats screen"
+				/>                    
+				</div>
+				<button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
+			</div>
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>Java et JavaFX</li>
+				<li>Patron de conception MVC et Observers</li>
+				<li>Utilisation du TDD et principes SOLID</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Gestion de fichiers CSV avec Java</li>
+				<li>Interface responsive avec SceneBuilder</li>
+				<li>Algorithmes de labyrinthe</li>
+				</ul>
+				<p>Compétences transversales (soft skills) :</p>
+				<ul>
+				<li>Travail en équipe</li>
+				<li>Résolution de problèmes</li>
+				<li>Communication</li>
+				<li>Gestion du temps</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			
+			</div>
+		</div>
+		</div>
 
-    <link rel="stylesheet" href="../css/style-caroussel.css" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/header.css" />
-    <link rel="stylesheet" href="../css/transitions.css" />
-  </head>
-  <body>
-    <div class="animated-background">
-      <div class="stars"></div>
-    </div>
-    <header class="minimal-header">
-      <nav class="minimal-navbar">
-        <div class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+		<div class="flip-card theme-golden">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/Golden-Ace-logo.png"
+				alt="Golden Ace page"
+				class="goldenAce_menu-img"
+			/>
+			<h2>Golden Ace</h2>
+			<div class="tech-badge">Java / Agile Scrum</div>
+			<p class="date-range">SEPTEMBRE 2025</p>
+			<div class="tech-badge">SAE</div>
+			<p>Mini projet Agile d'un jeu de casino</p>
 
-        <div class="nav-links">
-          <a href="../index.html">Accueil</a>
-          <a href="Formations.html">Formations</a>
-          <a href="experiences.html" class="active-page"
-            >Projets & Expériences</a
-          >
-          <a href="competences.html">Compétences</a>
-          <a href="interets.html">Intérêts</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </nav>
-    </header>
-    <main class="minimal-main">
-      <section class="page-content">
-        <h1>Projets Principaux & Expériences</h1>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://github.com/M3i-li/Golden-Ace"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				Golden Ace est un mini-jeu de casino développé en Java dans le
+				cadre d'un projet agile, jouable via le terminal.
+			</p>
+			<br />
+			<p>
+				Il s'agit donc d'un jeu composés en réalité de mini-jeu, qui sont les suivants : Black Jack, Roulette, Démineur, Machine à
+				sous.
+			</p>
+			<p>
+				Au début du jeu, le joueur reçoit une somme d'argent virtuelle, et peut choisir à quel mini-jeu il souhaite jouer. En fonction de ses choix et de sa chance, il peut gagner ou perdre de l'argent virtuel.
+			</p>
+			<br />
+			<p>
+				Projet réalisé en équipe de six personnes sur une durée de
+				quatre jours.
+			</p>
+			<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				L'enjeu principal de ce projet était de réussir à développer un projet en équipe dans un délai très court, en utilisant une méthodologie agile. Cela m'a permis de développer mes compétences en gestion de projet, en communication et en travail d'équipe.
+			</p>
+			<p>
+				En particulier, comme nos équipes étaient composées de personnes qui ne se connaissaient pas, ce qui a rendu la communication et la coordination plus difficiles, mais aussi plus enrichissantes.
+			</p>
+			<p>
+				J'ai ainsi apris à m'adapter à des styles de travail différents, à gérer les conflits et à trouver des solutions rapidement pour respecter les délais.
+			</p>
+			<p>
+				Cela m'a persis également de me familiariser avec les principes de la méthodologie agile, tels que les sprints, les stand-up meetings et les rétrospectives, et de comprendre comment ces pratiques peuvent améliorer la productivité et la qualité du travail en équipe.
+			</p>
+			<div class="card-image-carousel">
+				<button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
+				<div class="carousel-images">
+				<img src="ressources/images/Golden-Ace-logo.png" alt="Golden Ace screenshot 1" />
+				<img src="ressources/images/golden_ace.png" alt="Golden Ace screenshot 2" />
+				</div>
+				<button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
+			</div>
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>Java & Git</li>
+				<li>Méthode Scrum / Kanban</li>
+				<li>Diagrammes UML</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Développement rapide en équipe</li>
+				<li>Gestion de projet agile</li>
+				<li>Communication et coordination en équipe</li>
+				</ul>
+				<p>Compétences transversales (soft skills) :</p>
+				<ul>
+				<li>Communication</li>
+				<li>Gestion du temps</li>
+				<li>Adaptabilité</li>
+				<li>Résolution de problèmes</li>
+				<li>Collaboration</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
 
-        <h2>Développement Java & Algorithmique</h2>
-        <div class="carousel">
-          <div class="flip-card theme-mazel">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/LogoMaze.png"
-                  alt="Mazel logo"
-                  class="mazel_logo-img"
-                />
-                <h2>Mazel</h2>
-                <div class="tech-badge">Java / JavaFX</div>
-                <p class="date-range">SEPTEMBRE 2025 - NOVEMBRE 2025</p>
-                <div class="tech-badge">SAE</div>
-                <p>Jeu de labyrinthe interactif</p>
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://github.com/M3i-li/Mazel"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                
-                <h3>Description du projet:</h3>
-                <p>
-                  Mazel est un jeu de labyrinthe développé en Java et JavaFX.
-                  Il intègre un algorithme de génération de labythnes aléatoires.
-                  C'est un jeu qui possède deux modes distincts.
-                </p>
-                <p>
-                  - Le premier est un mode de progression accessible lorsqu'un
-                  utilisateur se "connecte" via un mot de passe reconnu par le
-                  système.
-                </p>
-                <br />
-                <p>
-                  - Le second est un mode créatif de labyrinthes,
-                  personnalisables par le joueur.
-                </p>
-                <br />
-                <p>
-                  Le jeu a été développé en équipe de quatre personnes, sur une
-                  durée de deux mois.
-                </p>
-                <h3>Ce que ce projet m'a apporté</h3>
-                <p>Ce projet m'a permis de développer mes compétences en programmation Java et en utilisation de JavaFX. J'ai également approfondi mes connaissances en algorithmes de génération de labyrinthes .
-                </p>
-                <p>
-                  Pour utiliser une structure MVC dans notre projet, nous l'avons à de nombreuses reprises refactorisé pour l'adapter à nos besoins, ce qui m'a permis de mieux comprendre les avantages et les inconvénients de cette architecture.
-                </p>
-                 <p>
-                  Cela m'a permis également de me rendre compte de l'importance de concevoir un projet de manière modulaire et évolutive, en anticipant les besoins futurs et en adoptant des pratiques de développement telles que le TDD et les principes SOLID, et ce dès le départ.
-                </p>
+		<div class="flip-card theme-pokemon">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/pokeQuizAdventures_logo.png"
+				alt="pokeQuiz logo"
+				class=".img-pokeQuiz-logo"
+			/>
+			<h2>PokéQuizAdventures</h2>
+			<div class="tech-badge">iJava / Algorithmique</div>
+			<p class="date-range">NOVEMBRE 2024 - JANVIER 2025</p>
+			<div class="tech-badge">SAE</div>
+			<p>Création d'un jeu ludo-pédagogique</p>
 
-                <div class="card-image-carousel">
-                  <button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
-                  <div class="carousel-images">
-                    <img src="../ressources/images/LogoMaze.png" alt="Mazel screenshot 1" />
-                    <img
-                      src="../ressources/images/mazel_homeScreen.png"
-  alt="Mazel home screen"
-                    />
-                    <img
-                      src="../ressources/images/mazel_login.png"
-                      alt="Mazel login screen"
-                    />
-                    <img
-                      src="../ressources/images/mazel_ingame.png"
-                      alt="Mazel game screen"
-                    />
-                    <img
-                      src="../ressources/images/mazel_hard_game_and_hint.png"
-                      alt="Mazel hard game and hint screen"
-                    />
-                    <img
-                      src="../ressources/images/mazel_config_maze.png"
-                      alt="Mazel config maze screen"
-                    />
-                    <img
-                      src="../ressources/images/mazel_player_stats.png"
-                      alt="Mazel player stats screen"
-                    />                    
-                  </div>
-                  <button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
-                </div>
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>Java et JavaFX</li>
-                    <li>Patron de conception MVC et Observers</li>
-                    <li>Utilisation du TDD et principes SOLID</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Gestion de fichiers CSV avec Java</li>
-                    <li>Interface responsive avec SceneBuilder</li>
-                    <li>Algorithmes de labyrinthe</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills) :</p>
-                  <ul>
-                    <li>Travail en équipe</li>
-                    <li>Résolution de problèmes</li>
-                    <li>Communication</li>
-                    <li>Gestion du temps</li>
-                  </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-                
-              </div>
-            </div>
-          </div>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://github.com/M3i-li/PokeQuiz-Adventures"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				Jeu proposant d'incarner un pokémon et son dresseur. Le joueur
+				doit répondre à des questions de culture générale pour
+				avancer.
+			</p>
+			<br />
+			<p>
+				Implémenté en iJava (version simplifiée sans concept Objet
+				pour l'apprentissage de la logique de l'algorithmique, et de la compréhension des concepts de base).
+			</p>
+			<br />
+			<p>
+				Projet réalisé en binôme sur une durée de
+				deux mois.
+			</p>
+				<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				Ce projet m'a permis de développer mes compétences en logique de programmation et à me familiariser avec le language java. 
+			</p>
+			<p>
+				J'ai également appris à concevoir un projet de manière modulaire, en utilisant des fonctions génériques pour éviter la redondance du code et faciliter la maintenance du projet.
+			</p>
+			<p>
+				J'ai également appris à gérer un petit projet en équipe, en communiquant efficacement avec mes coéquipiers et en respectant les délais impartis.
+			</p>
+			<div class="card-image-carousel">
+				<button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
+				<div class="carousel-images">
+				<img src="ressources/images/pokeQuizAdventures_logo.png" alt="PokéQuiz logo" />
+				<img src="ressources/images/pokequiz_accueil.png" alt="PokéQuiz in home screen" />
+				<img src="ressources/images/debut_jeu.png" alt="PokéQuiz cinematic" />
+				</div>
+				<button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
+			</div>
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>iJava</li>
+				<li>Terminal bash (affichage)</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Logique de programmation</li>
+				<li>Mise en forme terminal (ASCII Art)</li>
+				<li>Utilisation de fonctions génériques</li>
+				<li>Apprentissage de l'algorithmique</li>
+				</ul>
+				<p>Compétences transversales (soft skills) :</p>
+				<ul>
+				<li>Autonomie</li>
+				<li>Persévérance</li>
+				<li>Communication</li>
+				<li>Gestion du temps</li>
+				<li>Collaboration</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
+	</div>
 
-          <div class="flip-card theme-golden">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/Golden-Ace-logo.png"
-                  alt="Golden Ace page"
-                  class="goldenAce_menu-img"
-                />
-                <h2>Golden Ace</h2>
-                <div class="tech-badge">Java / Agile Scrum</div>
-                <p class="date-range">SEPTEMBRE 2025</p>
-                <div class="tech-badge">SAE</div>
-                <p>Mini projet Agile d'un jeu de casino</p>
+	<h2>Développement Web</h2>
+	<div class="carousel">
 
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://github.com/M3i-li/Golden-Ace"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  Golden Ace est un mini-jeu de casino développé en Java dans le
-                  cadre d'un projet agile, jouable via le terminal.
-                </p>
-                <br />
-                <p>
-                  Il s'agit donc d'un jeu composés en réalité de mini-jeu, qui sont les suivants : Black Jack, Roulette, Démineur, Machine à
-                  sous.
-                </p>
-                <p>
-                  Au début du jeu, le joueur reçoit une somme d'argent virtuelle, et peut choisir à quel mini-jeu il souhaite jouer. En fonction de ses choix et de sa chance, il peut gagner ou perdre de l'argent virtuel.
-                </p>
-                <br />
-                <p>
-                  Projet réalisé en équipe de six personnes sur une durée de
-                  quatre jours.
-                </p>
-                <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  L'enjeu principal de ce projet était de réussir à développer un projet en équipe dans un délai très court, en utilisant une méthodologie agile. Cela m'a permis de développer mes compétences en gestion de projet, en communication et en travail d'équipe.
-                </p>
-                <p>
-                  En particulier, comme nos équipes étaient composées de personnes qui ne se connaissaient pas, ce qui a rendu la communication et la coordination plus difficiles, mais aussi plus enrichissantes.
-                </p>
-                <p>
-                  J'ai ainsi apris à m'adapter à des styles de travail différents, à gérer les conflits et à trouver des solutions rapidement pour respecter les délais.
-                </p>
-                <p>
-                  Cela m'a persis également de me familiariser avec les principes de la méthodologie agile, tels que les sprints, les stand-up meetings et les rétrospectives, et de comprendre comment ces pratiques peuvent améliorer la productivité et la qualité du travail en équipe.
-                </p>
-                <div class="card-image-carousel">
-                  <button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
-                  <div class="carousel-images">
-                    <img src="../ressources/images/Golden-Ace-logo.png" alt="Golden Ace screenshot 1" />
-                    <img src="../ressources/images/golden_ace.png" alt="Golden Ace screenshot 2" />
-                  </div>
-                  <button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
-                </div>
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>Java & Git</li>
-                    <li>Méthode Scrum / Kanban</li>
-                    <li>Diagrammes UML</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Développement rapide en équipe</li>
-                    <li>Gestion de projet agile</li>
-                    <li>Communication et coordination en équipe</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills) :</p>
-                  <ul>
-                    <li>Communication</li>
-                    <li>Gestion du temps</li>
-                    <li>Adaptabilité</li>
-                    <li>Résolution de problèmes</li>
-                    <li>Collaboration</li>
-                  </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
+		<div class="flip-card theme-CatStars">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/logo-cat-stars.png"
+				alt="logo CatStars"
+				class="catStars-img"
+			/>
+			<h2>CatStars</h2>
+			<div class="tech-badge">TypeScript / NodeJS</div>
+			<p class="date-range">MARS 2026 - AVRIL 2026</p>
+			<div class="tech-badge">SAE</div>
+			<p>La création d'un jeu multi-joueur</p>
 
-          <div class="flip-card theme-pokemon">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/pokeQuizAdventures_logo.png"
-                  alt="pokeQuiz logo"
-                  class=".img-pokeQuiz-logo"
-                />
-                <h2>PokéQuizAdventures</h2>
-                <div class="tech-badge">iJava / Algorithmique</div>
-                <p class="date-range">NOVEMBRE 2024 - JANVIER 2025</p>
-                <div class="tech-badge">SAE</div>
-                <p>Création d'un jeu ludo-pédagogique</p>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://gitlab.univ-lille.fr/jsae/2025-2026/projets/groupe-i/equipe-3/equipei3catstar"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				CatStars est un jeu multi-joueur développé en un mois. Le jeu
+				consiste à tirer sur des ennemis à travers différents niveaux
+				de difficultés, seuls ou à plusieurs.
+			</p>
+			<br />
+			<p>Projet réalisé en équipe de trois personnes en un mois.</p>
+				<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				Ce projet m'a permis de développer mes compétences en développement web, en particulier en TypeScript et NodeJS.
+			</p>
+			<p>
+				J'ai également appris à gérer de manière professionnelle un projet en équipe, en utilisant Git ( l'utilisation de branches et de merge requests) pour la gestion de version et en communiquant efficacement avec mes coéquipiers pour coordonner nos efforts et respecter les délais.
+			</p>
+			<div class="card-image-carousel">
+				<button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
+				<div class="carousel-images">
+				<img src="ressources/images/logo-cat-stars.png" alt="CatStars screenshot 1" />
+				</div>
+				<button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
+			</div>
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>Front: HTML et CSS</li>
+				<li>Back: TypeScript</li>
+				<li>Gestion d'un serveur local: NodeJS</li>
+				<li>Gestion du projet: Git</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Travail en équipe sur Git (gestion de conflicts et de branches)</li>
+				<li>Apprentissage du TypeScript</li>
+				<li>Création d'un serveur local avec NodeJS</li>
+				<li>Gestion d'une architecture Client-Serveur</li>
+				</ul>
+				<p>Compétences transversales (soft skills) :</p>
+				<ul>
+				<li>Collaboration</li>
+				<li>Détermination</li>
+				<li>Gestion du temps</li>
+				<li>Résolution de problèmes</li>
+				<li>Curiosité et volonté d'apprendre</li>
+				</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
 
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://github.com/M3i-li/PokeQuiz-Adventures"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  Jeu proposant d'incarner un pokémon et son dresseur. Le joueur
-                  doit répondre à des questions de culture générale pour
-                  avancer.
-                </p>
-                <br />
-                <p>
-                  Implémenté en iJava (version simplifiée sans concept Objet
-                  pour l'apprentissage de la logique de l'algorithmique, et de la compréhension des concepts de base).
-                </p>
-                <br />
-                <p>
-                  Projet réalisé en binôme sur une durée de
-                  deux mois.
-                </p>
-                 <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  Ce projet m'a permis de développer mes compétences en logique de programmation et à me familiariser avec le language java. 
-                </p>
-                <p>
-                  J'ai également appris à concevoir un projet de manière modulaire, en utilisant des fonctions génériques pour éviter la redondance du code et faciliter la maintenance du projet.
-                </p>
-                <p>
-                  J'ai également appris à gérer un petit projet en équipe, en communiquant efficacement avec mes coéquipiers et en respectant les délais impartis.
-                </p>
-                <div class="card-image-carousel">
-                  <button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
-                  <div class="carousel-images">
-                    <img src="../ressources/images/pokeQuizAdventures_logo.png" alt="PokéQuiz logo" />
-                    <img src="../ressources/images/pokequiz_accueil.png" alt="PokéQuiz in home screen" />
-                    <img src="../ressources/images/debut_jeu.png" alt="PokéQuiz cinematic" />
-                  </div>
-                  <button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
-                </div>
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>iJava</li>
-                    <li>Terminal bash (affichage)</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Logique de programmation</li>
-                    <li>Mise en forme terminal (ASCII Art)</li>
-                    <li>Utilisation de fonctions génériques</li>
-                    <li>Apprentissage de l'algorithmique</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills) :</p>
-                  <ul>
-                    <li>Autonomie</li>
-                    <li>Persévérance</li>
-                    <li>Communication</li>
-                    <li>Gestion du temps</li>
-                    <li>Collaboration</li>
-                  </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
-        </div>
+		<div class="flip-card theme-ubisoft">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/ubisoft-location.png"
+				alt="ubisoft-location page"
+				class="ubisoft-location-page-img"
+			/>
+			<h2>Ubisoft Location</h2>
+			<div class="tech-badge">HTML5 / CSS3 / Design</div>
+			<p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
+			<div class="tech-badge">SAE</div>
+			<p>La création de Site Web d'écomobilité</p>
 
-        <h2>Développement Web</h2>
-        <div class="carousel">
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://github.com/M3i-li/Ubisoft-Location"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				Ubisoft LOCATION est un site Web vitrine basé sur la location
+				de véhicules à mobilité verte pour les employés d'Ubisoft.
+			</p>
+			<br />
+			<p>
+				Projet réalisé en équipe de trois personnes sur un mois et
+				demi.
+			</p>
+				<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				Ce projet m'a permis de développer mes compétences en développement web, en particulier en HTML et CSS, ainsi que mes compétences en design de site web.
+			</p>
+			<p>
+				J'ai appris à travailler en collaboration simultané via Live Share de Visual Studio Code.
+			</p>
+			<div class="card-image-carousel">
+				<button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
+				<div class="carousel-images">
+				<img src="ressources/images/ubisoft-location.png" alt="Ubisoft Location screenshot 1" />
+				</div>
+				<button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
+			</div>
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>HTML et CSS</li>
+				<li>Travail sur le design responsive</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Création d'un site web responsive</li>
+				<li>Design d'interface utilisateur</li>
+				<li>Collaboration simultanée avec Live Share</li>
+				</ul>
+				<p>Compétences transversales (soft skills) :</p>
+				<ul>
+				<li>Collaboration</li>
+				<li>Créativité</li>
+				<li>Gestion du temps</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
+	</div>
 
-          <div class="flip-card theme-CatStars">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/logo-cat-stars.png"
-                  alt="logo CatStars"
-                  class="catStars-img"
-                />
-                <h2>CatStars</h2>
-                <div class="tech-badge">TypeScript / NodeJS</div>
-                <p class="date-range">MARS 2026 - AVRIL 2026</p>
-                <div class="tech-badge">SAE</div>
-                <p>La création d'un jeu multi-joueur</p>
+	<h2>Base de Données</h2>
+	<div class="carousel">
+		<div class="flip-card theme-sql">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/database-4941301_1280.png"
+				alt="logo API REST"
+				class="restDecheterie-img"
+			/>
+			<h2>API Eco-Drop</h2>
+			<div class="tech-badge">Rest / JEE / SQL</div>
+			<p class="date-range">MARS 2026 - AVRIL 2026</p>
+			<div class="tech-badge">SAE</div>
+			<p>Création d'une API REST pour la gestion d'une décheterie</p>
 
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://gitlab.univ-lille.fr/jsae/2025-2026/projets/groupe-i/equipe-3/equipei3catstar"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  CatStars est un jeu multi-joueur développé en un mois. Le jeu
-                  consiste à tirer sur des ennemis à travers différents niveaux
-                  de difficultés, seuls ou à plusieurs.
-                </p>
-                <br />
-                <p>Projet réalisé en équipe de trois personnes en un mois.</p>
-                  <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  Ce projet m'a permis de développer mes compétences en développement web, en particulier en TypeScript et NodeJS.
-                </p>
-                <p>
-                  J'ai également appris à gérer de manière professionnelle un projet en équipe, en utilisant Git ( l'utilisation de branches et de merge requests) pour la gestion de version et en communiquant efficacement avec mes coéquipiers pour coordonner nos efforts et respecter les délais.
-                </p>
-                <div class="card-image-carousel">
-                  <button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
-                  <div class="carousel-images">
-                    <img src="../ressources/images/logo-cat-stars.png" alt="CatStars screenshot 1" />
-                  </div>
-                  <button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
-                </div>
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>Front: HTML et CSS</li>
-                    <li>Back: TypeScript</li>
-                    <li>Gestion d'un serveur local: NodeJS</li>
-                    <li>Gestion du projet: Git</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Travail en équipe sur Git (gestion de conflicts et de branches)</li>
-                    <li>Apprentissage du TypeScript</li>
-                    <li>Création d'un serveur local avec NodeJS</li>
-                    <li>Gestion d'une architecture Client-Serveur</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills) :</p>
-                  <ul>
-                    <li>Collaboration</li>
-                    <li>Détermination</li>
-                    <li>Gestion du temps</li>
-                    <li>Résolution de problèmes</li>
-                    <li>Curiosité et volonté d'apprendre</li>
-                    </li>
-                  </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="ressources/Documentation-Rest.pdf"
+				class="github-card-btn"
+				>Voir le rapport</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				Ce projet consistait à créer une API Rest pour la gestion
+				d'une décheterie. IL s'agissait de créer les tables sur une
+				BDD PostgreSQL ainsi que les liens nécessaires, créer les DTO
+				correspondants en Java, gérer des controleurs pour chaque
+				Servlet instanciées, puis lier le tout par des DAO.
+			</p>
+			<br />
+			<p>Projet réalisé en binôme en un mois.</p>
+				<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				Ce projet m'a permis d'affermir mes conaissances dans l'utilisation avancée du SQL, ainsi que dans la création et la gestion d'une API avec JEE.
+			</p>
+			<p>J'ai également appris à réaliser du clean code en JEE, et me servir d'un serveur Tomcat partagé pour le développement de l'API.</p>
+			
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>API REST</li>
+				<li>JEE</li>
+				<li>PostgreSQL</li>
+				<li>client API: Bruno</li>
+				<li>Gestion du projet: Git</li>
+				</ul>
+				<p>Compétences techniques (hard skills) :</p>
+				<ul>
+				<li>Mise en oeuvre d'une API Rest</li>
+				<li>
+					Travail avec une architecture MVC avec DAO, DTO et
+					Controleurs
+				</li>
+				<li>Gestion d'une base de donnée</li>
+				<li>Utilisation d'un serveur Tomcat</li>
+				<li>utilisation d'un client API et création d'une collection de requêtes</li>
+				<li>Gestion de tokens</li>
+				</ul>
+				<p>Compétences transversales (soft skills):</p>
+				<ul>
+				<li>Collaboration</li>
+					<li>Détermination</li>
+				<li>Gestion du temps</li>
+				<li>Résolution de problèmes</li>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
 
-          <div class="flip-card theme-ubisoft">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/ubisoft-location.png"
-                  alt="ubisoft-location page"
-                  class="ubisoft-location-page-img"
-                />
-                <h2>Ubisoft Location</h2>
-                <div class="tech-badge">HTML5 / CSS3 / Design</div>
-                <p class="date-range">SEPTEMBRE 2024 - NOVEMBRE 2024</p>
-                <div class="tech-badge">SAE</div>
-                <p>La création de Site Web d'écomobilité</p>
-
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://github.com/M3i-li/Ubisoft-Location"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  Ubisoft LOCATION est un site Web vitrine basé sur la location
-                  de véhicules à mobilité verte pour les employés d'Ubisoft.
-                </p>
-                <br />
-                <p>
-                  Projet réalisé en équipe de trois personnes sur un mois et
-                  demi.
-                </p>
-                  <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  Ce projet m'a permis de développer mes compétences en développement web, en particulier en HTML et CSS, ainsi que mes compétences en design de site web.
-                </p>
-                <p>
-                  J'ai appris à travailler en collaboration simultané via Live Share de Visual Studio Code.
-                </p>
-                <div class="card-image-carousel">
-                  <button class="carousel-arrow left" aria-label="Image précédente">&#8592;</button>
-                  <div class="carousel-images">
-                    <img src="../ressources/images/ubisoft-location.png" alt="Ubisoft Location screenshot 1" />
-                  </div>
-                  <button class="carousel-arrow right" aria-label="Image suivante">&#8594;</button>
-                </div>
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>HTML et CSS</li>
-                    <li>Travail sur le design responsive</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Création d'un site web responsive</li>
-                    <li>Design d'interface utilisateur</li>
-                    <li>Collaboration simultanée avec Live Share</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills) :</p>
-                  <ul>
-                    <li>Collaboration</li>
-                    <li>Créativité</li>
-                    <li>Gestion du temps</li>
-                  </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h2>Base de Données</h2>
-        <div class="carousel">
-          <div class="flip-card theme-sql">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/database-4941301_1280.png"
-                  alt="logo API REST"
-                  class="restDecheterie-img"
-                />
-                <h2>API Eco-Drop</h2>
-                <div class="tech-badge">Rest / JEE / SQL</div>
-                <p class="date-range">MARS 2026 - AVRIL 2026</p>
-                <div class="tech-badge">SAE</div>
-                <p>Création d'une API REST pour la gestion d'une décheterie</p>
-
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="../ressources/Documentation-Rest.pdf"
-                    class="github-card-btn"
-                    >Voir le rapport</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  Ce projet consistait à créer une API Rest pour la gestion
-                  d'une décheterie. IL s'agissait de créer les tables sur une
-                  BDD PostgreSQL ainsi que les liens nécessaires, créer les DTO
-                  correspondants en Java, gérer des controleurs pour chaque
-                  Servlet instanciées, puis lier le tout par des DAO.
-                </p>
-                <br />
-                <p>Projet réalisé en binôme en un mois.</p>
-                  <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  Ce projet m'a permis d'affermir mes conaissances dans l'utilisation avancée du SQL, ainsi que dans la création et la gestion d'une API avec JEE.
-                </p>
-                <p>J'ai également appris à réaliser du clean code en JEE, et me servir d'un serveur Tomcat partagé pour le développement de l'API.</p>
-                
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>API REST</li>
-                    <li>JEE</li>
-                    <li>PostgreSQL</li>
-                    <li>client API: Bruno</li>
-                    <li>Gestion du projet: Git</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills) :</p>
-                  <ul>
-                    <li>Mise en oeuvre d'une API Rest</li>
-                    <li>
-                      Travail avec une architecture MVC avec DAO, DTO et
-                      Controleurs
-                    </li>
-                    <li>Gestion d'une base de donnée</li>
-                    <li>Utilisation d'un serveur Tomcat</li>
-                    <li>utilisation d'un client API et création d'une collection de requêtes</li>
-                    <li>Gestion de tokens</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills):</p>
-                  <ul>
-                    <li>Collaboration</li>
-                     <li>Détermination</li>
-                    <li>Gestion du temps</li>
-                    <li>Résolution de problèmes</li>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="flip-card theme-sql">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="../ressources/images/database-4941301_1280.png"
-                  alt="BDD logo"
-                  class="bdd_logo-img"
-                />
-                <h2>Base de Données JO</h2>
-                <div class="tech-badge">SQL / PostgreSQL / UML</div>
-                <p class="date-range">MARS 2025 - MAI 2025</p>
-                <p>Création et exploitation d'une base de donnée</p>
-                <div class="tech-badge">SAE</div>
-                <div class="card-actions">
-                  <button class="flip-btn-description">Description</button>
-                  <a
-                    href="https://github.com/M3i-li/Gestion-de-base-de-donnee-des-JO"
-                    class="github-card-btn"
-                    >Voir le code</a
-                  >
-                </div>
-              </div>
-              <div class="flip-card-back">
-                <h3>Description du projet:</h3>
-                <p>
-                  Création et exploitation d'une base de données relationnelle
-                  sur les Jeux Olympiques (Athlètes, Épreuves, Médailles...).
-                </p>
-                <h3>Ce que ce projet m'a apporté</h3>
-                <p>
-                  Ce projet m'a permis de développer mes compétences en gestion de base de données, en particulier en SQL et PostgreSQL, ainsi que mes compétences en modélisation de données avec UML.
-                </p>
-                 <p>
-                  J'ai pu également réaliser de nombreuses requêtes SQL complexes pour extraire des informations pertinentes de la base.
-                  Ces données extraites ont ensuite été réutilisées à des fins statistiques et de visualisation, ce qui m'a permis de comprendre l'importance de la structuration et de l'organisation des données dans une base de données relationnelle.
-                <br />
-                <div class="project-section">
-                  <p>Outils employés :</p>
-                  <ul>
-                    <li>PostgreSQL & Access</li>
-                    <li>MCD / MLD (Optimisation)</li>
-                    <li>Langage SQL</li>
-                  </ul>
-                  <p>Compétences techniques (hard skills):</p>
-                  <ul>
-                    <li>Conception d'une base de données relationnelle</li>
-                    <li>Modélisation de données avec UML</li>
-                    <li>Rédaction de requêtes SQL complexes</li>
-                    <li>Analyse et visualisation de données extraites</li>
-                  </ul>
-                  <p>Compétences transversales (soft skills):</p>
-                  <ul>
-                    <li>Autonomie</li>
-                    <li>Curiosité et volonté d'apprendre</li>
-                    <li>Résolution de problèmes</li>
-                    </ul>
-                </div>
-                <button class="flip-btn-return">Retour</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="minimal-footer">
-      <p>CV Numérique Mei Li UNG | &copy; 2026</p>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/mei-li-ung" class="footer-btn"
-          >LinkedIn</a
-        >
-        <a href="https://github.com/M3i-li" class="footer-btn">GitHub</a>
-        <a href="https://gitlab.univ-lille.fr/mei-li.ung.etu" class="footer-btn"
-          >GitLab</a
-        >
-        <a href="../html/contact.html" class="footer-btn">Contact</a>
-      </div>
-    </footer>
-    <script src="../js/portfolio-transitions.js"></script>
-  </body>
-</html>
+		<div class="flip-card theme-sql">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+			<img
+				src="ressources/images/database-4941301_1280.png"
+				alt="BDD logo"
+				class="bdd_logo-img"
+			/>
+			<h2>Base de Données JO</h2>
+			<div class="tech-badge">SQL / PostgreSQL / UML</div>
+			<p class="date-range">MARS 2025 - MAI 2025</p>
+			<p>Création et exploitation d'une base de donnée</p>
+			<div class="tech-badge">SAE</div>
+			<div class="card-actions">
+				<button class="flip-btn-description">Description</button>
+				<a
+				href="https://github.com/M3i-li/Gestion-de-base-de-donnee-des-JO"
+				class="github-card-btn"
+				>Voir le code</a
+				>
+			</div>
+			</div>
+			<div class="flip-card-back">
+			<h3>Description du projet:</h3>
+			<p>
+				Création et exploitation d'une base de données relationnelle
+				sur les Jeux Olympiques (Athlètes, Épreuves, Médailles...).
+			</p>
+			<h3>Ce que ce projet m'a apporté</h3>
+			<p>
+				Ce projet m'a permis de développer mes compétences en gestion de base de données, en particulier en SQL et PostgreSQL, ainsi que mes compétences en modélisation de données avec UML.
+			</p>
+				<p>
+				J'ai pu également réaliser de nombreuses requêtes SQL complexes pour extraire des informations pertinentes de la base.
+				Ces données extraites ont ensuite été réutilisées à des fins statistiques et de visualisation, ce qui m'a permis de comprendre l'importance de la structuration et de l'organisation des données dans une base de données relationnelle.
+			<br />
+			<div class="project-section">
+				<p>Outils employés :</p>
+				<ul>
+				<li>PostgreSQL & Access</li>
+				<li>MCD / MLD (Optimisation)</li>
+				<li>Langage SQL</li>
+				</ul>
+				<p>Compétences techniques (hard skills):</p>
+				<ul>
+				<li>Conception d'une base de données relationnelle</li>
+				<li>Modélisation de données avec UML</li>
+				<li>Rédaction de requêtes SQL complexes</li>
+				<li>Analyse et visualisation de données extraites</li>
+				</ul>
+				<p>Compétences transversales (soft skills):</p>
+				<ul>
+				<li>Autonomie</li>
+				<li>Curiosité et volonté d'apprendre</li>
+				<li>Résolution de problèmes</li>
+				</ul>
+			</div>
+			<button class="flip-btn-return">Retour</button>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>

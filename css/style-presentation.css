@@ -1,5 +1,3 @@
-/* --- style-presentation.css --- */
-
 .hero-image-section {
   min-height: 100vh;
   height: 100vh;
@@ -106,7 +104,7 @@
   margin-left: 32px;
 }
 
-.minimal-main {
+.minimal-main{
   margin: 0 0;
   padding: 0;
 }

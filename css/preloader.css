@@ -1,5 +1,3 @@
-/* --- PRELOADER (Version VAGUE PARFAITE) --- */
-
 /* Utilisation des couleurs de la palette principale */
 #preloader {
   position: fixed;
@@ -54,7 +52,6 @@
   text-shadow: 0 0 10px rgba(154, 140, 152, 0.5);
 }
 
-/* --- NOUVELLE STRUCTURE : Conteneur des points --- */
 .preloader-dots-container {
   display: flex;
   justify-content: center;
@@ -75,7 +72,7 @@
   animation: bounce 1.2s infinite ease-in-out;
 }
 
-/* Couleurs et Délais individuels (Vague Parfaite) */
+/* Couleurs et Délais individuels */
 .dot-1 {
   background: var(--parchment);
   animation-delay: 0s;
@@ -96,7 +93,6 @@
   animation-delay: 0.3s;
 }
 
-/* Keyframe 'bounce' pour le mouvement vertical */
 @keyframes bounce {
   0%,
   100% {
