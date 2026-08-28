@@ -150,7 +150,15 @@ main {
   padding: 0 20px;
   max-width: 1200px;
   margin: 0 auto;
+}  
+
+/*
+.page-content {
+  padding: 0 48px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+*/
 
 /* --- TYPOGRAPHIE (Outfit & Inter) --- */
 
@@ -188,6 +196,14 @@ h3 {
   letter-spacing: 0px;
 }
 
+.page-content h2,
+.page-content h3 {
+  margin-top: 32px;
+  margin-bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 p {
   margin-bottom: 24px;
   font-size: 1.1rem;
@@ -196,7 +212,17 @@ p {
   color: rgba(242, 233, 228, 0.95);
 }
 
-/* --- Style des Éléments "Minimal Item" --- */
+a {
+  color: var(--almond-silk);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--parchment);
+  text-shadow: 0 0 10px rgba(201, 173, 167, 0.6);
+}
 
 .minimal-item {
   margin-bottom: 30px;
@@ -232,68 +258,6 @@ p {
   letter-spacing: 1px;
 }
 
-/* --- Contact & Footer --- */
-.contact-info p {
-  margin: 10px 0;
-}
-
-.minimal-footer {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: transparent;
-  /* Dégradé subtil pour fermer la page */
-  background: linear-gradient(to top, rgba(34, 34, 59, 0.8), transparent);
-  border-top: 1px solid rgba(154, 140, 152, 0.2);
-  color: var(--lilac-ash);
-  margin-top: 60px;
-  font-size: 0.9rem;
-}
-
-/* --- STYLE DES BOUTONS DU FOOTER --- */
-
-.footer-links {
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.footer-links .footer-btn {
-  display: inline-block;
-  padding: 10px 24px;
-  margin: 6px 10px;
-  border: 1px solid var(--lilac-ash);
-  border-radius: 50px; /* Capsule */
-  color: var(--parchment);
-  background-color: rgba(34, 34, 59, 0.4);
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: all 0.3s var(--ease-out-expo);
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-links .footer-btn:hover {
-  background-color: var(--lilac-ash);
-  color: var(--bg-color);
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(154, 140, 152, 0.3);
-}
-
-a {
-  color: var(--almond-silk);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  text-decoration: none;
-  color: var(--parchment);
-  text-shadow: 0 0 10px rgba(201, 173, 167, 0.6);
-}
-
 /* --- RESPONSIVE TYPOGRAPHY (Mobile) --- */
 @media (max-width: 768px) {
   body {
@@ -303,6 +267,13 @@ a:hover {
   .about-text-section {
     padding: 0 20px;
   }
+
+/*
+  .page-content {
+    padding: 0 8px;
+  }
+*/
+
   h1 {
     font-size: 2.2rem;
     margin-top: 10px;
@@ -322,3 +293,9 @@ a:hover {
     padding: 18px;
   }
 }
+
+/*@media (max-width:1200px) {
+  .page-content {
+    padding: 0 120px;
+  }
+}*/

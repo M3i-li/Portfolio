@@ -346,31 +346,6 @@
   color: var(--card-bg-back);
 }
 
-/* Indicateur 'i' */
-.flip-card-front::after {
-  content: "i";
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 10;
-  background-color: rgba(34, 34, 59, 0.6);
-  color: var(--card-accent);
-  border: 1px solid var(--card-secondary);
-  width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 0.9em;
-  font-weight: bold;
-  font-family: "Times New Roman", serif;
-  pointer-events: none;
-}
-.flip-card.flipped .flip-card-front::after {
-  opacity: 0;
-}
-
 .tech-badge {
   font-family: "Outfit", sans-serif;
   font-size: 0.85em;

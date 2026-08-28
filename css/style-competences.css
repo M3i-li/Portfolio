@@ -1,4 +1,5 @@
 /* --- CONTENEUR PRINCIPAL DES COMPÉTENCES --- */
+
 /* Conteneur principal en Grille */
 .competences-grid {
   display: grid;
@@ -116,7 +117,7 @@
 
 /* --- THÈMES DE COULEURS --- */
 
-/* 1. DÉVELOPPEMENT (Lilas) */
+/* DÉVELOPPEMENT*/
 .theme-dev {
   border-top: 4px solid var(--lilac-ash);
 }
@@ -133,7 +134,7 @@
   color: var(--lilac-ash);
 }
 
-/* 2. WEB (Amande/Orange) */
+/*WEB*/
 .theme-web {
   border-top: 4px solid var(--almond-silk);
 }
@@ -150,7 +151,7 @@
   color: var(--almond-silk);
 }
 
-/* 3. DATA (Gris Bleu) */
+/*DATA*/
 .theme-data {
   border-top: 4px solid #7a7e99;
 }
@@ -167,7 +168,7 @@
   color: #aeb2d1;
 }
 
-/* 4. SYSTÈME (Cyan Tech) */
+/*SYSTÈME*/
 .theme-sys {
   border-top: 4px solid #48cae4;
 }
@@ -184,7 +185,7 @@
   color: #48cae4;
 }
 
-/* 5. GESTION PROJET (Or/Bronze) */
+/*GESTION PROJET*/
 .theme-manage {
   border-top: 4px solid #e0aa3e;
 }
